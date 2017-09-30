@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   post '/users/id/edit' => 'users#edit'
 
   #Session Routes
-  get 'session/new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
