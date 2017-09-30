@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :buildings
   #static routes
   root 'landing#home'
   get 'landing/about'
