@@ -25,6 +25,19 @@
   <%= @user.title %>
 </p>
 
+<table>
+  <tbody>
+    <% @user.buildings.each do |user_building| %>
+      <tr>
+        <td><%= user_building.id %></td>
+        <td><%= user_building.legal %></td>
+        <td><%= link_to "Show", user_building %></td>
+        <td><%= link_to "Edit", edit_building_path(user_building) %></td>
+    <% end %>    
+  </tbody>
+</table>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
