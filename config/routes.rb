@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   #static routes
   root 'landing#home'
   get 'landing/about'
@@ -19,8 +20,7 @@ Rails.application.routes.draw do
 
   #building and associated routes
   resources :buildings do
-    resources :listings
-  end
+    end
   get 'buildings/:id/modal', to: 'buildings#open_building_modal'
 
 

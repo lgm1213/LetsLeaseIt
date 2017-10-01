@@ -1,0 +1,67 @@
+<%= form_with(model: listing, local: true) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :building_id %>
+    <%= form.text_field :building_id, id: :listing_building_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_no %>
+    <%= form.text_field :unit_no, id: :listing_unit_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model_name %>
+    <%= form.text_field :model_name, id: :listing_model_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :listing_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bedrooms %>
+    <%= form.text_field :bedrooms, id: :listing_bedrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bath %>
+    <%= form.text_field :bath, id: :listing_bath %>
+  </div>
+
+  <div class="field">
+    <%= form.label :half_bath %>
+    <%= form.text_field :half_bath, id: :listing_half_bath %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sqft %>
+    <%= form.text_field :sqft, id: :listing_sqft %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_available %>
+    <%= form.date_select :date_available, id: :listing_date_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :listing_notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
