@@ -33,6 +33,16 @@
         <td><%= user_building.legal %></td>
         <td><%= link_to "Show", user_building %></td>
         <td><%= link_to "Edit", edit_building_path(user_building) %></td>
+      </tr>
+      <tr>
+        <% user_building.listings.each do |building_listings| %>
+        <td><%= building_listings.id %></td>
+        <td><%= building_listings.unit_model %></td>
+        <td><%= building_listings.unit_no %></td>
+        <td><%= link_to "Show", building_listing_path(building_listings) %></td>
+        <td><%= link_to "Edit", edit_building_listing_path(building_listings) %></td>     
+        <% end %>
+      </tr>
     <% end %>    
   </tbody>
 </table>

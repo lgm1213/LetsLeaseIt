@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Building</th>
-      <th>Unit no</th>
-      <th>Model name</th>
+      <th>Unit Number</th>
+      <th>Unit Model</th>
       <th>Price</th>
       <th>Bedrooms</th>
       <th>Bath</th>
@@ -22,9 +22,9 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.building %></td>
+        <td><%= link_to "#{listing.building.id}", building_path(listing) %></td>
         <td><%= listing.unit_no %></td>
-        <td><%= listing.model_name %></td>
+        <td><%= listing.unit_model %></td>
         <td><%= listing.price %></td>
         <td><%= listing.bedrooms %></td>
         <td><%= listing.bath %></td>
@@ -32,9 +32,9 @@
         <td><%= listing.sqft %></td>
         <td><%= listing.date_available %></td>
         <td><%= listing.notes %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', building_listing_path(@building, listing) %></td>
+        <td><%= link_to 'Edit', edit_building_listing_path(@building, listing) %></td>
+        <td><%= link_to 'Destroy', building_listing_path(@building, listing), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path %>
+<%= link_to 'New Listing', new_building_listing_path %>

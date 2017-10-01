@@ -2,7 +2,7 @@
 
 <p>
   <strong>Building:</strong>
-  <%= @listing.building %>
+  <%= @listing.building.id %>
 </p>
 
 <p>
@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Model name:</strong>
-  <%= @listing.model_name %>
+  <strong>Unit model:</strong>
+  <%= @listing.unit_model %>
 </p>
 
 <p>
@@ -50,5 +50,5 @@
   <%= @listing.notes %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+<%= link_to 'Edit', edit_building_listing_path(@listing) %> |
+<%= link_to 'Back', building_listings_path %>

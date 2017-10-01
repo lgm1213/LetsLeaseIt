@@ -1,4 +1,4 @@
-<%= form_with(model: listing, local: true) do |form| %>
+<%= form_for(@listing, url: (@listing.new_record? ? {action: 'create'} : {action: 'update'}), html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true}, :authenticity_token => true) do |form| %>
   <% if listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :building_id %>
-    <%= form.text_field :building_id, id: :listing_building_id %>
-  </div>
+
 
   <div class="field">
     <%= form.label :unit_no %>
@@ -22,8 +19,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :model_name %>
-    <%= form.text_field :model_name, id: :listing_model_name %>
+    <%= form.label :unit_model %>
+    <%= form.text_field :unit_model, id: :listing_model_name %>
   </div>
 
   <div class="field">
