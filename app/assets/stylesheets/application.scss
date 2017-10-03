@@ -1,0 +1,42 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require animate/animate.css
+ *= require style
+ *= require font-awesome
+ */
+
+@import "iCheck/custom.css";
+@import "steps/jquery.steps.css";
+@import "summernote/summernote-bs3.css";
+@import "summernote/summernote.css";
+@import "dropzone/basic.css";
+@import "dropzone/dropzone.css";
+@import "colorpicker/css/bootstrap-colorpicker.min.css";
+@import "cropper/cropper.min.css";
+@import "datapicker/datepicker3.css";
+@import "ionRangeSlider/ion.rangeSlider.css";
+@import "ionRangeSlider/ion.rangeSlider.skinFlat.css";
+@import "jasny/jasny-bootstrap.min.css";
+@import "nouslider/jquery.nouislider.css";
+@import "switchery/switchery.css";
+@import "chosen/bootstrap-chosen.css";
+@import "daterangepicker/daterangepicker-bs3.css";
+@import "clockpicker/clockpicker.css";
+@import "awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css";
+@import "select2/select2.min.css";
+@import "touchspin/jquery.bootstrap-touchspin.min.css";
+@import "bootstrap-markdown/bootstrap-markdown.min.css";
+@import "bootstrap-tagsinput/bootstrap-tagsinput.css";
+@import "dualListbox/bootstrap-duallistbox.min.css";
+@import "codemirror/ambiance.css";
+@import "codemirror/codemirror.css";
+@import "fullcalendar/fullcalendar.css";
