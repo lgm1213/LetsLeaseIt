@@ -139,6 +139,7 @@
                     <%= f.label :Model_Name, "Model Name" %>
                     <%= f.text_field :model_name_in_mls, class: 'form-control' %>
                   </div>
+                  <!-- TODO: Why are we putting user_id here? we are setting the current_user.id to user_id-->
                   <div class="col-lg-4">
                     <%= f.label :User_Id, "User Id" %>
                     <%= f.text_field :user_id, class: 'form-control' %>

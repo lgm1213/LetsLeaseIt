@@ -1,4 +1,5 @@
 module BuildingsHelper
+	## TODO: Always good to save these enteries in tables
 	def sofl_elem
 		[
 			['Air Base',	'Air Base'],
@@ -452,6 +453,7 @@ module BuildingsHelper
 		]
 	end
 
+	## TODO: Always good to save these enteries in tables
 	def sofl_hs
 		[
 			['American',	'American'],

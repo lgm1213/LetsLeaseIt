@@ -13,6 +13,7 @@ module ApplicationHelper
 	  params[:action] == action_name ? "active" : nil
 	end	
 	
+  ## TODO: These should come from state model
 	# for state drop down menus
 	def us_states
     [
@@ -70,6 +71,8 @@ module ApplicationHelper
       ['Wyoming', 'WY']
     ]
   end
+
+  ## TODO: These should come from city model
   # helper method for select drop down of cities
   def sofl_cities
     [
@@ -222,6 +225,7 @@ module ApplicationHelper
   end
 
   #helper method for select drop down of counties
+  ## TODO: These should come from country model
   def sofl_counties
   	[
   		['Broward County', 'Broward County'],
@@ -269,6 +273,7 @@ module ApplicationHelper
   	]
   end
 
+  ## TODO: Property Type should be a model and managed by superadmin
   def type_of_property
   	[
   		['Apartment', 'Apartment'],
@@ -281,6 +286,7 @@ module ApplicationHelper
   	]
   end
 
+  ## TODO: Always good to save these enteries in tables
   def style
   	[
   		['C23-Condo/Time', 'C23-Condo/Timeshare'],
@@ -304,6 +310,7 @@ module ApplicationHelper
   	]
   end
 
+  ## TODO: Always good to save these enteries in tables
   def carport_description
   	[
   		['Attached','Attached'],
@@ -311,6 +318,7 @@ module ApplicationHelper
   	]
   end
 
+  ## TODO: Always good to save these enteries in tables
   def add_park_info
   	[
   		['1 Space', '1 Space'],
@@ -328,6 +336,7 @@ module ApplicationHelper
   	]
   end
 
+  ## TODO: Always good to save these enteries in tables
   def lot_description
   [
   	['Less Than 1/4 Acre Lot','Less Than 1/4 Acre Lot' ],
@@ -355,6 +364,7 @@ module ApplicationHelper
   ]  	
   end
 
+  ## TODO: Always good to save these enteries in tables
   def waterfront_description
   	[
   		['Bay Front', 'Bay Front'],
@@ -383,6 +393,7 @@ module ApplicationHelper
   	]
   end
 
+  ## TODO: Always good to save these enteries in tables
 	def park_restrict
 		[
 			['Limited Number Of Vehicles', 'Limited Number of Videos'],
@@ -392,6 +403,7 @@ module ApplicationHelper
 		]
 	end
 
+  ## TODO: Always good to save these enteries in tables
 	def rental_status
 		[
 			['Annual', 'Annual'],
@@ -410,6 +422,7 @@ module ApplicationHelper
 		]
 	end
 
+  ## TODO: Always good to save these enteries in tables
 	def water_source
 		[
 			['Lake Worth Drain', 'Lake Worth Drain'],
@@ -420,6 +433,7 @@ module ApplicationHelper
 		
 	end
 
+  ## TODO: Always good to save these enteries in tables
 	def hopa
 		[
 			['No HOPA', 'No HOPA'],
@@ -428,6 +442,7 @@ module ApplicationHelper
 		]
 	end
 
+  ## TODO: Always good to save these enteries in tables
 	def listing_type
 		[
 			['Exclusive Agency', 'Exclusive Ageny'],
@@ -439,78 +454,77 @@ module ApplicationHelper
 		
 	end
 
- def occupancy_info
- 	[
- 		['Annual','Annual'],
- 		['Monthly','Monthly'],
- 		['Offseason', 'Offseason'],
- 		['Seasonal', 'Seasonal'],
- 		['Vacant', 'Vacant']
- 	]
- end
+  ## TODO: Always good to save these enteries in tables
+  def occupancy_info
+   	[
+   		['Annual','Annual'],
+   		['Monthly','Monthly'],
+   		['Offseason', 'Offseason'],
+   		['Seasonal', 'Seasonal'],
+   		['Vacant', 'Vacant']
+   	]
+  end
 
- def lender_approval
- 	[
- 		['Approved', true],
- 		['Unapproved', false]
- 	]
- end
+  ## TODO: Always good to save these enteries in tables
+  def lender_approval
+   	[
+   		['Approved', true],
+   		['Unapproved', false]
+   	]
+  end
 
- def renewal_commision
- 	[
- 		['2+ Year Commission', '2+ Year Commission'],
- 		['Less Commission On Renewal', 'Less Commission On Renewal'],
- 		['None/Non-Applicable', 'None/Non-Applicable'],
- 		['Renewable Commission', 'Renewable Commission']
- 	]
- end
+  ## TODO: Always good to save these enteries in tables
+  def renewal_commision
+   	[
+   		['2+ Year Commission', '2+ Year Commission'],
+   		['Less Commission On Renewal', 'Less Commission On Renewal'],
+   		['None/Non-Applicable', 'None/Non-Applicable'],
+   		['Renewable Commission', 'Renewable Commission']
+   	]
+  end
 
- def faces
-   [
-    ['North', 'North'],
-    ['Northeast', 'Northeast'],
-    ['East', 'East'],
-    ['Southeast','Southeast'],
-    ['South', 'South'],
-    ['Southwest', 'Southwest'],
-    ['West', 'West'],
-    ['Northwest', 'Northwest']
-   ]
- end
+  ## TODO: Always good to save these enteries in tables
+  def faces
+    [
+      ['North', 'North'],
+      ['Northeast', 'Northeast'],
+      ['East', 'East'],
+      ['Southeast','Southeast'],
+      ['South', 'South'],
+      ['Southwest', 'Southwest'],
+      ['West', 'West'],
+      ['Northwest', 'Northwest']
+    ]
+  end
 
- def furnished
-  [
-    ['Furnished', 'Furnished'],
-    ['Partially Furnished', 'Partially Furnished'],
-    ['Furniture For Sale', 'Furniture For Sale'],
-    ['Furniture Negotiable', 'Furniture Negotiable'],
-    ['Unfurnished', 'Unfurnished']
-  ]   
- end
+  ## TODO: Always good to save these enteries in tables
+  def furnished
+    [
+      ['Furnished', 'Furnished'],
+      ['Partially Furnished', 'Partially Furnished'],
+      ['Furniture For Sale', 'Furniture For Sale'],
+      ['Furniture Negotiable', 'Furniture Negotiable'],
+      ['Unfurnished', 'Unfurnished']
+    ]   
+  end
 
- def view
-  [
-    ['Bay', 'Bay'],
-    ['Canal', 'Canal'],
-    ['Club Area View' 'Club Area View'],
-    ['Garden View', 'Garden View'],
-    ['Golf View', 'Golf View'],
-    ['Intracoastal View', 'Intracoastal View'],
-    ['Lagoon', 'Lagoon'],
-    ['Lake', 'Lake'],
-    ['None', 'None'],
-    ['Ocean View', 'Ocean View'],
-    ['Pool Area View', 'Pool Area View'],
-    ['River', 'River'],
-    ['Water View', 'Water View']
-  ]
- end
-
- 
-
-
-
-
-
+  ## TODO: Always good to save these enteries in tables
+  def view
+    [
+      ['Bay', 'Bay'],
+      ['Canal', 'Canal'],
+      ['Club Area View' 'Club Area View'],
+      ['Garden View', 'Garden View'],
+      ['Golf View', 'Golf View'],
+      ['Intracoastal View', 'Intracoastal View'],
+      ['Lagoon', 'Lagoon'],
+      ['Lake', 'Lake'],
+      ['None', 'None'],
+      ['Ocean View', 'Ocean View'],
+      ['Pool Area View', 'Pool Area View'],
+      ['River', 'River'],
+      ['Water View', 'Water View']
+    ]
+  end
 
 end

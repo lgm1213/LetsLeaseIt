@@ -4,8 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @building = Building.find(params[:building_id])
-    @listings = Listing.all
+    @listings = building.listings
   end
 
   # GET /listings/1
@@ -15,23 +14,20 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @building = Building.find(params[:building_id])
-    @listing= Listing.new(building: @building)
+    @listing  = building.listings.new
   end
 
   # GET /listings/1/edit
   def edit
-    @listing = Listing.find(params[:id])
   end
 
   # POST /listings
   # POST /listings.json
   def create
-    @building = Building.find(listing_params[:building_id])
-    @listing = Listing.new(listing_params)
+    @listing = building.listings.new(listing_params)
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to [@building, @listing], notice: 'Listing was successfully created.' }
+        format.html { redirect_to [building, @listing], notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
         format.js {}
       else
@@ -47,8 +43,7 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        @building = @listing.building
-        format.html { redirect_to [@building, @listing], notice: 'Listing was successfully updated.' }
+        format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit }
@@ -60,7 +55,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
-    @listing = Listing.find(params[:id])
+    @listing.destroy
     respond_to do |format|
       format.html { redirect_to building_listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,13 +65,15 @@ class ListingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = Listing.find(params[:id])
+      @listing = building.listings.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      listing_stuff = params.require(:listing).permit(:building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath, :sqft, :date_available, :notes).to_h
-      listing_stuff[:building_id] = params[:building_id]
-      listing_stuff
+      params.require(:listing).permit(:building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath, :sqft, :date_available, :notes)
+    end
+
+    def building
+      @building ||= Building.find(params[:building_id])
     end
 end
