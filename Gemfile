@@ -61,4 +61,6 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 #active admin gem 
 gem 'activeadmin'
+#cancancan for authorization
+gem 'cancancan', '~> 2.0'
 
