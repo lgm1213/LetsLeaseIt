@@ -1,5 +1,5 @@
 class BuildingsController < ApplicationController
-  before_action :set_building, only: [:show, :edit, :update, :destroy]
+  before_action :set_building, only: [:show, :edit, :update, :destroy, :open_building_modal]
   protect_from_forgery except: [:index, :open_building_modal, :show]
 
 
@@ -16,7 +16,6 @@ class BuildingsController < ApplicationController
   end
 
   def open_building_modal
-    @building= Building.find(params[:id])
     respond_to do |format|
       format.js
     end
