@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   #listing relationship
   has_many :buildings
-  has_many :listings, :through => :buildings
-  has_many :apointments, :through => :buildings
+  has_many :listings, through: :buildings
+  has_many :apointments, through: :buildings
 
   # Returns the hash digest of a given string
   def User.digest(string)
@@ -41,12 +41,9 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-
-
-
-private
-  def downcase_email
-    self.email = email.downcase
-  end
+  private
+    def downcase_email
+      self.email = email.downcase
+    end
 
 end

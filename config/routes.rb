@@ -21,9 +21,8 @@ Rails.application.routes.draw do
 
   #building and associated routes
   resources :buildings do
-  	  resources :listings
-    end
+  	resources :listings
+  end
+
   get 'buildings/:id/modal', to: 'buildings#open_building_modal'
-
-
 end
