@@ -53,9 +53,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+<<<<<<< HEAD
 #font awesome gem
 gem "font-awesome-rails"
 #bootstrap gems
 gem 'bootstrap-sass', '~> 3.3.6'
 #jquery 
 gem 'jquery-rails'
+=======
+gem 'activeadmin'
+>>>>>>> ActiveAdmin
