@@ -63,4 +63,6 @@ gem 'jquery-rails'
 gem 'activeadmin'
 #cancancan for authorization
 gem 'cancancan', '~> 2.0'
+#activeadmin roles
+gem 'active_admin_role'
 

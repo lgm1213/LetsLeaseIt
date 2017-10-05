@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
 	include ApplicationHelper  
 
 
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to (super_admin? ? building_path : root_path), :alert => exception.message
-  end
+  # rescue_from CanCan::AccessDenied do |exception|
+  #   redirect_to (super_admin? ? building_path : root_path), :alert => exception.message
+  # end
 
-  def current_ability
-    @current_ability ||= Ability.new(current_user)
-  end
+  # def current_ability
+  #   @current_ability ||= Ability.new(current_user)
+  # end
 
 
 

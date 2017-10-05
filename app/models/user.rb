@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  role_based_authorizable
 	attr_accessor :remember_token, :reset_token
   before_save :downcase_email
   validates :username, presence: true, length: { maximum: 30 }
@@ -11,9 +12,10 @@ class User < ApplicationRecord
 
 
   #listing relationship
-  has_many :buildings
-  has_many :listings, :through => :buildings
-  has_many :apointments, :through => :buildings
+  belongs_to :companies
+  has_and_belongs_to_many :buildings
+  has_many :listings, through: :buildings
+  has_many :apointments, through: :buildings
   scope :realty_group, -> {where company: current_user.company}
 
   # Returns the hash digest of a given string

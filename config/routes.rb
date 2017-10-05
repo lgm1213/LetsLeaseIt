@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :companies
   ActiveAdmin.routes(self)
   #static routes
   root 'landing#home'
