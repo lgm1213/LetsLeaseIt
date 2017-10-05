@@ -14,7 +14,7 @@ class User < ApplicationRecord
   belongs_to :company
   has_many :buildings
   has_many :listings, through: :buildings
-  has_many :apointments, through: :buildings
+  has_many :apointments, through: :listings
   scope :realty_group, -> {where company: current_user.company}
 
   # Returns the hash digest of a given string

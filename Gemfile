@@ -66,3 +66,6 @@ gem 'cancancan', '~> 2.0'
 #activeadmin roles
 gem 'active_admin_role'
 
+#calendar feature gem
+gem 'simple_calendar', '~> 2.2', '>= 2.2.7'
+
