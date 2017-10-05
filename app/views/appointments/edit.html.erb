@@ -2,5 +2,5 @@
 
 <%= render 'form', appointment: @appointment %>
 
-<%= link_to 'Show', @appointment %> |
-<%= link_to 'Back', building_listing_appointment_path %>
+<%= link_to 'Show', building_listing_appointment_path(@appointment) %> |
+<%= link_to 'Back', building_listing_appointments_path %>
