@@ -10,10 +10,9 @@ class User < ApplicationRecord
 
   ROLES = %i[ SuperAdmin Admin AccountManager RegionalManager PropertyManager]
 
-
   #listing relationship
-  belongs_to :companies
-  has_and_belongs_to_many :buildings
+  belongs_to :company
+  has_many :buildings
   has_many :listings, through: :buildings
   has_many :apointments, through: :buildings
   scope :realty_group, -> {where company: current_user.company}
@@ -47,12 +46,9 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-
-
-
-private
-  def downcase_email
-    self.email = email.downcase
-  end
+  private
+    def downcase_email
+      self.email = email.downcase
+    end
 
 end

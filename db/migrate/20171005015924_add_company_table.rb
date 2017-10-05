@@ -6,10 +6,4 @@ class AddCompanyTable < ActiveRecord::Migration[5.1]
       t.timestamps
     end
   end
-  def change
-  	add_reference :companies, :users, index: true
-  	add_reference :users, :companies, index: true
-  	add_reference :listings, :users, index: true
-  	add_reference :buildings, :users, index: true
-  end
 end
