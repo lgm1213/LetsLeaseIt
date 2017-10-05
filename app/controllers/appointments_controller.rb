@@ -4,7 +4,9 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = building_listing.appointments
+    @building = building
+    @listing = listing
+    @appointments = building_listing.appointments.all
   end
 
   # GET /appointments/1

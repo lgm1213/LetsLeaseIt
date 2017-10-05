@@ -22,9 +22,9 @@
         <td><%= appointment.start_time %></td>
         <td><%= appointment.end_time %></td>
         <td><%= appointment.listing %></td>
-        <td><%= link_to 'Show', building_listing_appointment_path(@building_listing, appointment) %></td>
-        <td><%= link_to 'Edit', edit_building_listing_appointment_path(@building_listing, appointment) %></td>
-        <td><%= link_to 'Destroy', building_listing_appointment_path(@building_listing, appointment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', building_listing_appointment_path(@building.id,@listing.id, appointment) %></td>
+        <td><%= link_to 'Edit', edit_building_listing_appointment_path(@building.id,@listing.id, appointment) %></td>
+        <td><%= link_to 'Destroy', building_listing_appointment_path(@building.id,@listing.id, appointment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
