@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
 	include BuildingsHelper
 	include ApplicationHelper  
 
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to (super_admin? ? building_path : root_path), :alert => exception.message
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(current_user)
+  end
+
+
+
 private
   
   def require_login

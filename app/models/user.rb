@@ -7,10 +7,14 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: false  
   has_secure_password
 
+  ROLES = %i[ SuperAdmin Admin AccountManager RegionalManager PropertyManager]
+
+
   #listing relationship
   has_many :buildings
   has_many :listings, :through => :buildings
   has_many :apointments, :through => :buildings
+  scope :realty_group, -> {where company: current_user.company}
 
   # Returns the hash digest of a given string
   def User.digest(string)
