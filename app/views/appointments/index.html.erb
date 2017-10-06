@@ -1,12 +1,26 @@
 <p id="notice"><%= notice %></p>
-<%= month_calendar events: @appointments do |date, appointments| %>
-  <%= date %>
-    <% appointments.each do |meeting| %>
-    <div>
-      <%= meeting.realtor_name %>
-    </div>
-  <% end %>
-<% end %>
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <h1>Appointments</h1>
+      </tr>
+    </thead>
+    <tbody>
+      <%= month_calendar events: @appointments do |date, appointments| %>
+        <%= date %>
+          <% appointments.each do |meeting| %>
+          <div>
+            <%= link_to"#{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, appointments)  %>
+          </div>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <!-- 
 <h1>Appointments</h1>
 
