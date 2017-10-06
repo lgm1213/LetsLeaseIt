@@ -87,6 +87,13 @@ dropzone@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.1.1.tgz#9f5b02fc4aa84e6466e046ba770bc82776ea49de"
 
+fullcalendar@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-3.5.1.tgz#c70d642ca18d2854fbb97a9b4f5eecef6aa3e884"
+  dependencies:
+    jquery "2 - 3"
+    moment "^2.9.0"
+
 icheck@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/icheck/-/icheck-1.0.2.tgz#06d08da3d47ae448c153b2639b86e9ad7fdf7128"
@@ -123,7 +130,7 @@ jquery-validate@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jquery-validate/-/jquery-validate-2.0.0.tgz#a9da9e56682627fc4fc5474cc1d10c268509c259"
 
-"jquery@>= 1.7", jquery@>=1.10, "jquery@>=1.7.1 <4.0.0", jquery@>=1.8, jquery@^3.2.1:
+"jquery@2 - 3", "jquery@>= 1.7", jquery@>=1.10, "jquery@>=1.7.1 <4.0.0", jquery@>=1.8, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 

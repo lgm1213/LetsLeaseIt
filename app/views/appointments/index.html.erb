@@ -1,5 +1,39 @@
 <p id="notice"><%= notice %></p>
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+  </div>
 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <%= content_tag :tr, class: calendar.tr_classes_for(week) do %>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
+              <% else %>
+                <% block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<!-- 
 <h1>Appointments</h1>
 
 <table>
@@ -15,21 +49,22 @@
   </thead>
 
   <tbody>
-    <% @appointments.each do |appointment| %>
+    <%# @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.realtor_name %></td>
-        <td><%= appointment.realtor_phone %></td>
-        <td><%= appointment.start_time %></td>
-        <td><%= appointment.end_time %></td>
-        <td><%= appointment.listing %></td>
-        <td><%= link_to 'Show', building_listing_appointment_path(@building.id,@listing.id, appointment) %></td>
-        <td><%= link_to 'Edit', edit_building_listing_appointment_path(@building.id,@listing.id, appointment) %></td>
-        <td><%= link_to 'Destroy', building_listing_appointment_path(@building.id,@listing.id, appointment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= appointment.realtor_name %></td>
+        <td><%#= appointment.realtor_phone %></td>
+        <td><%#= appointment.start_time %></td>
+        <td><%#= appointment.end_time %></td>
+        <td><%#= appointment.listing %></td>
+        <td><%#= link_to 'Show', building_listing_appointment_path(@building.id,@listing.id, appointment) %></td>
+        <td><%#= link_to 'Edit', edit_building_listing_appointment_path(@building.id,@listing.id, appointment) %></td>
+        <td><%#= link_to 'Destroy', building_listing_appointment_path(@building.id,@listing.id, appointment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
-<br>
+<br> -->
+
 
 <%= link_to 'New Appointment', new_building_listing_appointment_path %>
