@@ -1,6 +1,8 @@
 class Listing < ApplicationRecord
-  belongs_to :building
   has_many :companies, through: :users
+  has_many :users, through: :buildings
+  belongs_to :building
+  has_many :appointments
   
 
   state_machine :state, initial: :pending do
@@ -24,4 +26,5 @@ class Listing < ApplicationRecord
   		transition showing: :listed
   	end
   end
+
 end

@@ -11,10 +11,10 @@ class User < ApplicationRecord
   ROLES = %i[ super_admin admin account_manager regional_manager property_manager]
 
   #listing relationship
-  belongs_to :company
-  has_many :buildings
+  has_many :apointments, through: :listings
   has_many :listings, through: :buildings
-  has_many :apointments, through: :buildings
+  has_many :buildings
+  belongs_to :company
   scope :realty_group, -> {where company: current_user.company}
 
   # Returns the hash digest of a given string
