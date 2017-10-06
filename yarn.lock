@@ -126,6 +126,10 @@ jquery-steps@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/jquery-steps/-/jquery-steps-1.1.0.tgz#0ceee0b0d2e49143981ad120d458ed56ea8e1924"
 
+jquery-ui@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
+
 jquery-validate@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jquery-validate/-/jquery-validate-2.0.0.tgz#a9da9e56682627fc4fc5474cc1d10c268509c259"
