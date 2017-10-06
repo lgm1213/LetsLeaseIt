@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005063810) do
+ActiveRecord::Schema.define(version: 20171006034823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20171005063810) do
     t.integer "role", limit: 2, default: 0, null: false
     t.integer "state", limit: 2, default: 0, null: false
     t.index ["managed_resource_id", "role"], name: "active_admin_permissions_index", unique: true
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "realtor_name"
+    t.string "realtor_phone"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_appointments_on_listing_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -180,6 +191,7 @@ ActiveRecord::Schema.define(version: 20171005063810) do
     t.datetime "updated_at", null: false
     t.string "mls_link"
     t.bigint "users_id"
+    t.string "state"
     t.index ["building_id"], name: "index_listings_on_building_id"
     t.index ["users_id"], name: "index_listings_on_users_id"
   end
@@ -200,6 +212,7 @@ ActiveRecord::Schema.define(version: 20171005063810) do
     t.index ["company_id"], name: "index_users_on_company_id"
   end
 
+  add_foreign_key "appointments", "listings"
   add_foreign_key "buildings", "users"
   add_foreign_key "listings", "buildings"
   add_foreign_key "users", "companies"

@@ -65,4 +65,6 @@ gem 'activeadmin'
 gem 'cancancan', '~> 2.0'
 #activeadmin roles
 gem 'active_admin_role'
+#to create states in models
+gem 'state_machines'
 
