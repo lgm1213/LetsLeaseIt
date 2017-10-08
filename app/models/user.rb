@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   #listing relationship
   has_many :apointments, through: :listings
-  has_many :listings, through: :buildings
+  has_many :listings, through: :building
   has_many :buildings
   belongs_to :company
   scope :realty_group, -> {where company: current_user.company}
