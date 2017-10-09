@@ -1,10 +1,10 @@
 class Listing < ApplicationRecord
   belongs_to :building
   has_many :users, through: :building
-  has_many :companies, through: :user, source: :building 
-  has_many :appointments
-  
+  has_many :companies, through: :users
+  # has_many :appointments
 
+  
   state_machine :state, initial: :pending do
   	event :uploaded do
   		transition pending: :listed

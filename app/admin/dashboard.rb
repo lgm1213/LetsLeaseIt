@@ -21,5 +21,16 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+    columns do
+      column do
+        panel "Buildings" do
+          table_for Building.all.each do
+            column("Building Id") { |building| status_tag(building.id) }
+            column("Development Name") { |building| link_to(building.city, admin_building_path(building)) }
+            column("Created At")   { |building| number_to_currency building.created_at }
+          end
+        end
+      end
+    end
   end
 end
