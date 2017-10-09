@@ -1,0 +1,43 @@
+<%#= form_with(model: @appointment, local: true) do |form| %>
+<%= form_for(@appointment, url: (@appointment.new_record? ? {action: 'create'} : {action: 'update'}), html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true}, :authenticity_token => true) do |form| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :realtor_name %>
+    <%= form.text_field :realtor_name, id: :appointment_realtor_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :realtor_phone %>
+    <%= form.text_field :realtor_phone, id: :appointment_realtor_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, id: :appointment_start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.datetime_select :end_time, id: :appointment_end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :listing_id %>
+    <%= form.text_field :listing_id, id: :appointment_listing_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

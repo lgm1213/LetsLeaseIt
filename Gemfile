@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #gem 'pry-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -57,12 +58,25 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "font-awesome-rails"
 #bootstrap gems
 gem 'bootstrap-sass', '~> 3.3.6'
-#jquery 
+#jquery
 gem 'jquery-rails'
-#active admin gem 
+#active admin gem
 gem 'activeadmin'
 #cancancan for authorization
 gem 'cancancan', '~> 2.0'
+<<<<<<< HEAD
 
 
+=======
+#activeadmin roles
+gem 'active_admin_role'
+#to create states in models
+gem 'state_machines'
+#to integerate state_machines into activeadmin
+gem 'active_admin-state_machine'
+#theme for active admin
+gem 'active_admin_theme'
+#calendar feature gem
+gem 'simple_calendar', '~> 2.2', '>= 2.2.7'
+>>>>>>> ActiveAdminRoles
 

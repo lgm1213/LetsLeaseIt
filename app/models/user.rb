@@ -1,16 +1,22 @@
 class User < ApplicationRecord
+  role_based_authorizable
 	attr_accessor :remember_token, :reset_token
   before_save :downcase_email
   validates :username, presence: true, length: { maximum: 30 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: false  
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: false
   has_secure_password
 
+  ROLES = %i[ super_admin admin account_manager regional_manager property_manager]
+
   #listing relationship
+  belongs_to :company
   has_many :buildings
-  has_many :listings, through: :buildings
-  has_many :apointments, through: :buildings
+  has_many :listings, through: :building
+  has_many :appointments, through: :listings
+
+  scope :realty_group, -> {where company: current_user.company}
 
   # Returns the hash digest of a given string
   def User.digest(string)
