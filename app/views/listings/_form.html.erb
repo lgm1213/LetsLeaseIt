@@ -1,8 +1,40 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    New Building or Property
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Home", root_path %></a>
+      </li>
+      <li>
+        <strong><%= link_to "Portfolio", building_listings_path %></strong>
+      </li>
+      <li class="active">
+        <strong><%= link_to "New Listing", new_building_listing_path %></strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="box">
+        <div class="ibox-title">
+          <h5>Create A New Rental Listing</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <h2>New Listing Creation Form</h2>
+
 <%= form_for(@listing, url: (@listing.new_record? ? {action: 'create'} : {action: 'update'}), html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true}, :authenticity_token => true) do |form| %>
   <% if listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-
       <ul>
       <% listing.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,52 +42,67 @@
       </ul>
     </div>
   <% end %>
-
-
-
-  <div class="field">
-    <%= form.label :unit_no %>
-    <%= form.text_field :unit_no, id: :listing_unit_no %>
+  <fieldset>
+    
+  </fieldset>
+  <div class="form-group">
+    <%= form.label :unit_no, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :unit_no, id: :listing_unit_no, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :unit_model %>
-    <%= form.text_field :unit_model, id: :listing_model_name %>
+  <div class="form-group">
+    <%= form.label :unit_model, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :unit_model, id: :listing_model_name, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :listing_price %>
+  <div class="form-group">
+    <%= form.label :price, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :price, id: :listing_price, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :bedrooms %>
-    <%= form.text_field :bedrooms, id: :listing_bedrooms %>
+  <div class="form-group">
+    <%= form.label :bedrooms, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :bedrooms, id: :listing_bedrooms, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :bath %>
-    <%= form.text_field :bath, id: :listing_bath %>
+  <div class="form-group">
+    <%= form.label :bath, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :bath, id: :listing_bath, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :half_bath %>
-    <%= form.text_field :half_bath, id: :listing_half_bath %>
+  <div class="form-group">
+    <%= form.label :half_bath, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :half_bath, id: :listing_half_bath, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :sqft %>
-    <%= form.text_field :sqft, id: :listing_sqft %>
+  <div class="form-group">
+    <%= form.label :sqft, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_form-group :sqft, id: :listing_sqft, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :date_available %>
-    <%= form.date_select :date_available, id: :listing_date_available %>
+  <div class="form-group">
+    <%= form.label :date_available, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <div class="input-group date" data-provide="datepicker">
+        <%= f.text_field :date_available, class: 'form-control' %>
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, id: :listing_notes %>
+  <div class="form-group">
+    <%= form.label :notes, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_area :notes, id: :listing_notes, class: 'form-control' %>
+    </div>    
   </div>
 
   <div class="actions">
