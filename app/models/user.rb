@@ -11,7 +11,7 @@ class User < ApplicationRecord
   ROLES = %i[ super_admin admin account_manager regional_manager property_manager]
 
   #listing relationship
-  has_many :apointments, through: :listings
+  has_many :appointments, through: :listings
   has_many :listings, through: :building
   has_many :buildings
   belongs_to :company

@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
-  has_many :companies, through: :user
-  has_many :users, through: :building
   belongs_to :building
+  has_many :users, through: :building
+  has_many :companies, through: :user, source: :building 
   has_many :appointments
   
 
