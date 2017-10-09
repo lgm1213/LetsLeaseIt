@@ -1,20 +1,16 @@
 ActiveAdmin.register Listing do
 
-  state_action :uploaded
+  state_action :uploaded, confirm: :true
   state_action :scheduled,confirm: :true
-  state_action :shown
+  state_action :shown, confirm: :true
   state_action :leased, confirm: :true
-  state_action :passed
+  state_action :passed, confirm: :true
 
 
   ##TODO - Why do you put title and body in the form even we don't have these attributes in Listing Model?
-  # form do |f|
-  #   f.inputs "Listing Details" do
-  #     f.input :title
-  #     f.input :body
-  #   end
-  #   f.actions
-  # end
+  form do |f|
+    f.actions
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
