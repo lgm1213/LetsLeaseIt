@@ -31,6 +31,7 @@ GEM
     active_admin_role (0.1.0)
       activeadmin (>= 1.0.0.pre4)
       cancancan (>= 1.15.0)
+    active_admin_theme (1.0.3)
     activeadmin (1.1.0)
       arbre (>= 1.1.1)
       coffee-rails
@@ -252,6 +253,7 @@ PLATFORMS
 DEPENDENCIES
   active_admin-state_machine
   active_admin_role
+  active_admin_theme
   activeadmin
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.6)

@@ -70,6 +70,8 @@ gem 'active_admin_role'
 gem 'state_machines'
 #to integerate state_machines into activeadmin
 gem 'active_admin-state_machine'
+#theme for active admin
+gem 'active_admin_theme'
 #calendar feature gem
 gem 'simple_calendar', '~> 2.2', '>= 2.2.7'
 
