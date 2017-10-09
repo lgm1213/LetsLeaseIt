@@ -1,6 +1,6 @@
 class Building < ApplicationRecord
-	has_many :companies, through: :users
-	belongs_to :user
-	has_many :appointments, through: :listings
-	has_many :listings, dependent: :destroy
+  belongs_to :user
+  # has_many :companies, through: :users
+  has_many :listings, dependent: :destroy
+  # has_many :appointments, through: :listings
 end
