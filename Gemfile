@@ -66,14 +66,10 @@ gem 'activeadmin'
 gem 'cancancan', '~> 2.0'
 #activeadmin roles
 gem 'active_admin_role'
-<<<<<<< HEAD
 #to create states in models
 gem 'state_machines'
 #to integerate state_machines into activeadmin
 gem 'active_admin-state_machine'
-=======
-
 #calendar feature gem
 gem 'simple_calendar', '~> 2.2', '>= 2.2.7'
 
->>>>>>> CalendarFeature
