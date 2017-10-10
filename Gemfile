@@ -64,10 +64,6 @@ gem 'jquery-rails'
 gem 'activeadmin'
 #cancancan for authorization
 gem 'cancancan', '~> 2.0'
-<<<<<<< HEAD
-
-
-=======
 #activeadmin roles
 gem 'active_admin_role'
 #to create states in models
@@ -78,5 +74,4 @@ gem 'active_admin-state_machine'
 gem 'active_admin_theme'
 #calendar feature gem
 gem 'simple_calendar', '~> 2.2', '>= 2.2.7'
->>>>>>> ActiveAdminRoles
 
