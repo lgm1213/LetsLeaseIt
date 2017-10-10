@@ -14,4 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "st
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( admin.js admin.css building.js building.scss companies.js companies.scss inspinia.js landing.js landing.scss listings.js listings.scss sessions.js sessions.scss users.js users.scss)
+Rails.application.config.assets.precompile += %w( admin.js admin.css buildings.js buildings.scss companies.js companies.scss inspinia.js landing.js landing.scss listings.js listings.scss sessions.js sessions.scss users.js users.scss)

@@ -1,29 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @user.company %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @user.title %>
-</p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    New Building or Property
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+      <li>
+        <%= link_to "Buildings", buildings_path %>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<h1>Account Info</h1>
+<div class="ibox-content">
+  <p id="notice"><%= notice %></p>
+  <p><strong>Username: </strong><%= @user.username %></p>
+  <p><strong>Email: </strong><%= @user.email %></p>
+  <p><strong>Company: </strong><%= Company.find(@user.company_id).name %></p>
+  <p><strong>Title: </strong><%= @user.title %></p>
 
 <table>
   <tbody>
@@ -46,6 +42,8 @@
     <% end %>    
   </tbody>
 </table>
+</div>
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

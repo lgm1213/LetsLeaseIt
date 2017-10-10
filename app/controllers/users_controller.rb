@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if current_user.role == [99, 100]
+      @users = User.all
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   # GET /users/1

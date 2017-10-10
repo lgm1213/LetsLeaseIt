@@ -1,0 +1,29 @@
+<!-- Main navbar -->
+    <%= render 'layouts/navbar' %>
+    <!-- /main navbar -->
+    <!-- Page header -->
+    <div class="page-header">
+      Header
+    </div>
+    <!-- /page header -->
+    <!-- Page container -->
+    <div class="page-container">
+      <!-- Page content -->
+      <div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-flat">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /main content -->
+      </div>
+      <!-- /page content -->
+      <!-- Footer -->
+      <%= render 'layouts/footer' %>
+      <!-- /footer -->
+    <!-- /page container -->

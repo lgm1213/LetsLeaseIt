@@ -1,0 +1,35 @@
+<div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+<!-- Main navbar -->
+    <%= render 'layouts/navbar' %>
+    <!-- /main navbar -->
+    <!-- Page header -->
+    <div class="page-header">
+      Header
+    </div>
+    <!-- /page header -->
+    <!-- Page container -->
+    <div class="page-container">
+      <!-- Page content -->
+      <div class="page-content">
+        <%= render 'layouts/sidebar' %>
+        <!-- Main content -->
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-flat">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /main content -->
+      </div>
+      <!-- /page content -->
+      <!-- Footer -->
+      <%= render 'layouts/footer' %>
+      <!-- /footer -->
+    
