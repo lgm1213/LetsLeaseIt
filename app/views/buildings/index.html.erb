@@ -19,32 +19,44 @@
 <p id="notice"><%# notice %></p>
 <h1>Buildings</h1>
 <% @buildings.each do |building| %>
-<div class="col-sm-3 col-md-4">
-  <div class="thumbnail">
-    <!-- <img src="..." alt="..."> -->
-    <div class="caption">
-      <h3>Id#<%= building.id %>-<%= building.development_name %></h3>
-      <p>Lorem Ipsum Create Building Descriptions for Copy</p>
-      <p>Total # of Listings: <%= building.listings.count %></p>
-  
-      <div class="text-center">
-        <%= link_to "Id##{building.id} #{building.development_name}", {controller: 'buildings',action: 'open_building_modal', id: building.id, format: :js }, class: 'btn btn-primary', remote: true %>
-
+  <div class="col-sm-3 col-md-4">
+    <div class="thumbnail">
+      <!-- <img src="..." alt="..."> -->
+      <div class="caption">
+        <h3>Id#<%= building.id %>-<%= building.development_name %></h3>
+        <p>Lorem Ipsum Create Building Descriptions for Copy</p>
+        <p>Total # of Listings: <%= building.listings.count %></p>
+    
+        <div class="text-center">
+          <%= link_to "Id##{building.id} #{building.development_name}", {controller: 'buildings',action: 'open_building_modal', id: building.id, format: :js }, class: 'btn btn-primary', remote: true %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-  
- 
-
-<div id="open-building-modal">
-
-</div>
-    <% end %>
-
-
-
-
-
-
+  <div id="open-building-modal">
+  </div>
+<% end %>
+<br>
+<br>
+<br>
 <%= link_to 'New Building', new_building_path %>
+<script>
+  $(function(){
+    var windowH = $(window).height();
+    var wrapperH = $('.box_width_nuero').height();
+    if(windowH > wrapperH) {                            
+        $('.box_width_nuero').css({'height':($(window).height())+'px'});
+    }                                                                               
+    // $(window).resize(function(){
+    //     var windowH = $(window).height();
+    //     var wrapperH = $('#wrapper').height();
+    //     var differenceH = windowH - wrapperH;
+    //     var newH = wrapperH + differenceH;
+    //     var truecontentH = $('#truecontent').height();
+    //     if(windowH > truecontentH) {
+    //         $('#wrapper').css('height', (newH)+'px');
+    //     }
+
+    // })          
+  });
+</script>

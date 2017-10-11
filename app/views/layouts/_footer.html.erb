@@ -6,3 +6,23 @@
         <strong>Copyright</strong> leasedUp!
     </div>
 </div>
+<script type="text/javascript">
+  $(function(){
+    var windowH = $(window).height();
+    var wrapperH = $('#page-wrapper').height();
+    if(windowH > wrapperH) {                            
+        $('#page-wrapper').css({'height':($(window).height())+'px'});
+    }                                                                               
+    // $(window).resize(function(){
+    //     var windowH = $(window).height();
+    //     var wrapperH = $('#wrapper').height();
+    //     var differenceH = windowH - wrapperH;
+    //     var newH = wrapperH + differenceH;
+    //     var truecontentH = $('#truecontent').height();
+    //     if(windowH > truecontentH) {
+    //         $('#wrapper').css('height', (newH)+'px');
+    //     }
+
+    // })          
+});
+</script>
