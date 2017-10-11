@@ -4,20 +4,24 @@ class ApplicationController < ActionController::Base
   # before_action :set_time_zone, if: :current_user
   include SessionsHelper
 	include BuildingsHelper
-	include ApplicationHelper  
+	include ApplicationHelper
 
   # rescue_from CanCan::AccessDenied do |exception|
   #   redirect_to (super_admin? ? building_path : root_path), :alert => exception.message
   # end
 
-  # def current_ability
-  #   @current_ability ||= Ability.new(current_user)
-  # end
-
-
+  def after_sign_in_path_for(user)
+    if ["super_admin", "admin", "account_manager"].include? user.role
+      redirect_to admin_root_path
+    elsif ["regional_manager", "property_manager"].include? user.role
+      redirect_to user_path(user)
+    else
+      root_path
+    end
+  end
 
 private
-  
+
   def require_login
     unless logged_in?
       flash[:error] = "You Must be logged in to access this page"
