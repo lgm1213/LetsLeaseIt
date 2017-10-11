@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    @listing = building.listings.new(listing_params)
+    @listing = building.listings.new(listing_params.merge({state: :pending}))
     respond_to do |format|
       if @listing.save
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully created.' }
