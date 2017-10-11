@@ -19,3 +19,4 @@
 .byebug_history
 #Ignore databse file to prevent git conflicts
 /config/database.yml
+public/system/*

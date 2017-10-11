@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006092126) do
+ActiveRecord::Schema.define(version: 20171010054204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,17 @@ ActiveRecord::Schema.define(version: 20171006092126) do
     t.index ["users_id"], name: "index_companies_on_users_id"
   end
 
+  create_table "listing_images", force: :cascade do |t|
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["listing_id"], name: "index_listing_images_on_listing_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.bigint "building_id"
     t.string "unit_no"
@@ -213,6 +224,7 @@ ActiveRecord::Schema.define(version: 20171006092126) do
 
   add_foreign_key "appointments", "listings"
   add_foreign_key "buildings", "users"
+  add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
   add_foreign_key "users", "companies"
 end

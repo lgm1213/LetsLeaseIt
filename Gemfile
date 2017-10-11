@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  #gem 'pry-rails'
+  gem 'pry-rails', '~> 0.3.2'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -74,4 +74,8 @@ gem 'active_admin-state_machine'
 gem 'active_admin_theme'
 #calendar feature gem
 gem 'simple_calendar', '~> 2.2', '>= 2.2.7'
+#gem "paperclip", "~> 5.0.0"
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+#gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
