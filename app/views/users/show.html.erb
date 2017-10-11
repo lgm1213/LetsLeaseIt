@@ -20,28 +20,28 @@
   <p><strong>Email: </strong><%= @user.email %></p>
   <p><strong>Company: </strong><%= Company.find(@user.company_id).name %></p>
   <p><strong>Title: </strong><%= @user.title %></p>
-
-<table>
-  <tbody>
-    <% @user.buildings.each do |user_building| %>
-      <tr>
-        <td><%= user_building.id %></td>
-        <td><%= user_building.legal %></td>
-        <td><%= link_to "Show", user_building %></td>
-        <td><%= link_to "Edit", edit_building_path(user_building) %></td>
-      </tr>
-      <tr>
-        <% user_building.listings.each do |building_listings| %>
-        <td><%= building_listings.id %></td>
-        <td><%= building_listings.unit_model %></td>
-        <td><%= building_listings.unit_no %></td>
-        <td><%= link_to "Show", building_listing_path(building_listings) %></td>
-        <td><%= link_to "Edit", edit_building_listing_path(building_listings) %></td>     
+  <br/>
+  <h5>Quickview of Associated Buildings and Listings</h5>
+  <% @user.buildings[0,3].each do |user_building| %>
+  <div class="panel-body">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed">Building Id#<%= user_building.id %>, Building Legal Name: <%= user_building.legal %>, Created on: <%= user_building.created_at.strftime("%m-%d-%Y") %></a>
+          </h5>
+          <% user_building.listings.each do |building_listings| %>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+          <div class="panel-body">
+            <p>Listing Info:<br/>Id# <%= building_listings.id %>, <%= building_listings.unit_model %>, <%= building_listings.unit_no %></p>
+          </div>
+        </div>
         <% end %>
-      </tr>
-    <% end %>    
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
 
 
