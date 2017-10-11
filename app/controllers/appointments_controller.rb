@@ -6,7 +6,8 @@ class AppointmentsController < ApplicationController
   def index
     @building = building
     @listing = listing
-    @appointments = building_listing.appointments.all
+    @building_listing = building_listing
+    @appointments = building_listing.appointments.order('start_time').all
   end
 
   # GET /appointments/1
@@ -26,7 +27,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = listing.appointments.new(appointment_params)
+    @appointment = listing.appointments.new(appointment_params.merge({listing_id: listing.id}))
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to [building, listing, @appointment], notice: 'Appointment was successfully created.' }
@@ -43,7 +44,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
-        format.html { redirect_to [listing, @appointment], notice: 'Appointment was successfully updated.' }
+        format.html { redirect_to [building, listing, @appointment], notice: 'Appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
         format.html { render :edit }

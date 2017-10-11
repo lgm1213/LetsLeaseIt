@@ -8,9 +8,7 @@
         <small class="font-bold"><%= @building.development_name %></small>
       </div>
       <div class="modal-body">
-        <p>
-          #<%= @building.folio %>Lorem Ipsum Stuff(development)
-        </p>
+        <p>#<%= @building.folio %>Lorem Ipsum Stuff(development)</p>
       </div>
       <div class="modal-footer">
         <%= link_to "See Building Listings", building_listings_path(@building), class: 'btn btn-info' %>
