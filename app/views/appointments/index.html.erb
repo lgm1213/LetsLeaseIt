@@ -1,26 +1,61 @@
-<p id="notice"><%= notice %></p>
-<div class="simple-calendar">
-  <div class="calendar-heading">
-    
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    Appointment Calendar
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Home", root_path %></a>
+      </li>
+      <li class="active">
+        <strong><%= link_to "Listing Portfolio", building_listings_path %></strong>
+      </li>
+      <li>
+        <%= link_to "Create New Appointment", new_building_listing_appointment_path(@building,@listing) %>
+      </li>
+    </ol>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <h1>Appointments</h1>
-      </tr>
-    </thead>
-    <tbody>
-      <%= month_calendar events: @appointments do |date, appointments| %>
-        <%= date %>
-          <% appointments.each do |meeting| %>
-          <div>
-            <%= link_to"#{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, appointments)  %>
-          </div>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="col-lg-2">
+  </div>
 </div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="box">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Listing Details<small class="m-l-sm"></small></h5>
+          </div>
+        <div class="ibox-content">
+        <p id="notice"><%= notice %></p>
+          <div class="simple-calendar">
+            <div class="calendar-heading">  
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <h1>Appointments</h1>
+                </tr>
+              </thead>
+              <tbody>
+                <%= month_calendar events: @appointments do |date, appointments| %>
+                  <%= date %>
+                    <% appointments.each do |meeting| %>
+                    <div>
+                      <%= link_to"#{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, appointments)  %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+
+
 <!-- 
 <h1>Appointments</h1>
 

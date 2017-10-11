@@ -12,9 +12,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :realtor_name %>
-    <%= form.text_field :realtor_name, id: :appointment_realtor_name %>
+  <div class="form-group">
+    <%= form.label :realtor_name, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :realtor_name, id: :appointment_realtor_name, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="field">

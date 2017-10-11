@@ -1,5 +1,35 @@
-<h1>Editing Listing</h1>
-
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    Building or Property Listing
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Home", root_path %></a>
+      </li>
+      <li>
+        <strong><%= link_to "Portfolio", building_listings_path %></strong>
+      </li>
+      <li class="active">
+        <strong><%= link_to "New Listing", new_building_listing_path %></strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="box">
+        <div class="ibox-title">
+          <h5>Edit A Rental Listing</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <h2>Edit Listing Form</h2>
 <%= render 'form', listing: @listing %>
 
 <%= link_to 'Show', building_listing_path(@listing) %> |

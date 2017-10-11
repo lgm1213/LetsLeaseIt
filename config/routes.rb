@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   #static routes
   root 'landing#home'
+  get 'landing/home'
   get 'landing/about'
   get 'landing/contact'
   get 'landing/help'

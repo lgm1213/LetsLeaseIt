@@ -2,22 +2,13 @@ class LandingController < ApplicationController
 	skip_before_action :require_login
 	
   def home
-    # path =
-    # case current_user.role
-    #   when current_user.role == 'property_manager'
-    #     user_path
-    #   when current_user.role == 'regional_manager'
-    #     user_path
-    #   when current_user.role == 'account_manager'
-    #     admin_root_path
-    #   when current_user.role == 'admin'
-    #     admin_root_path
-    #   when current_user.role == 'super_admin'
-    #     admin_root_path
-    #   else !current_user
-        
-    #   end
-    #   redirect_to path
+    if ["super_admin", "admin", "account_manager"].include? current_user.role
+      redirect_to admin_root_path
+    elsif ["regional_manager", "property_manager"].include? current_user.role
+      redirect_to user_path(current_user)
+    else
+      redirect_to landing_home_path
+    end  
   end
 
   def about
