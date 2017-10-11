@@ -28,13 +28,16 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h5 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed">Building Id#<%= user_building.id %>, Building Legal Name: <%= user_building.legal %>, Created on: <%= user_building.created_at.strftime("%m-%d-%Y") %></a>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed">
+              Building Id#<%= user_building.id %>, Building Legal Name: <%= user_building.legal %>, Created on: <%= user_building.created_at.strftime("%m-%d-%Y") %>
+              </a>
           </h5>
           <% user_building.listings.each do |building_listings| %>
         </div>
         <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
           <div class="panel-body">
             <p>Listing Info:<br/>Id# <%= building_listings.id %>, <%= building_listings.unit_model %>, <%= building_listings.unit_no %></p>
+            <%= link_to "See More Info", building_listing_path(user_building, building_listings) %>
           </div>
         </div>
         <% end %>
