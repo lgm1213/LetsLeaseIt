@@ -41,7 +41,7 @@
                   <%= date %>
                     <% appointments.each do |meeting| %>
                     <div>
-                      <%= link_to"#{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, appointments)  %>
+                      <%= link_to"#{meeting.start_time.strftime('%I:%M%p')}, #{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, meeting)  %>
                     </div>
                   <% end %>
                 <% end %>

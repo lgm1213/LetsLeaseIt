@@ -20,32 +20,16 @@
           <div class="ibox-title">
             <h5>Appointment Details<small class="m-l-sm"></small></h5>
           </div>
-        <div class="ibox-content"><p id="notice"><%= notice %></p>
+        <div class="ibox-content">
+          <p id="notice"><%= notice %></p>
+          <p><strong>Realtor name:</strong><%= @appointment.realtor_name %>
+          </p><p><strong>Realtor phone: </strong><%= @appointment.realtor_phone %></p>
+          <p><strong>Start time: </strong><%= @appointment.start_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
+          <p><strong>End time: </strong><%= @appointment.end_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
+          <p><strong>Listing: </strong>Unit# <%= @appointment.listing.unit_no %></p>
 
-<p>
-  <strong>Realtor name:</strong>
-  <%= @appointment.realtor_name %>
-</p>
+          <%= link_to 'Edit Appointment Info', edit_building_listing_appointment_path(@appointment) %> |
+          <%= link_to 'Cancel Appointment', building_listing_appointment_path(@appointment), method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Back to Calendar', building_listing_appointments_path %>
 
-<p>
-  <strong>Realtor phone:</strong>
-  <%= @appointment.realtor_phone %>
-</p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @appointment.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @appointment.end_time %>
-</p>
-
-<p>
-  <strong>Listing:</strong>
-  <%= @appointment.listing %>
-</p>
-
-<%= link_to 'Edit', edit_building_listing_appointment_path(@appointment) %> |
-<%= link_to 'Back', building_listing_appointments_path %>
