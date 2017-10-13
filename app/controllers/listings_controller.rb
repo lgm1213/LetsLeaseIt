@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :listing_limits, only: [:create]
 
   # GET /listings
   # GET /listings.json
@@ -75,5 +76,12 @@ class ListingsController < ApplicationController
 
     def building
       @building ||= Building.find(params[:building_id])
+    end
+
+    def listing_limits
+      unless building.listings.all.where(active: true).count <= building.listing_limit
+        errors[:attribute] << "You have too many active listings, please destroy a listing or contact your Account Manager if you need more listings"
+        return false
+      end
     end
 end

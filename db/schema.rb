@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010054204) do
+ActiveRecord::Schema.define(version: 20171012205931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20171010054204) do
     t.string "status"
     t.string "list_type"
     t.bigint "users_id"
+    t.integer "listing_limit", default: 3
     t.index ["user_id"], name: "index_buildings_on_user_id"
     t.index ["users_id"], name: "index_buildings_on_users_id"
   end
@@ -203,6 +204,7 @@ ActiveRecord::Schema.define(version: 20171010054204) do
     t.string "mls_link"
     t.bigint "users_id"
     t.string "state"
+    t.boolean "active", default: false, null: false
     t.index ["building_id"], name: "index_listings_on_building_id"
     t.index ["users_id"], name: "index_listings_on_users_id"
   end
