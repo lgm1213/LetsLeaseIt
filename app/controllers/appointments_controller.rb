@@ -1,13 +1,12 @@
 class AppointmentsController < ApplicationController
+  before_action :building
+  before_action :listing
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
   # GET /appointments.json
   def index
-    @building = building
-    @listing = listing
-    @building_listing = building_listing
-    @appointments = building_listing.appointments.order('start_time').all
+    @appointments = listing.appointments.order('start_time')
   end
 
   # GET /appointments/1
@@ -66,7 +65,7 @@ class AppointmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
-      @appointment = Appointment.find(params[:id])
+      @appointment = listing.appointments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -74,15 +73,12 @@ class AppointmentsController < ApplicationController
       params.require(:appointment).permit(:realtor_name, :realtor_phone, :start_time, :end_time, :listing_id)
     end
 
-    def listing
-      @listing ||= Listing.find(params[:listing_id])
-    end
-
     def building
       @building ||= Building.find(params[:building_id])
     end
 
-    def building_listing
-      @building_listing ||= Building.find(params[:building_id]).listings.find(params[:listing_id])
+    def listing
+      @listing ||= building.listings.find(params[:listing_id])
     end
+
 end
