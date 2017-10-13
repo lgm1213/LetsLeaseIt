@@ -1,5 +1,4 @@
-<%#= form_with(model: @appointment, local: true) do |form| %>
-<%= form_for(@appointment, url: (@appointment.new_record? ? {action: 'create'} : {action: 'update'}), html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true}, :authenticity_token => true) do |form| %>
+<%= form_for([@building, @listing, @appointment], html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true}, :authenticity_token => true) do |form| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>

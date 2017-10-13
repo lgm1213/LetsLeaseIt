@@ -41,7 +41,7 @@
     <tbody>
       <% @listings.each do |listing| %>
         <tr>
-          <td><%= link_to "#{listing.building.id}", building_path(listing) %></td>
+          <td><%= link_to "#{listing.building.id}", listing.building %></td>
           <td><%= listing.unit_no %></td>
           <td><%= listing.unit_model %></td>
           <td><%= listing.price %></td>
