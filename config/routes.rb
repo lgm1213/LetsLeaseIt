@@ -23,9 +23,11 @@ Rails.application.routes.draw do
 
   #building and associated routes
   resources :buildings do
-	  resources :listings do
-	  	resources :appointments
-	  end
+    resources :listings do
+      resources :appointments do
+        resources :rented_units 
+      end
+    end
   end
   #route for modal that opens
   get 'buildings/:id/modal', to: 'buildings#open_building_modal'

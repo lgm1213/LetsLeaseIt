@@ -1,0 +1,62 @@
+<%= form_with(model: rented_unit, local: true) do |form| %>
+  <% if rented_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rented_unit.errors.count, "error") %> prohibited this rented_unit from being saved:</h2>
+
+      <ul>
+      <% rented_unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :unit_no %>
+    <%= form.text_field :unit_no, id: :rented_unit_unit_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_model %>
+    <%= form.text_field :unit_model, id: :rented_unit_unit_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :rented_unit_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bedrooms %>
+    <%= form.text_field :bedrooms, id: :rented_unit_bedrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bathrooms %>
+    <%= form.text_field :bathrooms, id: :rented_unit_bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :half_baths %>
+    <%= form.text_field :half_baths, id: :rented_unit_half_baths %>
+  </div>
+
+  <div class="field">
+    <%= form.label :square_footage %>
+    <%= form.text_field :square_footage, id: :rented_unit_square_footage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :leased %>
+    <%= form.check_box :leased, id: :rented_unit_leased %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appointment_id %>
+    <%= form.text_field :appointment_id, id: :rented_unit_appointment_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_no: MyString
+  unit_model: MyString
+  price: 9.99
+  bedrooms: MyString
+  bathrooms: MyString
+  half_baths: MyString
+  square_footage: MyString
+  leased: false
+  appointment: one
+
+two:
+  unit_no: MyString
+  unit_model: MyString
+  price: 9.99
+  bedrooms: MyString
+  bathrooms: MyString
+  half_baths: MyString
+  square_footage: MyString
+  leased: false
+  appointment: two

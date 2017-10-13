@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rented Units</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unit no</th>
+      <th>Unit model</th>
+      <th>Price</th>
+      <th>Bedrooms</th>
+      <th>Bathrooms</th>
+      <th>Half baths</th>
+      <th>Square footage</th>
+      <th>Leased</th>
+      <th>Appointment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rented_units.each do |rented_unit| %>
+      <tr>
+        <td><%= rented_unit.unit_no %></td>
+        <td><%= rented_unit.unit_model %></td>
+        <td><%= rented_unit.price %></td>
+        <td><%= rented_unit.bedrooms %></td>
+        <td><%= rented_unit.bathrooms %></td>
+        <td><%= rented_unit.half_baths %></td>
+        <td><%= rented_unit.square_footage %></td>
+        <td><%= rented_unit.leased %></td>
+        <td><%= rented_unit.appointment %></td>
+        <td><%= link_to 'Show', rented_unit %></td>
+        <td><%= link_to 'Edit', edit_rented_unit_path(rented_unit) %></td>
+        <td><%= link_to 'Destroy', rented_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rented Unit', new_rented_unit_path %>

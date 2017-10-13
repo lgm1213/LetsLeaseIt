@@ -22,7 +22,8 @@
           </div>
         <div class="ibox-content">
           <p id="notice"><%= notice %></p>
-          <p><strong>Realtor name:</strong><%= @appointment.realtor_name %>
+          <p><strong>Appointment ID: </strong><%= @appointment.id %></p>
+          <p><strong>Realtor name: </strong><%= @appointment.realtor_name %>
           </p><p><strong>Realtor phone: </strong><%= @appointment.realtor_phone %></p>
           <p><strong>Start time: </strong><%= @appointment.start_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
           <p><strong>End time: </strong><%= @appointment.end_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>

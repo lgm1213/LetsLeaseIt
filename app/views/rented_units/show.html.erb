@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit no:</strong>
+  <%= @rented_unit.unit_no %>
+</p>
+
+<p>
+  <strong>Unit model:</strong>
+  <%= @rented_unit.unit_model %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @rented_unit.price %>
+</p>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @rented_unit.bedrooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @rented_unit.bathrooms %>
+</p>
+
+<p>
+  <strong>Half baths:</strong>
+  <%= @rented_unit.half_baths %>
+</p>
+
+<p>
+  <strong>Square footage:</strong>
+  <%= @rented_unit.square_footage %>
+</p>
+
+<p>
+  <strong>Leased:</strong>
+  <%= @rented_unit.leased %>
+</p>
+
+<p>
+  <strong>Appointment:</strong>
+  <%= @rented_unit.appointment %>
+</p>
+
+<%= link_to 'Edit', edit_rented_unit_path(@rented_unit) %> |
+<%= link_to 'Back', rented_units_path %>
