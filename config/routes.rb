@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :rented_units
   resources :companies
   ActiveAdmin.routes(self)
   #static routes

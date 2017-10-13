@@ -8,7 +8,7 @@ class CreateRentedUnits < ActiveRecord::Migration[5.1]
       t.string :bathrooms
       t.string :half_baths
       t.string :square_footage
-      t.boolean :leased, null: false, default: false 
+      t.boolean :leased
       t.belongs_to :appointment, foreign_key: true
 
       t.timestamps
