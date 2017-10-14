@@ -2,5 +2,5 @@
 
 <%= render 'form', rented_unit: @rented_unit %>
 
-<%= link_to 'Show', @rented_unit %> |
-<%= link_to 'Back', rented_units_path %>
+<%= link_to 'Show', building_listing_appointment_rented_unit_path(@building, @listing, @appointment, @rented_unit) %> |
+<%= link_to 'Back', building_listing_appointment_rented_units_path(@building, @listing, @appointment) %>

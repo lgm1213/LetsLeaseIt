@@ -30,9 +30,9 @@
         <td><%= rented_unit.square_footage %></td>
         <td><%= rented_unit.leased %></td>
         <td><%= rented_unit.appointment %></td>
-        <td><%= link_to 'Show', rented_unit(rented_unit) %></td>
-        <td><%= link_to 'Edit', edit_rented_unit_path(rented_unit) %></td>
-        <td><%= link_to 'Destroy', rented_unit(rented_unit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit) %></td>
+        <td><%= link_to 'Edit', edit_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit) %></td>
+        <td><%= link_to 'Destroy', building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Rented Unit', new_rented_unit_path %>
+<%= link_to 'New Rented Unit', new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment) %>

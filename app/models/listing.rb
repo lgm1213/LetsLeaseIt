@@ -5,7 +5,7 @@ class Listing < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :listing_images, dependent: :destroy
   accepts_nested_attributes_for :listing_images
-  validates :listing_limits
+  # validates :listing_limits
 
   STATE = [:pending, :showing, :toured, :closed, :listed]
 
@@ -30,10 +30,12 @@ class Listing < ApplicationRecord
   		transition showing: :listed
   	end
   end
-private
-  def listing_limits
-    unless building.listings.where(active: true).count <= building.listing_limit
-      errors.add(:base, "You have too many active listings, please destroy a listing or contact your Account Manager if you need more listings")
+
+  private
+    def listing_limits
+      unless building.listings.where(active: true).count <= building.listing_limit
+        errors.add(:base, "You have too many active listings, please destroy a listing or contact your Account Manager if you need more listings")
+      end
     end
-  end
+
 end
