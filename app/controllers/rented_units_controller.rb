@@ -1,5 +1,8 @@
 class RentedUnitsController < ApplicationController
   before_action :set_rented_unit, only: [:show, :edit, :update, :destroy]
+  before_action :building
+  before_action :listing
+  before_action :appointment
 
   # GET /rented_units
   # GET /rented_units.json
@@ -70,5 +73,17 @@ class RentedUnitsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def rented_unit_params
       params.require(:rented_unit).permit(:unit_no, :unit_model, :price, :bedrooms, :bathrooms, :half_baths, :square_footage, :leased, :appointment_id)
+    end
+
+    def building
+    	@building ||= Building.find(params[:building_id])
+    end
+
+    def listing
+    	@listing ||= Listing.find(params[:listing_id])
+    end
+
+    def appointment
+    	@appointment ||= Appointment.find(params[:appointment_id])
     end
 end

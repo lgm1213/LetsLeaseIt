@@ -28,9 +28,10 @@
           <p><strong>Start time: </strong><%= @appointment.start_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
           <p><strong>End time: </strong><%= @appointment.end_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
           <p><strong>Listing: </strong>Unit# <%= @appointment.listing.unit_no %></p>
+          
 
           <%= link_to 'Edit Appointment Info', edit_building_listing_appointment_path(@appointment) %> |
           <%= link_to 'Cancel Appointment', building_listing_appointment_path(@appointment), method: :delete, data: { confirm: 'Are you sure?' } %> |
-          <%= link_to 'Back to Calendar', building_listing_appointments_path %>
+          <%= link_to 'Back to Calendar', building_listing_appointments_path %> 
 
 
