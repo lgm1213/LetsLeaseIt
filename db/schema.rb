@@ -15,20 +15,6 @@ ActiveRecord::Schema.define(version: 20171013183229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-  end
-
   create_table "active_admin_managed_resources", force: :cascade do |t|
     t.string "class_name", null: false
     t.string "action", null: false
@@ -163,18 +149,14 @@ ActiveRecord::Schema.define(version: 20171013183229) do
     t.string "photo_instructions"
     t.string "status"
     t.string "list_type"
-    t.bigint "users_id"
     t.integer "listing_limit", default: 3
     t.index ["user_id"], name: "index_buildings_on_user_id"
-    t.index ["users_id"], name: "index_buildings_on_users_id"
   end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_companies_on_users_id"
   end
 
   create_table "listing_images", force: :cascade do |t|
@@ -201,12 +183,9 @@ ActiveRecord::Schema.define(version: 20171013183229) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "mls_link"
-    t.bigint "users_id"
     t.string "state"
     t.boolean "active", default: false, null: false
     t.index ["building_id"], name: "index_listings_on_building_id"
-    t.index ["users_id"], name: "index_listings_on_users_id"
   end
 
   create_table "rented_units", force: :cascade do |t|
@@ -233,9 +212,7 @@ ActiveRecord::Schema.define(version: 20171013183229) do
     t.datetime "updated_at", null: false
     t.string "remember_digest"
     t.integer "role", limit: 2, default: 0, null: false
-    t.bigint "companies_id"
     t.bigint "company_id"
-    t.index ["companies_id"], name: "index_users_on_companies_id"
     t.index ["company_id"], name: "index_users_on_company_id"
   end
 

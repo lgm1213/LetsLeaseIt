@@ -1,4 +1,4 @@
-<%= form_with(model: rented_unit, local: true) do |form| %>
+<%= form_with(model: [@building, @listing, @appointment, rented_unit], local: true) do |form| %>
   <% if rented_unit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(rented_unit.errors.count, "error") %> prohibited this rented_unit from being saved:</h2>
@@ -49,11 +49,6 @@
   <div class="field">
     <%= form.label :leased %>
     <%= form.check_box :leased, id: :rented_unit_leased %>
-  </div>
-
-  <div class="field">
-    <%= form.label :appointment_id %>
-    <%= form.text_field :appointment_id, id: :rented_unit_appointment_id %>
   </div>
 
   <div class="actions">

@@ -45,5 +45,5 @@
   <%= @rented_unit.appointment %>
 </p>
 
-<%= link_to 'Edit', edit_rented_unit_path(@rented_unit) %> |
-<%= link_to 'Back', rented_units_path %>
+<%= link_to 'Edit', edit_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, @rented_unit) %> |
+<%= link_to 'Back', building_listing_appointment_rented_units_path(@building, @listing, @appointment) %>
