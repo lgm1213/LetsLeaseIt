@@ -20,3 +20,4 @@
 //= require inspinia.js
 //= require wow/wow.min.js
 //= require jquery_ujs
+//= require turbolinks

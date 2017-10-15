@@ -1,8 +1,7 @@
-<%= form_with(model: [@building, @listing, @appointment, rented_unit], local: true) do |form| %>
+<%= form_with(model: [@building, @listing, @appointment, rented_unit], local: true, html: {id: 'form', class: 'wizard-big form-horizontal'}) do |form| %>
   <% if rented_unit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(rented_unit.errors.count, "error") %> prohibited this rented_unit from being saved:</h2>
-
       <ul>
       <% rented_unit.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,47 +10,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :unit_no %>
-    <%= form.text_field :unit_no, id: :rented_unit_unit_no %>
+  <div class="form-group">
+    <%= form.label :unit_no, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :unit_no, id: :rented_unit_unit_no, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :unit_model %>
-    <%= form.text_field :unit_model, id: :rented_unit_unit_model %>
+  <div class="form-group">
+    <%= form.label :unit_model, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :unit_model, id: :rented_unit_unit_model, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :rented_unit_price %>
+  <div class="form-group">
+    <%= form.label :price, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :price, id: :rented_unit_price, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :bedrooms %>
-    <%= form.text_field :bedrooms, id: :rented_unit_bedrooms %>
+  <div class="form-group">
+    <%= form.label :bedrooms, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :bedrooms, id: :rented_unit_bedrooms, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :bathrooms %>
-    <%= form.text_field :bathrooms, id: :rented_unit_bathrooms %>
+  <div class="form-group">
+    <%= form.label :bathrooms, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :bathrooms, id: :rented_unit_bathrooms, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :half_baths %>
-    <%= form.text_field :half_baths, id: :rented_unit_half_baths %>
+  <div class="form-group">
+    <%= form.label :half_baths, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :half_baths, id: :rented_unit_half_baths, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :square_footage %>
-    <%= form.text_field :square_footage, id: :rented_unit_square_footage %>
+  <div class="form-group">
+    <%= form.label :square_footage, class: 'control-label col-sm-4' %>
+    <div class="col-sm-2">
+      <%= form.text_field :square_footage, id: :rented_unit_square_footage, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :leased %>
-    <%= form.check_box :leased, id: :rented_unit_leased %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-2">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

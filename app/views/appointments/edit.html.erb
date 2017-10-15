@@ -15,14 +15,12 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="box">
-      <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-            <h5>Appointment Details<small class="m-l-sm"></small></h5>
-          </div>
-        <div class="ibox-content">
-
-<%= render 'form', appointment: @appointment %>
-
-<%= link_to 'Show', building_listing_appointment_path(@appointment) %> |
-<%= link_to 'Back', building_listing_appointments_path %>
+        <div class="col-lg-12">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Appointment Details<small class="m-l-sm"></small></h5>
+            </div>
+          <div class="ibox-content">
+          <%= render 'form', appointment: @appointment %>
+          <%= link_to 'Show', building_listing_appointment_path(@appointment) %> |
+          <%= link_to 'Back', building_listing_appointments_path %>

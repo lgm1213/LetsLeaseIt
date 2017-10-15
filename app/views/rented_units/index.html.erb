@@ -1,43 +1,65 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    Appointment Calendar
+    <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></a></li>
+      <li><%= link_to "Active Listings", building_listings_path %></li>
+      <li><%= link_to "Calendar", building_listing_appointments_path %></li>
+      <li class="active"><strong><%= link_to "Rented Unit Records", building_listing_appointment_rented_units_path %></strong></li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="box">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
 <p id="notice"><%= notice %></p>
 
 <h1>Rented Units</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Unit no</th>
-      <th>Unit model</th>
-      <th>Price</th>
-      <th>Bedrooms</th>
-      <th>Bathrooms</th>
-      <th>Half baths</th>
-      <th>Square footage</th>
-      <th>Leased</th>
-      <th>Appointment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rented_units.each do |rented_unit| %>
+<div class="table-responsive">
+  <table class= 'table table-striped table-condensed'>
+    <thead>
       <tr>
-        <td><%= rented_unit.unit_no %></td>
-        <td><%= rented_unit.unit_model %></td>
-        <td><%= rented_unit.price %></td>
-        <td><%= rented_unit.bedrooms %></td>
-        <td><%= rented_unit.bathrooms %></td>
-        <td><%= rented_unit.half_baths %></td>
-        <td><%= rented_unit.square_footage %></td>
-        <td><%= rented_unit.leased %></td>
-        <td><%= rented_unit.appointment %></td>
-        <td><%= link_to 'Show', rented_unit(@building.id, @listing.id, @appointment.id, rented_unit) %></td>
-        <td><%= link_to 'Edit', edit_rented_unit_path(@building.id, @listing.id, @appointment.id, rented_unit) %></td>
-        <td><%= link_to 'Destroy', rented_unit(@building.id, @listing.id, @appointment.id, rented_unit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Unit no</th>
+        <th>Unit model</th>
+        <th>Price</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Half baths</th>
+        <th>Square footage</th>
+        <th>Leased</th>
+        <th>Appointment</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @rented_units.each do |rented_unit| %>
+        <tr>
+          <td><%= rented_unit.unit_no %></td>
+          <td><%= rented_unit.unit_model %></td>
+          <td><%= rented_unit.price %></td>
+          <td><%= rented_unit.bedrooms %></td>
+          <td><%= rented_unit.bathrooms %></td>
+          <td><%= rented_unit.half_baths %></td>
+          <td><%= rented_unit.square_footage %></td>
+          <td><%= rented_unit.leased %></td>
+          <td><%= rented_unit.appointment %></td>
+          <td><%= link_to 'Show', building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit) %></td>
+          <td><%= link_to 'Edit', edit_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit) %></td>
+          <td><%= link_to 'Destroy', building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+</div>
 
 <br>
-<%= link_to 'New Rented Unit', new_building_listing_appointment_rented_unit_path %>
+<%= link_to 'New Rented Unit', new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment) %>
 
