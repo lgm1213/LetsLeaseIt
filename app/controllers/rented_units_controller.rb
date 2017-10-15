@@ -3,9 +3,6 @@ class RentedUnitsController < ApplicationController
   before_action :listing
   before_action :appointment
   before_action :set_rented_unit, only: [:show, :edit, :update, :destroy]
-  before_action :building
-  before_action :listing
-  before_action :appointment
 
   # GET /rented_units
   # GET /rented_units.json
