@@ -5,6 +5,9 @@ class Building < ApplicationRecord
 
   #Multiple Checkbox Collection relationships
     # has many through relationships for multiple data values with select checkboxes
+  has_many :building_additional_parking
+  has_many :additional_parking_infos, :through => :building_additional_parking
+
   has_many :building_additional_rooms
   has_many :additional_rooms, :through => :building_additional_rooms
 
@@ -85,5 +88,5 @@ class Building < ApplicationRecord
 
   has_many :building_waterfront_desc
   has_many :waterfront_desc, :through => :building_waterfront_desc
-  
+
 end

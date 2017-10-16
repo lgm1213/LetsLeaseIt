@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building: one
+  additional_parking_info: one
+
+two:
+  building: two
+  additional_parking_info: two

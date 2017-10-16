@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016162022) do
+ActiveRecord::Schema.define(version: 20171016174808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,19 @@ ActiveRecord::Schema.define(version: 20171016162022) do
     t.index ["managed_resource_id", "role"], name: "active_admin_permissions_index", unique: true
   end
 
+  create_table "additional_parking_infos", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "additional_rooms", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "amenities", force: :cascade do |t|
     t.string "options"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,6 +72,15 @@ ActiveRecord::Schema.define(version: 20171016162022) do
     t.index ["listing_id"], name: "index_appointments_on_listing_id"
   end
 
+  create_table "building_additional_parking", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "additional_parking_info_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["additional_parking_info_id"], name: "index_building_additional_parking_on_additional_parking_info_id"
+    t.index ["building_id"], name: "index_building_additional_parking_on_building_id"
+  end
+
   create_table "building_additional_rooms", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "additional_room_id"
@@ -67,6 +88,15 @@ ActiveRecord::Schema.define(version: 20171016162022) do
     t.datetime "updated_at", null: false
     t.index ["additional_room_id"], name: "index_building_additional_rooms_on_additional_room_id"
     t.index ["building_id"], name: "index_building_additional_rooms_on_building_id"
+  end
+
+  create_table "building_amenities", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "amenity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_building_amenities_on_amenity_id"
+    t.index ["building_id"], name: "index_building_amenities_on_building_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -249,8 +279,12 @@ ActiveRecord::Schema.define(version: 20171016162022) do
   end
 
   add_foreign_key "appointments", "listings"
+  add_foreign_key "building_additional_parking", "additional_parking_infos"
+  add_foreign_key "building_additional_parking", "buildings"
   add_foreign_key "building_additional_rooms", "additional_rooms"
   add_foreign_key "building_additional_rooms", "buildings"
+  add_foreign_key "building_amenities", "amenities"
+  add_foreign_key "building_amenities", "buildings"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
