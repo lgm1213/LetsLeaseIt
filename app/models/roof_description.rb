@@ -1,0 +1,2 @@
+class RoofDescription < ApplicationRecord
+end

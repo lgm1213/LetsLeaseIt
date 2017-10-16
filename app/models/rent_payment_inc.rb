@@ -1,0 +1,2 @@
+class RentPaymentInc < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class RentRestriction < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016183352) do
+ActiveRecord::Schema.define(version: 20171016184946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -231,6 +231,24 @@ ActiveRecord::Schema.define(version: 20171016183352) do
     t.index ["pool_description_id"], name: "index_building_pool_descriptions_on_pool_description_id"
   end
 
+  create_table "building_rent_payment_incs", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "rent_payment_inc_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_rent_payment_incs_on_building_id"
+    t.index ["rent_payment_inc_id"], name: "index_building_rent_payment_incs_on_rent_payment_inc_id"
+  end
+
+  create_table "building_rent_restrictions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "rent_restriction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_rent_restrictions_on_building_id"
+    t.index ["rent_restriction_id"], name: "index_building_rent_restrictions_on_rent_restriction_id"
+  end
+
   create_table "building_rental_deposits", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "rental_deposit_id"
@@ -238,6 +256,24 @@ ActiveRecord::Schema.define(version: 20171016183352) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_rental_deposits_on_building_id"
     t.index ["rental_deposit_id"], name: "index_building_rental_deposits_on_rental_deposit_id"
+  end
+
+  create_table "building_roof_descriptions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "roof_description_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_roof_descriptions_on_building_id"
+    t.index ["roof_description_id"], name: "index_building_roof_descriptions_on_roof_description_id"
+  end
+
+  create_table "building_securities", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "security_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_securities_on_building_id"
+    t.index ["security_id"], name: "index_building_securities_on_security_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -467,7 +503,25 @@ ActiveRecord::Schema.define(version: 20171016183352) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rent_payment_incs", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rent_restrictions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rental_deposits", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rental_payment_includes", force: :cascade do |t|
     t.string "options"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -486,6 +540,18 @@ ActiveRecord::Schema.define(version: 20171016183352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["appointment_id"], name: "index_rented_units_on_appointment_id"
+  end
+
+  create_table "roof_descriptions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "securities", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -538,8 +604,15 @@ ActiveRecord::Schema.define(version: 20171016183352) do
   add_foreign_key "building_pet_restrictions", "pet_restrictions"
   add_foreign_key "building_pool_descriptions", "buildings"
   add_foreign_key "building_pool_descriptions", "pool_descriptions"
+  add_foreign_key "building_rent_payment_incs", "buildings"
+  add_foreign_key "building_rent_payment_incs", "rent_payment_incs"
+  add_foreign_key "building_rent_restrictions", "buildings"
+  add_foreign_key "building_rent_restrictions", "rent_restrictions"
   add_foreign_key "building_rental_deposits", "buildings"
   add_foreign_key "building_rental_deposits", "rental_deposits"
+  add_foreign_key "building_roof_descriptions", "buildings"
+  add_foreign_key "building_securities", "buildings"
+  add_foreign_key "building_securities", "securities"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
