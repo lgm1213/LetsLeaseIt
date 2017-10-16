@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'listing_image/index'
+
+  get 'listing_image/new'
+
+  get 'listing_image/create'
+
   resources :companies
   ActiveAdmin.routes(self)
   #static routes
