@@ -1,0 +1,2 @@
+class DiningArea < ApplicationRecord
+end

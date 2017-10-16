@@ -1,0 +1,2 @@
+class CoolingDescription < ApplicationRecord
+end

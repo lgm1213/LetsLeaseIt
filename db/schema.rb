@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016175118) do
+ActiveRecord::Schema.define(version: 20171016180035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,33 @@ ActiveRecord::Schema.define(version: 20171016175118) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_constructions_on_building_id"
     t.index ["construction_id"], name: "index_building_constructions_on_construction_id"
+  end
+
+  create_table "building_cooling_descriptions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "cooling_description_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_cooling_descriptions_on_building_id"
+    t.index ["cooling_description_id"], name: "index_building_cooling_descriptions_on_cooling_description_id"
+  end
+
+  create_table "building_designs", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "design_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_designs_on_building_id"
+    t.index ["design_id"], name: "index_building_designs_on_design_id"
+  end
+
+  create_table "building_dining_areas", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "dining_area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_dining_areas_on_building_id"
+    t.index ["dining_area_id"], name: "index_building_dining_areas_on_dining_area_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -246,6 +273,24 @@ ActiveRecord::Schema.define(version: 20171016175118) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cooling_descriptions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "designs", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dining_areas", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listing_images", force: :cascade do |t|
     t.bigint "listing_id"
     t.datetime "created_at", null: false
@@ -319,6 +364,12 @@ ActiveRecord::Schema.define(version: 20171016175118) do
   add_foreign_key "building_approvals", "buildings"
   add_foreign_key "building_constructions", "buildings"
   add_foreign_key "building_constructions", "constructions"
+  add_foreign_key "building_cooling_descriptions", "buildings"
+  add_foreign_key "building_cooling_descriptions", "cooling_descriptions"
+  add_foreign_key "building_designs", "buildings"
+  add_foreign_key "building_designs", "designs"
+  add_foreign_key "building_dining_areas", "buildings"
+  add_foreign_key "building_dining_areas", "dining_areas"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
