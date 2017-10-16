@@ -15,4 +15,7 @@ ActiveAdminRole.configure do |config|
   # [Optional:Symbol]
   # == Default permission | default: :cannot
   config.default_state = :cannot
+
+  #patch for batch update of user roles
+  config.current_user_method_name = "current_user" 
 end
