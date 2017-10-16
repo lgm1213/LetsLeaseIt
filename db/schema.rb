@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016180035) do
+ActiveRecord::Schema.define(version: 20171016182133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,51 @@ ActiveRecord::Schema.define(version: 20171016180035) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_dining_areas_on_building_id"
     t.index ["dining_area_id"], name: "index_building_dining_areas_on_dining_area_id"
+  end
+
+  create_table "building_equipments", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "equipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_equipments_on_building_id"
+    t.index ["equipment_id"], name: "index_building_equipments_on_equipment_id"
+  end
+
+  create_table "building_exterior_features", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "exterior_feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_exterior_features_on_building_id"
+    t.index ["exterior_feature_id"], name: "index_building_exterior_features_on_exterior_feature_id"
+  end
+
+  create_table "building_floors", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "floor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_floors_on_building_id"
+    t.index ["floor_id"], name: "index_building_floors_on_floor_id"
+  end
+
+  create_table "building_interior_features", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "interior_feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_interior_features_on_building_id"
+    t.index ["interior_feature_id"], name: "index_building_interior_features_on_interior_feature_id"
+  end
+
+  create_table "building_lease_terms", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "lease_term_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_lease_terms_on_building_id"
+    t.index ["lease_term_id"], name: "index_building_lease_terms_on_lease_term_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -291,6 +336,36 @@ ActiveRecord::Schema.define(version: 20171016180035) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "equipment", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exterior_features", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "floors", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interior_features", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lease_terms", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listing_images", force: :cascade do |t|
     t.bigint "listing_id"
     t.datetime "created_at", null: false
@@ -370,6 +445,16 @@ ActiveRecord::Schema.define(version: 20171016180035) do
   add_foreign_key "building_designs", "designs"
   add_foreign_key "building_dining_areas", "buildings"
   add_foreign_key "building_dining_areas", "dining_areas"
+  add_foreign_key "building_equipments", "buildings"
+  add_foreign_key "building_equipments", "equipment"
+  add_foreign_key "building_exterior_features", "buildings"
+  add_foreign_key "building_exterior_features", "exterior_features"
+  add_foreign_key "building_floors", "buildings"
+  add_foreign_key "building_floors", "floors"
+  add_foreign_key "building_interior_features", "buildings"
+  add_foreign_key "building_interior_features", "interior_features"
+  add_foreign_key "building_lease_terms", "buildings"
+  add_foreign_key "building_lease_terms", "lease_terms"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"

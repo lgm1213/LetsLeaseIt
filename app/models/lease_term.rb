@@ -1,0 +1,2 @@
+class LeaseTerm < ApplicationRecord
+end

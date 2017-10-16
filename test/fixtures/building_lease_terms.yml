@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building: one
+  lease_term: one
+
+two:
+  building: two
+  lease_term: two
