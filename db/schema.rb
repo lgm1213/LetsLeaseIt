@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016182133) do
+ActiveRecord::Schema.define(version: 20171016183352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,51 @@ ActiveRecord::Schema.define(version: 20171016182133) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_lease_terms_on_building_id"
     t.index ["lease_term_id"], name: "index_building_lease_terms_on_lease_term_id"
+  end
+
+  create_table "building_miscs", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "misc_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_miscs_on_building_id"
+    t.index ["misc_id"], name: "index_building_miscs_on_misc_id"
+  end
+
+  create_table "building_parking_restrictions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "parking_restriction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_parking_restrictions_on_building_id"
+    t.index ["parking_restriction_id"], name: "index_building_parking_restrictions_on_parking_restriction_id"
+  end
+
+  create_table "building_pet_restrictions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "pet_restriction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_pet_restrictions_on_building_id"
+    t.index ["pet_restriction_id"], name: "index_building_pet_restrictions_on_pet_restriction_id"
+  end
+
+  create_table "building_pool_descriptions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "pool_description_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_pool_descriptions_on_building_id"
+    t.index ["pool_description_id"], name: "index_building_pool_descriptions_on_pool_description_id"
+  end
+
+  create_table "building_rental_deposits", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "rental_deposit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_rental_deposits_on_building_id"
+    t.index ["rental_deposit_id"], name: "index_building_rental_deposits_on_rental_deposit_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -398,6 +443,36 @@ ActiveRecord::Schema.define(version: 20171016182133) do
     t.index ["users_id"], name: "index_listings_on_users_id"
   end
 
+  create_table "miscs", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parking_restrictions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pet_restrictions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pool_descriptions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rental_deposits", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rented_units", force: :cascade do |t|
     t.string "unit_no"
     t.string "unit_model"
@@ -455,6 +530,16 @@ ActiveRecord::Schema.define(version: 20171016182133) do
   add_foreign_key "building_interior_features", "interior_features"
   add_foreign_key "building_lease_terms", "buildings"
   add_foreign_key "building_lease_terms", "lease_terms"
+  add_foreign_key "building_miscs", "buildings"
+  add_foreign_key "building_miscs", "miscs"
+  add_foreign_key "building_parking_restrictions", "buildings"
+  add_foreign_key "building_parking_restrictions", "parking_restrictions"
+  add_foreign_key "building_pet_restrictions", "buildings"
+  add_foreign_key "building_pet_restrictions", "pet_restrictions"
+  add_foreign_key "building_pool_descriptions", "buildings"
+  add_foreign_key "building_pool_descriptions", "pool_descriptions"
+  add_foreign_key "building_rental_deposits", "buildings"
+  add_foreign_key "building_rental_deposits", "rental_deposits"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"

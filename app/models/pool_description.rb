@@ -1,0 +1,2 @@
+class PoolDescription < ApplicationRecord
+end

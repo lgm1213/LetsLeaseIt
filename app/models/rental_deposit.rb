@@ -1,0 +1,2 @@
+class RentalDeposit < ApplicationRecord
+end

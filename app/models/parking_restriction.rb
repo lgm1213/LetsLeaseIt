@@ -1,0 +1,2 @@
+class ParkingRestriction < ApplicationRecord
+end
