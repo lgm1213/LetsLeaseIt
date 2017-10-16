@@ -1,0 +1,2 @@
+class WindowTreatment < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class WaterAccess < ApplicationRecord
+end

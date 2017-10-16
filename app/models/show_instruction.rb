@@ -1,0 +1,2 @@
+class ShowInstruction < ApplicationRecord
+end

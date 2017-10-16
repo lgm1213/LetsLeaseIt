@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016184946) do
+ActiveRecord::Schema.define(version: 20171016190955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +274,42 @@ ActiveRecord::Schema.define(version: 20171016184946) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_securities_on_building_id"
     t.index ["security_id"], name: "index_building_securities_on_security_id"
+  end
+
+  create_table "building_show_instructions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "show_instruction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_show_instructions_on_building_id"
+    t.index ["show_instruction_id"], name: "index_building_show_instructions_on_show_instruction_id"
+  end
+
+  create_table "building_water_accesses", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "water_access_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_water_accesses_on_building_id"
+    t.index ["water_access_id"], name: "index_building_water_accesses_on_water_access_id"
+  end
+
+  create_table "building_waterfronts", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "waterfront_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_waterfronts_on_building_id"
+    t.index ["waterfront_id"], name: "index_building_waterfronts_on_waterfront_id"
+  end
+
+  create_table "building_window_treatments", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "window_treatment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_window_treatments_on_building_id"
+    t.index ["window_treatment_id"], name: "index_building_window_treatments_on_window_treatment_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -554,6 +590,12 @@ ActiveRecord::Schema.define(version: 20171016184946) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "show_instructions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -567,6 +609,24 @@ ActiveRecord::Schema.define(version: 20171016184946) do
     t.bigint "company_id"
     t.index ["companies_id"], name: "index_users_on_companies_id"
     t.index ["company_id"], name: "index_users_on_company_id"
+  end
+
+  create_table "water_accesses", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "waterfronts", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "window_treatments", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "appointments", "listings"
@@ -613,6 +673,14 @@ ActiveRecord::Schema.define(version: 20171016184946) do
   add_foreign_key "building_roof_descriptions", "buildings"
   add_foreign_key "building_securities", "buildings"
   add_foreign_key "building_securities", "securities"
+  add_foreign_key "building_show_instructions", "buildings"
+  add_foreign_key "building_show_instructions", "show_instructions"
+  add_foreign_key "building_water_accesses", "buildings"
+  add_foreign_key "building_water_accesses", "water_accesses"
+  add_foreign_key "building_waterfronts", "buildings"
+  add_foreign_key "building_waterfronts", "waterfronts"
+  add_foreign_key "building_window_treatments", "buildings"
+  add_foreign_key "building_window_treatments", "window_treatments"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
