@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016174808) do
+ActiveRecord::Schema.define(version: 20171016175118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,12 @@ ActiveRecord::Schema.define(version: 20171016174808) do
     t.index ["listing_id"], name: "index_appointments_on_listing_id"
   end
 
+  create_table "approvals", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "building_additional_parking", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "additional_parking_info_id"
@@ -97,6 +103,24 @@ ActiveRecord::Schema.define(version: 20171016174808) do
     t.datetime "updated_at", null: false
     t.index ["amenity_id"], name: "index_building_amenities_on_amenity_id"
     t.index ["building_id"], name: "index_building_amenities_on_building_id"
+  end
+
+  create_table "building_approvals", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "approval_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["approval_id"], name: "index_building_approvals_on_approval_id"
+    t.index ["building_id"], name: "index_building_approvals_on_building_id"
+  end
+
+  create_table "building_constructions", force: :cascade do |t|
+    t.bigint "building_id"
+    t.bigint "construction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_constructions_on_building_id"
+    t.index ["construction_id"], name: "index_building_constructions_on_construction_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -216,6 +240,12 @@ ActiveRecord::Schema.define(version: 20171016174808) do
     t.index ["users_id"], name: "index_companies_on_users_id"
   end
 
+  create_table "constructions", force: :cascade do |t|
+    t.string "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listing_images", force: :cascade do |t|
     t.bigint "listing_id"
     t.datetime "created_at", null: false
@@ -285,6 +315,10 @@ ActiveRecord::Schema.define(version: 20171016174808) do
   add_foreign_key "building_additional_rooms", "buildings"
   add_foreign_key "building_amenities", "amenities"
   add_foreign_key "building_amenities", "buildings"
+  add_foreign_key "building_approvals", "approvals"
+  add_foreign_key "building_approvals", "buildings"
+  add_foreign_key "building_constructions", "buildings"
+  add_foreign_key "building_constructions", "constructions"
   add_foreign_key "buildings", "users"
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
