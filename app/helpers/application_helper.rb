@@ -527,4 +527,24 @@ module ApplicationHelper
     ]
   end
 
+  def heat
+    [
+      ['Central Heat', 'Central Heat'],
+      ['Electric Heat', 'Electric Heat'],
+      ['Gas Heat', 'Gas Heat'],
+      ['Heat Strip', 'Heat Strip'],
+      ['Heat Pump/Reverse Cycle', 'Heat Pump/Reverse Cycle'],
+      ['No Heat', 'No Heat'],
+      ['Oil Heat', 'Oil Heat'],
+      ['Other', 'Other'],
+      ['Radiant Heat', 'Radiant Heat'],
+      ['Reverse Cycle Unit', 'Reverse Cycle Unit'],
+      ['Solar Heat', 'Solar Heat'],
+      ['Space Heater', 'Space Heater'],
+      ['Wall Furnace', 'Wall Furnace'],
+      ['Window/Wall', 'Window/Wall'],
+      ['Zoned Heat', 'Zoned Heat']
+    ]
+  end
+
 end

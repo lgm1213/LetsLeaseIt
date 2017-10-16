@@ -5,8 +5,8 @@ class Building < ApplicationRecord
 
   #Multiple Checkbox Collection relationships
     # has many through relationships for multiple data values with select checkboxes
-  has_many :building_additional_parking
-  has_many :additional_parking_infos, :through => :building_additional_parking
+  has_many :building_additional_parkings
+  has_many :additional_parking_infos, :through => :building_additional_parkings
 
   has_many :building_additional_rooms
   has_many :additional_rooms, :through => :building_additional_rooms
@@ -44,8 +44,8 @@ class Building < ApplicationRecord
   has_many :building_interior_features
   has_many :interior_features, :through => :building_interior_features
 
-  has_many :building_leasing_terms
-  has_many :leasing_terms, :through => :building_leasing_terms
+  has_many :building_lease_terms
+  has_many :lease_terms, :through => :building_lease_terms
 
   has_many :building_lot_descriptions
   has_many :lot_descriptions, :through => :building_lot_descriptions
@@ -62,14 +62,14 @@ class Building < ApplicationRecord
   has_many :building_pool_descriptions
   has_many :pool_descriptions, :through => :building_pool_descriptions
 
-  has_many :building_rental_pay_inc
-  has_many :rental_pay_inc, :through => :building_rental_pay_inc
+  has_many :building_rent_payment_incs
+  has_many :rent_payment_incs, :through => :building_rent_payment_incs
  
-  has_many :building_rental_dep_incls
-  has_many :rental_dep_incls, :through => :building_rental_dep_incls
+  has_many :building_rental_deposits
+  has_many :rental_deposits, :through => :building_rental_deposits
 
-  has_many :building_rental_restrictions
-  has_many :rental_restrictions, :through => :building_rental_restrictions
+  has_many :building_rent_restrictions
+  has_many :rent_restrictions, :through => :building_rent_restrictions
 
   has_many :building_roof_descriptions
   has_many :roof_descriptions, :through => :building_roof_descriptions
@@ -77,8 +77,8 @@ class Building < ApplicationRecord
   has_many :building_securities
   has_many :securities, :through => :building_securities
 
-  has_many :building_showing_instructions
-  has_many :showing_instructions, :through => :building_showing_instructions
+  has_many :building_show_instructions
+  has_many :show_instructions, :through => :building_show_instructions
   
   has_many :building_window_treatments
   has_many :window_treatments, :through => :building_window_treatments

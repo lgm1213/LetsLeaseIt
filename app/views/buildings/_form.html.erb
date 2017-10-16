@@ -218,85 +218,79 @@
         </div>
 
         <div class="col-lg-2">
-          <%#= f.label :lot_description, "Lot Description" %>
-          <br>
-          <%#= f.collection_check_boxes :lot_description_ids, LotDescription.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.label :lot_description, "Lot Description" %>
+          <%= f.select :pool, options_for_select(lot_description), {}, class: 'form-control' %>                    
         </div>
         <div class="col-lg-2">
-          <%#= f.label :waterfront_desc, "Waterfront Description" %>
+          <%= f.label :waterfront_desc, "Waterfront View" %>
           <br>
-          <%#= f.collection_check_boxes :waterfront_desc_ids, WaterfrontDesc.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :waterfront_desc_ids, WaterfrontDesc.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
-          <%#= f.label :parking_restriction, "Parking Restrictions" %>
+          <%= f.label :parking_restriction, "Parking Restrictions" %>
           <br>
-          <%#= f.collection_check_boxes :parking_restriction_ids, ParkingRestriction.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :parking_restriction_ids, ParkingRestriction.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
-          <%#= f.label :pool_description, "Pool Description" %>
+          <%= f.label :pool_description, "Pool Description" %>
           <br>
-          <%#= f.collection_check_boxes :pool_description_ids, PoolDescription.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :pool_description_ids, PoolDescription.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
-          <%#= f.label :water_access, "Water Access" %>
+          <%= f.label :water_access, "Water Access" %>
           <br>
-          <%#= f.collection_check_boxes :water_access_ids, WaterAccess.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :water_access_ids, WaterAccess.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
-          <%#= f.label :construction, "Construction" %>
+          <%= f.label :construction, "Construction" %>
           <br>
-          <%#= f.collection_check_boxes :construction_ids, Construction.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :construction_ids, Construction.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
     
         <div class="col-lg-2">
-          <%#= f.label :design, "Design" %>
+          <%= f.label :design, "Design" %>
           <br>
-          <%#= f.collection_check_boxes :design_ids, Design.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :design_ids, Design.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
-          <%#= f.label :roof_description, "Roof Description" %>
+          <%= f.label :roof_description, "Roof Description" %>
           <br>
-          <%#= f.collection_check_boxes :roof_description_ids, RoofDescription.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :roof_description_ids, RoofDescription.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
       </div>
     </div>      
@@ -346,98 +340,98 @@
     <br>
     
         <div class="col-lg-3">
-          <%#= f.label :pet_restrictions, "Pet Restrictions" %>
+          <%= f.label :pet_restrictions, "Pet Restrictions" %>
           <br>
-          <%#= f.collection_check_boxes :pet_restriction_ids, PetRestriction.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :pet_restriction_ids, PetRestriction.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-3">
-          <%#= f.label :security, "Security" %>
+          <%= f.label :security, "Security" %>
           <br>
-          <%#= f.collection_check_boxes :security_ids, Security.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :security_ids, Security.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-3">
-          <%#= f.label :equipment, "Equipment" %>
+          <%= f.label :equipment, "Equipment" %>
           <br>
-          <%#= f.collection_check_boxes :equipment_ids, Equipment.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :equipment_ids, Equipment.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-3">
-          <%#= f.label :exterior_features, "Exterior Features" %>
+          <%= f.label :exterior_features, "Exterior Features" %>
           <br>
-          <%#= f.collection_check_boxes :exterior_feature_ids, ExteriorFeature.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :exterior_feature_ids, ExteriorFeature.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
-          <%#= f.label :amenities, "Building Amenities" %>
+          <%= f.label :amenities, "Building Amenities" %>
           <br>
-          <%#= f.collection_check_boxes :amenity_ids, Amenity.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :amenity_ids, Amenity.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
       
     <br>
     <br>
    
         <div class="col-lg-3">
-          <%#= f.label :misc, "Miscellaneous" %>
+          <%= f.label :misc, "Miscellaneous" %>
           <br>
-          <%#= f.collection_check_boxes :misc_ids, Misc.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :misc_ids, Misc.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div> 
         <div class="col-lg-3">
-          <%#= f.label :rental_restrictions, "Rental Restrictions" %>
+          <%= f.label :rent_restrictions, "Rental Restrictions" %>
           <br>
-          <%#= f.collection_check_boxes :rental_restriction_ids, RentalRestriction.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :rent_restriction_ids, RentRestriction.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-3">
-          <%#= f.label :window_treatments, "Window Treatments" %>
+          <%= f.label :window_treatments, "Window Treatments" %>
           <br>
-          <%#= f.collection_check_boxes :window_treatment_ids, WindowTreatment.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :window_treatment_ids, WindowTreatment.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-3">
-          <%#= f.label :additional_rooms, "Additional Rooms" %>
+          <%= f.label :additional_rooms, "Additional Rooms" %>
           <br>
-          <%#= f.collection_check_boxes :additional_room_ids, AdditionalRoom.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :additional_room_ids, AdditionalRoom.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
   
       </div>
@@ -481,64 +475,59 @@
       <br>
       
           <div class="col-lg-2">
-            <%#= f.label :approval, "Approval Options" %>
+            <%= f.label :approval, "Approval Options" %>
             <br>
-            <%#= f.collection_check_boxes :approval_ids, Approval.all, :id, :options do |b| %>
-              <%#= b.label do %>
-                <%#= b.check_box %>
-                <%#= b.object.options %>
-              <%# end %>
-            <%# end %>                      
+            <%= f.collection_check_boxes :approval_ids, Approval.all, :id, :options do |b| %>
+              <%= b.label do %>
+                <%= b.check_box %>
+                <%= b.object.options %>
+              <% end %>
+            <% end %>                      
           </div>
           <div class="col-lg-2">
-            <%#= f.label :leasing_term, "Leasing Terms" %>
+            <%= f.label :lease_term, "Leasing Terms" %>
             <br>
-            <%#= f.collection_check_boxes :leasing_term_ids, LeasingTerm.all, :id, :options do |b| %>
-              <%#= b.label do %>
-                <%#= b.check_box %>
-                <%#= b.object.options %>
-              <%# end %>
-            <%# end %>                      
+            <%= f.collection_check_boxes :lease_term_ids, LeaseTerm.all, :id, :options do |b| %>
+              <%= b.label do %>
+                <%= b.check_box %>
+                <%= b.object.options %>
+              <% end %>
+            <% end %>                      
           </div>
           <div class="col-lg-2">
-            <%#= f.label :rental_pay_inc, "Rental Payment Includes" %>
+            <%= f.label :rent_payment_inc, "Rental Payment Includes" %>
             <br>
-            <%#= f.collection_check_boxes :rental_pay_inc_ids, RentalPayInc.all, :id, :options do |b| %>
-              <%#= b.label do %>
-                <%#= b.check_box %>
-                <%#= b.object.options %>
-              <%# end %>
-            <%# end %>                      
+            <%= f.collection_check_boxes :rent_payment_inc_ids, RentPaymentInc.all, :id, :options do |b| %>
+              <%= b.label do %>
+                <%= b.check_box %>
+                <%= b.object.options %>
+              <% end %>
+            <% end %>                      
           </div>
           <div class="col-lg-2">
-            <%#= f.label :heats, "Heating Options" %>
+            <%= f.label :heat, "Heating Options" %>
             <br>
-            <%#= f.collection_check_boxes :heat_ids, Heat.all, :id, :options do |b| %>
-              <%#= b.label do %>
-                <%#= b.check_box %>
-                <%#= b.object.options %>
-              <%# end %>
-            <%# end %>                      
+            <%= f.select :heat, options_for_select(heat), {}, class: 'form-control' %>                     
           </div>
           <div class="col-lg-2">
-            <%#= f.label :rental_dep_incl, "Rental Deposit Includes" %>
+            <%= f.label :rental_deposits, "Rental Deposit Includes" %>
             <br>
-            <%#= f.collection_check_boxes :rental_dep_incl_ids, RentalDepIncl.all, :id, :options do |b| %>
-              <%#= b.label do %>
-                <%#= b.check_box %>
-                <%#= b.object.options %>
-              <%# end %>
-            <%# end %>                      
+            <%= f.collection_check_boxes :rental_deposit_ids, RentalDeposit.all, :id, :options do |b| %>
+              <%= b.label do %>
+                <%= b.check_box %>
+                <%= b.object.options %>
+              <% end %>
+            <% end %>                      
           </div>
           <div class="col-lg-2">
-            <%#= f.label :cooling_description, "Cooling Description" %>
+            <%= f.label :cooling_description, "Cooling Description" %>
             <br>
-            <%#= f.collection_check_boxes :cooling_description_ids, CoolingDescription.all, :id, :options do |b| %>
-              <%#= b.label do %>
-                <%#= b.check_box %>
-                <%#= b.object.options %>
-              <%# end %>
-            <%# end %>                      
+            <%= f.collection_check_boxes :cooling_description_ids, CoolingDescription.all, :id, :options do |b| %>
+              <%= b.label do %>
+                <%= b.check_box %>
+                <%= b.object.options %>
+              <% end %>
+            <% end %>                      
           </div>
         
       <br>
@@ -688,15 +677,15 @@
     <div class="row">
       <div class="form-group">
         <div class="col-lg-2">
-          <%#= f.label :showing_instruction, "Showing Instructions" %>
+          <%= f.label :show_instruction, "Showing Instructions" %>
           <br>
           <br>
-          <%#= f.collection_check_boxes :showing_instruction_ids, ShowingInstruction.all, :id, :options do |b| %>
-            <%#= b.label do %>
-              <%#= b.check_box %>
-              <%#= b.object.options %>
-            <%# end %>
-          <%# end %>                      
+          <%= f.collection_check_boxes :show_instruction_ids, ShowInstruction.all, :id, :options do |b| %>
+            <%= b.label do %>
+              <%= b.check_box %>
+              <%= b.object.options %>
+            <% end %>
+          <% end %>                      
         </div>
         <div class="col-lg-2">
           <%= f.label :compensation_trans_broker, "Comensation Trans Broker" %>

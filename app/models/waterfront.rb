@@ -1,2 +1,0 @@
-class Waterfront < ApplicationRecord
-end
