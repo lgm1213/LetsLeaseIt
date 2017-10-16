@@ -1,4 +1,4 @@
-RentPayInc.create!([
+RentPaymentInc.create!([
 { options: 'Association Fee' },
 { options: 'Cable Tv' },
 { options: 'Electricity' },
@@ -9,4 +9,4 @@ RentPayInc.create!([
 { options: 'Waste' },
 { options: 'Water/Sewer' },
 { options: 'Yard Maintenance' }])
-p "create #{RentPayInc.count} RentPayInc options"
+p "create #{RentPaymentInc.count} RentPayInc options"
