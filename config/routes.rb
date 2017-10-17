@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'listing_image/index'
 
-  get 'listing_image/new'
-
-  get 'listing_image/create'
-
-  resources :companies
   ActiveAdmin.routes(self)
+  
   #static routes
   root 'landing#home'
   get 'landing/home'
@@ -39,4 +34,10 @@ Rails.application.routes.draw do
   resources :analytics, only: [:index]
   #route for modal that opens
   get 'buildings/:id/modal', to: 'buildings#open_building_modal'
+  
+  get 'listing_image/index'
+  get 'listing_image/new'
+  get 'listing_image/create'
+
+  resources :companies
 end
