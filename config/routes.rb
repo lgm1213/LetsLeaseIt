@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'landing/about'
   get 'landing/contact'
   get 'landing/help'
-  
+
   # user routes
   resources :users
   get '/signup' => 'users#new'
@@ -30,10 +30,13 @@ Rails.application.routes.draw do
   resources :buildings do
     resources :listings do
       resources :appointments do
-        resources :rented_units 
+        resources :rented_units
       end
     end
   end
+
+  #Analytics Routes
+  resources :analytics, only: [:index]
   #route for modal that opens
   get 'buildings/:id/modal', to: 'buildings#open_building_modal'
 end

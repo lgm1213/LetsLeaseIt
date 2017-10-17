@@ -24,10 +24,15 @@
       <div class="logo-element">
           LI+
       </div>
-      </li>        
+      </li>
       <li class="landing_link">
           <%= link_to root_path do %>
           <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Landing page </span>
+          <% end %>
+      </li>
+      <li class="landing_link">
+          <%= link_to analytics_path do %>
+          <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Reporting</span>
           <% end %>
       </li>
     </ul>
