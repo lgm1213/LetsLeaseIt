@@ -1,3 +1,4 @@
+User.destory_all
 User.create!([
 	{
 		username: 'lgm1213',
