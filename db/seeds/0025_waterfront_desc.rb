@@ -24,4 +24,4 @@ WaterfrontDesc.create!([
 { options: 'Rip Rap' },
 { options: 'River Front' },
 { options: 'Seawall' }])
-p "Created #{Waterfront.count} Waterfront options"
+p "Created #{WaterfrontDesc.count} Waterfront options"
