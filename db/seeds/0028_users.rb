@@ -7,7 +7,7 @@ User.create!([
 		password_confirmation: 'password',
 		title: 'SuperAdmin',
 		role: 100,
-		companies_id: 01
+		company_id: 01
 		},
 	{
 		username: 'javier',
@@ -16,7 +16,7 @@ User.create!([
 		password_confirmation: 'password',
 		title: 'Admin',
 		role: 99,
-		companies_id: 01
+		company_id: 01
 	},
 	{
 		username: 'nick',
@@ -25,7 +25,7 @@ User.create!([
 		password_confirmation: 'password',
 		title: 'Admin',
 		role: 99,
-		companies_id: 01
+		company_id: 01
 	},
 	{
 		username: 'amanda',
@@ -34,7 +34,7 @@ User.create!([
 		password_confirmation: 'password',
 		title: 'Admin',
 		role: 99,
-		companies_id: 01
+		company_id: 01
 	},	
 	{
 		username: 'megan',
@@ -43,5 +43,5 @@ User.create!([
 		password_confirmation: 'password',
 		title: 'Admin',
 		role: 99,
-		companies_id: 01
+		company_id: 01
 	}])	
