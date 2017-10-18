@@ -1,3 +1,4 @@
+WaterfrontDesc.destroy_all
 WaterfrontDesc.create!([
 { options: 'Bay Front' },
 { options: 'Canal Front' },

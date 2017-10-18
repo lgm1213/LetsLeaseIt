@@ -1,3 +1,4 @@
+WindowTreatment.destroy_all
 WindowTreatment.create!([
 { options: 'Arched Windows' },
 { options: 'Awning' },
