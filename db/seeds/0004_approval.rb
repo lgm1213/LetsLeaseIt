@@ -1,4 +1,4 @@
-Approval.destory_all
+Approval.destroy_all
 Approval.create!([
 { options: '1-2 Weeks Approval' },
 { options: '3-4 Weeks Approval' },

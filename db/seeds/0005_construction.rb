@@ -1,4 +1,4 @@
-Construction.destory_all
+Construction.destroy_all
 Construction.create!([
 { options: 'Aluminum Siding' },
 { options: 'Concrete Block Construction' },
