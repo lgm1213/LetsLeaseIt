@@ -106,13 +106,13 @@ class BuildingsController < ApplicationController
                                        :variable_dual_rate, :owner_agent, :occupancy_information,
                                        :lender_approval, :compensation_trans_broker, :compensation_buyers_agent,
                                        :compensation_non_rep, :renewal_commission, :agent_url, :virtual_tour,
-                                       :photo_instructions, :status, :list_type,:additional_parking_info[ ],
-                                       :additional_rooms[ ], :amenities[ ],  :approval[ ], :construction[ ], 
-                                       :cooling_description[ ], :design[ ], :dining_area[ ], :equipment[ ],  
-                                       :exterior_feature[ ], :floor[ ], :interior_feature[ ], :lease_term[ ], 
-                                       :misc[ ], :parking_restriction[ ], :pet_restriction[ ], :pool_description[ ], 
-                                       :rental_deposit  [ ], :rent_payment_inc[ ], :rent_restriction[ ], 
-                                       :roof_description[ ], :security[ ], :show_instruction[ ],
-                                       :water_access[ ], :waterfront[ ], :window_treatment[ ])
+                                       :photo_instructions, :status, :list_type,:additional_parking_info_ids[],
+                                       :additional_rooms_ids[], :amenities_ids[], :approval_ids[], :construction[], 
+                                       :cooling_description_ids[], :design_ids[], :dining_area_ids[], :equipment_ids[],  
+                                       :exterior_feature_ids[], :floor_ids[ ], :interior_feature_ids[], :lease_term_ids[], 
+                                       :misc_ids[], :parking_restriction_ids[ ], :pet_restriction_ids[], :pool_description_ids[], 
+                                       :rental_deposit_ids[], :rent_payment_inc[], :rent_restriction[], 
+                                       :roof_description_ids[], :security_ids[], :show_instruction_ids[],
+                                       :water_access_ids[], :waterfront_desc_ids[], :window_treatment_ids[])
     end
 end
