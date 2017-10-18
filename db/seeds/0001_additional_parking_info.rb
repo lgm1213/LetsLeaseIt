@@ -1,4 +1,4 @@
-AdditionalParkingInfo.destory_all
+AdditionalParkingInfo.destroy_all
 AdditionalParkingInfo.create!([
 { options: '1 Space' },
 { options: '2 Spaces' },
