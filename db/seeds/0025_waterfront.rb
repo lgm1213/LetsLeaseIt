@@ -1,4 +1,4 @@
-Waterfront.create!([
+WaterfrontDesc.create!([
 { options: 'Bay Front' },
 { options: 'Canal Front' },
 { options: 'Creek Front' },
