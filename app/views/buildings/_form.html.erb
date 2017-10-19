@@ -219,7 +219,7 @@
 
         <div class="col-lg-2">
           <%= f.label :lot_description, "Lot Description" %>
-          <%= f.select :pool, options_for_select(lot_description), {}, class: 'form-control' %>                    
+          <%= f.select :lot_description, options_for_select(lot_description), {}, class: 'form-control' %>                    
         </div>
         <div class="col-lg-2">
           <%= f.label :waterfront_desc, "Waterfront View" %>
@@ -335,10 +335,8 @@
           <%= f.label :cable_available, "Cable Available" %>
           <%= f.select :cable_available, options_for_select(yes_or_no), {}, class: 'form-control' %>
         </div>
-      
     <br>
     <br>
-    
         <div class="col-lg-3">
           <%= f.label :pet_restrictions, "Pet Restrictions" %>
           <br>
@@ -389,10 +387,8 @@
             <% end %>
           <% end %>                      
         </div>
-      
     <br>
     <br>
-   
         <div class="col-lg-3">
           <%= f.label :misc, "Miscellaneous" %>
           <br>
@@ -433,7 +429,6 @@
             <% end %>
           <% end %>                      
         </div>
-  
       </div>
     </div>
   </fieldset>
@@ -455,9 +450,7 @@
             <%= f.label :application_fee, "Application Fee" %>
             <%= f.text_field :application_fee, class: 'form-control' %>
           </div>
-        
       <br>
-      
           <div class="col-lg-4">
             <%= f.label :move_in_cost, "Move In Cost" %>
             <%= f.text_field :move_in_cost, class: 'form-control' %>
@@ -470,10 +463,8 @@
             <%= f.label :additional_moving_cost, "Additional Moving Cost?" %>
             <%= f.select :additional_moving_cost, options_for_select(yes_or_no), {}, class: 'form-control' %>
           </div>
-       
       <br>
       <br>
-      
           <div class="col-lg-2">
             <%= f.label :approval, "Approval Options" %>
             <br>
@@ -529,10 +520,8 @@
               <% end %>
             <% end %>                      
           </div>
-        
       <br>
       <br>
-      
           <div class="col-lg-4">
             <%= f.label :sewer_description, "Sewer Description" %>
             <%= f.select :sewer_description, options_for_select(sewer_description), {}, class: 'form-control' %>

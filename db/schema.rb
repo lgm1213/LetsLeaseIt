@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016220016) do
+ActiveRecord::Schema.define(version: 20171019163952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -296,11 +296,11 @@ ActiveRecord::Schema.define(version: 20171016220016) do
 
   create_table "building_waterfront_descs", force: :cascade do |t|
     t.bigint "building_id"
-    t.bigint "waterfront_id"
+    t.bigint "waterfront_desc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_waterfront_descs_on_building_id"
-    t.index ["waterfront_id"], name: "index_building_waterfront_descs_on_waterfront_id"
+    t.index ["waterfront_desc_id"], name: "index_building_waterfront_descs_on_waterfront_desc_id"
   end
 
   create_table "building_window_treatments", force: :cascade do |t|
@@ -358,20 +358,12 @@ ActiveRecord::Schema.define(version: 20171016220016) do
     t.string "pool_dimensions"
     t.boolean "spa"
     t.string "lot_description"
-    t.string "waterfront_desc"
-    t.string "parking_restrictions"
-    t.string "pool_description"
-    t.string "water_access"
-    t.string "construction"
-    t.string "design"
-    t.string "roof_description"
     t.text "remarks"
     t.text "directions"
     t.text "broker_remarks"
     t.text "internet_remarks"
     t.boolean "pets_allowed"
     t.boolean "cable_available"
-    t.string "pet_restrictions"
     t.string "min_days_to_lease"
     t.string "leases_per_year"
     t.string "application_fee"
@@ -672,7 +664,7 @@ ActiveRecord::Schema.define(version: 20171016220016) do
   add_foreign_key "building_water_accesses", "buildings"
   add_foreign_key "building_water_accesses", "water_accesses"
   add_foreign_key "building_waterfront_descs", "buildings"
-  add_foreign_key "building_waterfront_descs", "waterfront_descs", column: "waterfront_id"
+  add_foreign_key "building_waterfront_descs", "waterfront_descs"
   add_foreign_key "building_window_treatments", "buildings"
   add_foreign_key "building_window_treatments", "window_treatments"
   add_foreign_key "buildings", "users"

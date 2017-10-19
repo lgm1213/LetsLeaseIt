@@ -86,7 +86,7 @@ class Building < ApplicationRecord
   has_many :building_water_accesses
   has_many :water_accesses, :through => :building_water_accesses
 
-  has_many :building_waterfront_desc
-  has_many :waterfront_desc, :through => :building_waterfront_desc
+  has_many :building_waterfront_descs
+  has_many :waterfront_descs, :through => :building_waterfront_descs
 
 end
