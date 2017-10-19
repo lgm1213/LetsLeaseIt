@@ -28,6 +28,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/new
   def new
     @building = Building.new
+    @users = User.all
   end
 
   # GET /buildings/1/edit

@@ -222,7 +222,7 @@
           <%= f.select :lot_description, options_for_select(lot_description), {}, class: 'form-control' %>                    
         </div>
         <div class="col-lg-2">
-          <%= f.label :waterfront_desc, "Waterfront View" %>
+          <%= f.label :waterfront_desc, "Waterfront View Description" %>
           <br>
           <%= f.collection_check_boxes :waterfront_desc_ids, WaterfrontDesc.all, :id, :options do |b| %>
             <%= b.label do %>
