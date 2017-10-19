@@ -16,7 +16,8 @@ ActiveAdmin.register_page "Dashboard" do
           table_for User.all.each do
             column("Username") { |user| status_tag(user.username) }
             column("E-mail") { |user| link_to(user.email, admin_user_path(user)) }
-            column("Role")   { |user| number_to_currency user.role }
+            column("Title at Company")   { |user| user.title }
+            column("User Account Type")   { |user| user.role }
           end
         end
       end
@@ -27,7 +28,8 @@ ActiveAdmin.register_page "Dashboard" do
           table_for Building.all.each do
             column("Building Id") { |building| status_tag(building.id) }
             column("Development Name") { |building| link_to(building.development_name, admin_building_path(building)) }
-            column("Created At")   { |building| number_to_currency building.created_at }
+            column("Folio Number") { |building| link_to(building.folio, admin_building_path(building)) }
+            column("Created On")   { |building| building.created_at.strftime('%A, %m/%d/%Y @ %I:%M%p') }
           end
         end
       end
