@@ -1,4 +1,7 @@
 ActiveAdmin.register Listing do
+ActiveAdmin.register Appointment do
+  belongs_to :listing
+end
 
   state_action :uploaded, confirm: :true
   state_action :scheduled,confirm: :true
@@ -37,7 +40,7 @@ ActiveAdmin.register Listing do
 
   form do |f|
     f.inputs "Listings" do
-      f.input :building_id, as: :select, collection: Building.all.map { |m| [m.city, m.id] }
+      f.input :building_id, as: :select, collection: Building.all.map { |m| [m.development_name, m.id] }
       f.input :unit_no
       f.input :unit_model
       f.input :price
@@ -45,7 +48,7 @@ ActiveAdmin.register Listing do
       f.input :bath
       f.input :half_bath
       f.input :sqft
-      f.input :date_available
+      f.input :date_available, as: :datepicker
       f.input :notes
       f.input :state, as: :select, collection: Listing::STATE
     end

@@ -8,9 +8,7 @@ class Listing < ApplicationRecord
 
   #validates :listing_limits
 
-
   STATE = [:pending, :showing, :toured, :closed, :listed]
-
   state_machine :state, initial: :pending do
   	event :uploaded do
   		transition pending: :listed

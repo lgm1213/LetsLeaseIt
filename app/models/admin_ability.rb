@@ -7,6 +7,7 @@ class AdminAbility
 
     if user.super_admin?
       can :manage, :all
+      can :read, ActiveAdmin::Page, name: "Dashboard"
     else
       register_role_based_abilities(user)
     end
