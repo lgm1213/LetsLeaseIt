@@ -3,6 +3,8 @@ class Building < ApplicationRecord
   has_many :listings, dependent: :destroy
   has_many :appointments, through: :listings
 
+  has_many :building_images, inverse_of: :building
+
   #Multiple Checkbox Collection relationships
     # has many through relationships for multiple data values with select checkboxes
   has_many :building_additional_parkings
@@ -26,8 +28,8 @@ class Building < ApplicationRecord
   has_many :building_designs
   has_many :designs, :through => :building_designs
 
-  has_many :building_dinings
-  has_many :dining_areas, :through => :building_dinings
+  has_many :building_dining_areas
+  has_many :dining_areas, :through => :building_dining_areas
 
   has_many :building_equipments
   has_many :equipments, :through => :building_equipments
@@ -38,8 +40,12 @@ class Building < ApplicationRecord
   has_many :building_floors
   has_many :floors, :through => :building_floors
 
-  has_many :building_heats
-  has_many :heats, :through => :building_heats
+  ### TODO: BuildingHeat && BuildingLotDescription Models are not present in the codebase.
+  # has_many :building_heats
+  # has_many :heats, :through => :building_heats
+
+  # has_many :building_lot_descriptions
+  # has_many :lot_descriptions, :through => :building_lot_descriptions
 
   has_many :building_interior_features
   has_many :interior_features, :through => :building_interior_features
@@ -47,8 +53,6 @@ class Building < ApplicationRecord
   has_many :building_lease_terms
   has_many :lease_terms, :through => :building_lease_terms
 
-  has_many :building_lot_descriptions
-  has_many :lot_descriptions, :through => :building_lot_descriptions
 
   has_many :building_miscs
   has_many :misc, :through => :building_miscs
@@ -88,5 +92,7 @@ class Building < ApplicationRecord
 
   has_many :building_waterfront_descs
   has_many :waterfront_descs, :through => :building_waterfront_descs
+
+  accepts_nested_attributes_for :building_images, reject_if: :all_blank, allow_destroy: true
 
 end

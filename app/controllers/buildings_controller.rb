@@ -112,6 +112,6 @@ class BuildingsController < ApplicationController
                                        pet_restriction_ids:[], pool_description_ids:[], rental_deposit_ids:[], 
                                        rent_payment_inc_ids:[], rent_restriction_ids:[],roof_description_ids:[],
                                        security_ids:[], show_instruction_ids:[],water_access_ids:[],waterfront_desc_ids:[], 
-                                       window_treatment_ids:[])
+                                       window_treatment_ids:[], building_images_attributes: [:id, :image, :_destroy])
     end
 end
