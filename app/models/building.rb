@@ -6,7 +6,8 @@ class Building < ApplicationRecord
   has_many :building_images, inverse_of: :building
 
   #Multiple Checkbox Collection relationships
-    # has many through relationships for multiple data values with select checkboxes
+  # has many through relationships for multiple data values with select checkboxes
+  
   has_many :building_additional_parkings
   has_many :additional_parking_infos, :through => :building_additional_parkings
 
@@ -52,7 +53,6 @@ class Building < ApplicationRecord
 
   has_many :building_lease_terms
   has_many :lease_terms, :through => :building_lease_terms
-
 
   has_many :building_miscs
   has_many :misc, :through => :building_miscs

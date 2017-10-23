@@ -603,6 +603,7 @@ ActiveRecord::Schema.define(version: 20171023082306) do
     t.string "remember_digest"
     t.integer "role", limit: 2, default: 0, null: false
     t.integer "company_id"
+    t.integer "companies_id"
   end
 
   create_table "water_accesses", force: :cascade do |t|
