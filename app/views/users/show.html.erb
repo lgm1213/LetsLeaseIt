@@ -19,7 +19,7 @@
   <%= gravatar_for @user %>
   <p><strong>Username: </strong><%= @user.username %></p>
   <p><strong>Email: </strong><%= @user.email %></p>
-  <p><strong>Company: </strong><%= Company.find(@user.company_id).name %></p>
+  <p><strong>Company: </strong><%= @user.company.name %></p>
   <p><strong>Title: </strong><%= @user.title %></p>
   <br/>
   <h5>Quickview of Associated Buildings and Listings</h5>

@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  role_changeable
 	role_changeable
 	filter :email
   filter :username
