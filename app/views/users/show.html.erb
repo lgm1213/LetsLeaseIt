@@ -16,6 +16,7 @@
 <h1>Account Info</h1>
 <div class="ibox-content">
   <p id="notice"><%= notice %></p>
+  <%= gravatar_for @user %>
   <p><strong>Username: </strong><%= @user.username %></p>
   <p><strong>Email: </strong><%= @user.email %></p>
   <p><strong>Company: </strong><%= Company.find(@user.company_id).name %></p>
