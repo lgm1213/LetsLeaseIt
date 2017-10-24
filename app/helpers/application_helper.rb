@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def bridge(input_date)
+    return input_date
+  end
+
 	# to help assign which controller will be currently used
 	def is_active_controller(controller_name, class_name = nil)
 	  if params[:controller] == controller_name

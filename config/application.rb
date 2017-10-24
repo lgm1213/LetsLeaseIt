@@ -15,7 +15,9 @@ module LetsLeaseIt
 		      bucket: Rails.application.secrets.aws_bucket_name,
 		      access_key_id: Rails.application.secrets.aws_access_key,
 		      secret_access_key: Rails.application.secrets.aws_secret_key
-		    }
+		    },
+        :url =>':s3_domain_url',
+        :path => '/:class/:attachment/:id_partition/:style/:filename'
 		  }
     end
 

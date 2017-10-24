@@ -232,7 +232,7 @@
               <p>Begin with an evaluation & mktg pieces scheduled. Review listing status and realtor relationships
               </p>
               <a href="#" class="btn btn-xs btn-primary"> More info</a>
-              <span class="vertical-date"> Today <br/> <small><%= Date.today.strftime("%a, %b %e %Y") %></small> </span>
+              <span class="vertical-date"> Today <br/> <small><%= bridge(Date.today).strftime("%a, %b %e %Y") %></small> </span>
             </div>
           </div>
           <div class="vertical-timeline-block">
@@ -243,7 +243,7 @@
               <h2><center>R.</center></h2>
               <p>Recommend tactics to increase traffic. Review Problem Units, identify targeted floorpans</p>
               <a href="#" class="btn btn-xs btn-primary"> More info</a>
-              <span class="vertical-date"> Tomorrow <br/> <small><%= Date.tomorrow.strftime("%a, %b %e %Y") %></small> </span>
+              <span class="vertical-date"> Tomorrow <br/> <small><%= bridge(Date.tomorrow).strftime("%a, %b %e %Y") %></small> </span>
             </div>
           </div>
           <div class="vertical-timeline-block">
@@ -254,7 +254,7 @@
               <h2><center>I.</center></h2>
               <p>Input all information into the System & your Listing goes LIVE!</p>
               <a href="#" class="btn btn-xs btn-primary"> More info</a>
-              <span class="vertical-date"> Monday <br/> <small>Jan 02</small> </span>
+              <span class="vertical-date"><%= bridge(Date.today+3).strftime("%A") %><br/> <small><%= bridge(Date.today+3).strftime("%a, %b %e %Y") %></small> </span>
             </div>
           </div>
           <div class="vertical-timeline-block">
@@ -265,7 +265,7 @@
               <h2><center>D.</center></h2>
               <p>A Dedicated account manager will be assigned to your subscription to monitor traffic, qualify inquiries and set appointments. All with the option to have bi-weekly phone call & email follow ups to keep your account on track</p>
               <a href="#" class="btn btn-xs btn-primary"> More info</a>
-              <span class="vertical-date"> Monday <br/> <small>Jan 02</small> </span>
+              <span class="vertical-date"> <%= bridge(Date.today+4).strftime("%A") %> <br/> <small><%= bridge(Date.today+4).strftime("%a, %b %e %Y") %></small> </span>
             </div>
           </div>
           <div class="vertical-timeline-block">
@@ -276,7 +276,7 @@
               <h2><center>G.</center></h2>
               <p>GROW your database, increase your occupancy and see more qualified leads walk through your door</p>
               <a href="#" class="btn btn-xs btn-primary"> More info</a>
-              <span class="vertical-date"> Monday <br/> <small>Jan 02</small> </span>
+              <span class="vertical-date"> <%= bridge(Date.today+5).strftime("%A") %> <br/> <small><%= bridge(Date.today+5).strftime("%a, %b %e %Y") %></small> </span>
             </div>
           </div>
           <div class="vertical-timeline-block">
@@ -287,7 +287,7 @@
               <h2><center >E.</center></h2>
               <p>Evaluate your progress with your account manager and tweak the service as often as you’d like in order to keep up with the quickly changing market.</p>
               <a href="#" class="btn btn-xs btn-primary"> More info</a>
-              <span class="vertical-date"> Monday <br/> <small>Jan 02</small> </span>
+              <span class="vertical-date"> <%= bridge(Date.today+6).strftime("%A") %> <br/> <small><%= bridge(Date.today+6).strftime("%a, %b %e %Y") %></small> </span>
             </div>
           </div>
         </div>
