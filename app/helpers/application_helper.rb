@@ -1,4 +1,11 @@
 module ApplicationHelper
+
+  def gravatar_url(email, size)
+    gravatar = Digest::MD5::hexdigest(email).downcase
+    default_url = 'http://i0.kym-cdn.com/photos/images/newsfeed/000/176/107/business-cat.jpg'
+    url = "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
+  end
+
 	# to help assign which controller will be currently used
 	def is_active_controller(controller_name, class_name = nil)
 	  if params[:controller] == controller_name
