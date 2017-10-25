@@ -16,29 +16,34 @@
 <h1>Account Info</h1>
 <div class="ibox-content">
   <p id="notice"><%= notice %></p>
-  <%= gravatar_url(@user) %>
+  <%= gravatar_for @user %>
   <p><strong>Username: </strong><%= @user.username %></p>
   <p><strong>Email: </strong><%= @user.email %></p>
   <p><strong>Company: </strong><%= Company.find(@user.company_id).name %></p>
   <p><strong>Title: </strong><%= @user.title %></p>
   <br/>
-  <h5>Quickview of Associated Buildings and Listings</h5>
+  <h5>Most Reccent Building and Listings</h5>
   <% @user.buildings[0,3].each do |user_building| %>
-  <div class="panel-body">
+  <div class="list-group">
     <div class="panel-group" id="accordion">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h5 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed">
-              Building Id#<%= user_building.id %>, Building Legal Name: <%= user_building.legal %>, Created on: <%= user_building.created_at.strftime("%m-%d-%Y") %>
-              </a>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=user_building.id.humanize.capitalize%>" aria-expanded="false" class="">
+              Building Id#<%= user_building.id %>, Building Legal Name: <%= user_building.legal %>, Created on: <%= user_building.created_at.strftime("%A, %B %d, %Y") %></a>
           </h5>
-          <% user_building.listings.each do |building_listings| %>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+        <% user_building.listings[0,3].each do |building_listings| %>
+        <div id="collapse<%= user_building.id.humanize.capitalize%>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
           <div class="panel-body">
-            <p>Listing Info:<br/>Id# <%= building_listings.id %>, <%= building_listings.unit_model %>, <%= building_listings.unit_no %></p>
-            <%= link_to "See More Info", building_listing_path(user_building, building_listings) %>
+            <div class="row">
+              <div class="col-sm-4 col-md-">
+                <div class="thumbnail">
+                  <p>Listing Info:<br/>Id# <%= building_listings.id %>, <%= building_listings.unit_model %>, <%= building_listings.unit_no %></p>
+                  <%= link_to "See More Info", building_listing_path(user_building, building_listings) %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <% end %>
@@ -46,11 +51,8 @@
     </div>
   </div>
   <% end %>
+  <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %> | <%= link_to "New Building", new_building_path %>
 </div>
 
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
-<%= link_to "New Building", new_building_path %>

@@ -12,7 +12,7 @@
 
 	    <div class="category-content sidebar-user">
 	    	<div class="media">
-		    	<%= link_to image_tag gravatar_url(@user), alt: "",:class =>"img-circle img-sm", user_path(current_user), :class => "media-left") %>
+		    	<%= link_to image_tag gravatar_url(current_user), alt: "",:class =>"img-circle img-sm", user_path(current_user), :class => "media-left") %>
 	    	  <div class="media-body">
 	    	  	<span class="media-heading text-semibold">
 	    	  		<%= current_user.username %>

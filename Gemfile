@@ -79,4 +79,5 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 #gem 'aws-sdk'
 gem 'aws-sdk', '< 2.0'
 gem "cocoon"
+gem 'humanize'
 

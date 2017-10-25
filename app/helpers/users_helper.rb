@@ -1,6 +1,8 @@
 module UsersHelper
-  def gravatar_url(user)
-    gravatar_id = Digest::MD5::hexdigest(user.email).downcase"http://gravatar.com/avatar/#{gravatar_id}.png"
-    default_image ="http://i0.kym-cdn.com/photos/images/newsfeed/000/176/107/business-cat.jpg"
+  def gravatar_for(user, size: 80)
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    default_url = "https://i.imgflip.com/1y6yeq.jpg"
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&r=g&d=#{CGI.escape(default_url)}"
+    image_tag(gravatar_url, alt: user.username, class: "gravatar img-circle")
   end
 end
