@@ -1,7 +1,4 @@
 ActiveAdmin.register Listing do
-ActiveAdmin.register Appointment do
-  belongs_to :listing
-end
 
   state_action :uploaded, confirm: :true
   state_action :scheduled,confirm: :true

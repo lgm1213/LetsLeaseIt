@@ -6,10 +6,10 @@
         <%= link_to "Home", root_path %></a>
       </li>
       <li class="active">
-        <strong><%= link_to "Portfolio", buildings_path(@company, @buildings) %></strong>
+        <strong><%= link_to "Portfolio", companies_path %></strong>
       </li>
       <li>
-        <%= link_to "New Building or Property", new_building_path %>
+        <%= link_to "New Building or Property", new_company_path %>
       </li>
     </ol>
   </div>
@@ -20,7 +20,14 @@
 <div class="ibox-content">
 	<p id="notice"><%= notice %></p>
 
-	<p><strong>Name: </strong><%= @company.name %> |<%= link_to 'Edit', edit_company_path(@company) %> </p>
+	<p><strong>Name: </strong><%= @company.name %></p>
+	<p><strong>Street Address: </strong><%= @company.street_address %></p>
+	<p><strong>City: </strong><%= @company.city %></p>
+	<p><strong>State: </strong><%= @company.state %></p>
+	<p><strong>Zip: </strong><%= @company.zip %></p>
+	<p><strong>Phone: </strong><%= @company.phone %></p>
+	<p><strong>Point of Contact: </strong><%= @company.point_of_contact %></p> 
+	<p> <%= link_to 'Edit', edit_company_path(@company) %> </p>
 	<br/>
 	<table class='table'>
     <thead>

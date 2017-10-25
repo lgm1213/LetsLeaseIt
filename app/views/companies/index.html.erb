@@ -6,10 +6,10 @@
         <%= link_to "Home", root_path %></a>
       </li>
       <li class="active">
-        <strong><%= link_to "Portfolio", buildings_path %></strong>
+        <strong><%= link_to "Portfolio", companies_path %></strong>
       </li>
       <li>
-        <%= link_to "New Building or Property", new_building_path %>
+        <%= link_to "New Building or Property", new_company_path %>
       </li>
     </ol>
   </div>
@@ -20,7 +20,7 @@
 
 <h1>Companies</h1>
 <div class="ibox-content">
-  <table class='table'>
+  <table class='table tabl'>
     <thead>
       <tr>
         <th>Id#</th>
@@ -44,6 +44,6 @@
 
   <br>
 
-  <%= link_to 'New Company', new_company_path %>
+  <%= link_to 'New Company', new_company_path, class: 'btn btn-info'%>
   
 </div>

@@ -22,3 +22,4 @@
 //= require wow/wow.min.js
 //= require cocoon
 //= require turbolinks
+//= require bootstrap-switch

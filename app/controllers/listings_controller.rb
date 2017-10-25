@@ -76,4 +76,8 @@ class ListingsController < ApplicationController
     def building
       @building ||= Building.find(params[:building_id])
     end
+
+    def toggle_enable_status
+      @listing.toggle!(:active)
+    end
 end
