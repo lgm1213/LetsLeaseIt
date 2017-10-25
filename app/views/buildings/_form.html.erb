@@ -31,7 +31,7 @@
         </div>
 
         <div class="col-lg-4">
-          <%= f.label :Street %>
+          <%= f.label :Street, "Street Address" %>
           <%= f.text_field :street, class: 'form-control' %>
         </div>
         <div class="col-lg-4">
@@ -54,18 +54,6 @@
           <%= f.label :State %>
           <%= f.select :state, options_for_select(us_states),{}, class: 'form-control' %>
         </div>
-        <div class="col-lg-4">
-          <%= f.label :Street %>
-          <%= f.text_field :street, class: 'form-control' %>
-        </div>
-        <div class="col-lg-4">
-          <%= f.label :Compass_Point, "Compass Point" %>
-          <%= f.select :compass_point, options_for_select(compass_directions), {}, class: 'form-control' %>
-        </div>
-        <div class="col-lg-4">
-          <%= f.label :Street_Name, "Street Name" %>
-          <%= f.text_field :street_name, class: 'form-control' %>
-        </div>    
     
         <div class="col-lg-4"> 
           <%= f.label :Zip %>
@@ -76,7 +64,7 @@
           <%= f.text_field :zip4, class: 'form-control' %>
         </div>
         <div class="col-lg-4"> 
-          <%= f.label :Unit %>
+          <%= f.label :Unit, "Apartment or Unit Number" %>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon2">#</span>
             <%= f.text_field :unit, class: 'form-control' %>

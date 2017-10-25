@@ -45,3 +45,5 @@ User.create!([
 		role: 99,
 		company_id: 12
 	}])	
+
+p "Created #{User.count} User accounts"
