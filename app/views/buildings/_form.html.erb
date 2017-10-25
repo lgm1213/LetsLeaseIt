@@ -685,13 +685,17 @@
     <br>
     <br>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-4">
         <%= f.label :agent_url, "Agent URL" %>
         <%= f.text_field :agent_url, class: 'form-control' %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-4">
         <%= f.label :photo_instructions, "Photo Instructions" %>
         <%= f.text_field :photo_instructions, class: 'form-control' %>
+      </div>
+      <div class="col-lg-4">
+        <%= f.label :company_id, "Company Building Belongs To" %>
+        <%= f.collection_select(:company_id, Company.all, :id, :name, prompt: true) %>
       </div>
     </div>  
   </fieldset>
