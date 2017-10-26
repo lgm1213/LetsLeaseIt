@@ -5,7 +5,7 @@ class Listing < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :listing_images, dependent: :destroy
   accepts_nested_attributes_for :listing_images
-  # validate :validate_listing_count, :active_siblings, :too_many_siblings?
+  validate :validate_listing_count, on: [:create, :update]
 
   STATE = [:pending, :showing, :toured, :closed, :listed]
 
@@ -32,17 +32,19 @@ class Listing < ApplicationRecord
   end
 
   private
-    # def validate_listing_count
-    #   errors.add(:base, "You have too many active listings, please destroy a listing or contact your Account Manager if you need more listings") 
-    #     unless too_many_siblings?
-    #   end
-    # end
+    def validate_listing_count
+      if too_many_siblings?
+        errors.add(:base, "You have too many active listings, please destroy a listing or contact your Account Manager if you need more listings") 
+      else
 
-    # def active_siblings
-    #   building.listings.where(active: true)
-    # end
+      end
+    end
 
-    # def too_many_siblings?
-    #   (active_siblings.select {|sib| sib.id != id }).first  >= (building.listing_limit - 1)
-    # end
+    def active_siblings
+      building.listings.where(active: true).count
+    end
+
+    def too_many_siblings?
+      active_siblings >= building.listing_limit
+    end
 end
