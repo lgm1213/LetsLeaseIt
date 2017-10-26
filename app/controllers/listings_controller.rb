@@ -70,13 +70,14 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath, :sqft, :date_available, :notes, :state)
+      params.require(:listing).permit(:active, :building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath, :sqft, :date_available, :notes, :state)
     end
 
     def building
       @building ||= Building.find(params[:building_id])
     end
 
+    ## TODO - Not sure where are we using this action, we should remove
     def toggle_enable_status
       @listing.toggle!(:active)
     end
