@@ -70,7 +70,7 @@
 
 <p>
   <strong>Appointment:</strong>
-  <%= @rented_unit.appointment %>
+  <%= @rented_unit.appointment.start_time.strftime("%A, %B %d, %Y @ %I:%M %p") %>
 </p>
 
 <%= link_to 'Edit', edit_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, @rented_unit) %> |

@@ -17,7 +17,7 @@ class RentedUnitsController < ApplicationController
 
   # GET /rented_units/new
   def new
-    @rented_unit = appointment.rented_units.new
+    @rented_unit = appointment.rented_units.new(rented_unit_params)
   end
 
   # GET /rented_units/1/edit
