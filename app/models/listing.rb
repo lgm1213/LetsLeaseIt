@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :listing_images, dependent: :destroy
   accepts_nested_attributes_for :listing_images
+  # validate :validate_listing_count, :active_siblings, :too_many_siblings?
 
   STATE = [:pending, :showing, :toured, :closed, :listed]
 
@@ -42,6 +43,6 @@ class Listing < ApplicationRecord
     # end
 
     # def too_many_siblings?
-    #   active_siblings.select { |sib| sib.id != id } >= (building.listing_limit - 1)
+    #   (active_siblings.select {|sib| sib.id != id }).first  >= (building.listing_limit - 1)
     # end
 end

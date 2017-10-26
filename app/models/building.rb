@@ -42,13 +42,6 @@ class Building < ApplicationRecord
   has_many :building_floors
   has_many :floors, :through => :building_floors
 
-  ### TODO: BuildingHeat && BuildingLotDescription Models are not present in the codebase.
-  # has_many :building_heats
-  # has_many :heats, :through => :building_heats
-
-  # has_many :building_lot_descriptions
-  # has_many :lot_descriptions, :through => :building_lot_descriptions
-
   has_many :building_interior_features
   has_many :interior_features, :through => :building_interior_features
 
