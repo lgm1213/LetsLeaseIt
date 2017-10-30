@@ -82,3 +82,5 @@ gem "cocoon"
 gem 'humanize'
 #bootstrap toggle
 gem "bootstrap-switch-rails"
+#bootstrap datepicker
+gem 'bootstrap-datepicker-rails'
