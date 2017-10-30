@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025172722) do
+ActiveRecord::Schema.define(version: 20171030103651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -407,6 +407,9 @@ ActiveRecord::Schema.define(version: 20171025172722) do
     t.integer "listing_limit", default: 3
     t.string "heat"
     t.integer "company_id"
+    t.integer "account_manager_id"
+    t.integer "regional_manager_id"
+    t.integer "property_manager_id"
     t.index ["user_id"], name: "index_buildings_on_user_id"
   end
 
