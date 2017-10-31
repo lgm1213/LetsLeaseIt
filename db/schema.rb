@@ -15,6 +15,20 @@ ActiveRecord::Schema.define(version: 20171030103651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
   create_table "active_admin_managed_resources", force: :cascade do |t|
     t.string "class_name", null: false
     t.string "action", null: false
@@ -404,6 +418,7 @@ ActiveRecord::Schema.define(version: 20171030103651) do
     t.string "photo_instructions"
     t.string "status"
     t.string "list_type"
+    t.bigint "users_id"
     t.integer "listing_limit", default: 3
     t.string "heat"
     t.integer "company_id"
@@ -411,12 +426,14 @@ ActiveRecord::Schema.define(version: 20171030103651) do
     t.integer "regional_manager_id"
     t.integer "property_manager_id"
     t.index ["user_id"], name: "index_buildings_on_user_id"
+    t.index ["users_id"], name: "index_buildings_on_users_id"
   end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_id"
     t.string "street_address"
     t.string "city"
     t.string "state"
@@ -509,9 +526,12 @@ ActiveRecord::Schema.define(version: 20171030103651) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mls_link"
+    t.bigint "users_id"
     t.string "state"
     t.boolean "active", default: false, null: false
     t.index ["building_id"], name: "index_listings_on_building_id"
+    t.index ["users_id"], name: "index_listings_on_users_id"
   end
 
   create_table "miscs", force: :cascade do |t|
@@ -568,6 +588,9 @@ ActiveRecord::Schema.define(version: 20171030103651) do
     t.bigint "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes"
+    t.datetime "spanstart"
+    t.datetime "spanend"
     t.index ["appointment_id"], name: "index_rented_units_on_appointment_id"
   end
 
@@ -598,8 +621,8 @@ ActiveRecord::Schema.define(version: 20171030103651) do
     t.datetime "updated_at", null: false
     t.string "remember_digest"
     t.integer "role", limit: 2, default: 0, null: false
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_users_on_company_id"
+    t.integer "company_id"
+    t.integer "companies_id"
   end
 
   create_table "water_accesses", force: :cascade do |t|
@@ -677,5 +700,4 @@ ActiveRecord::Schema.define(version: 20171030103651) do
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "buildings"
   add_foreign_key "rented_units", "appointments"
-  add_foreign_key "users", "companies"
 end
