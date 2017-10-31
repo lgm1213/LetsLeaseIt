@@ -21,5 +21,6 @@
 //= require inspinia.js
 //= require wow/wow.min.js
 //= require cocoon
+//= require highcharts
 //= require turbolinks
 //= require bootstrap-switch

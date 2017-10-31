@@ -72,7 +72,7 @@ class RentedUnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rented_unit_params
-      params.require(:rented_unit).permit(:unit_no, :unit_model, :price, :bedrooms, :bathrooms, :half_baths, :square_footage, :leased, :appointment_id)
+      params.require(:rented_unit).permit(:unit_no, :unit_model, :price, :bedrooms, :bathrooms, :half_baths, :square_footage, :leased, :appointment_id, :notes, :spanstart, :spanend)
     end
 
     def building

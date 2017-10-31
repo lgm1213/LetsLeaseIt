@@ -25,10 +25,12 @@
 //= require codemirror/codemirror.js
 //= require codemirror/mode/javascript/javascript.js
 
-// datepicker formating for Ruby
+
+// Bootstrap Swithc
 $('input:checkbox').bootstrapSwitch();
 
 
+// datepicker formating for Ruby
 $('.datepicker').datepicker(
 	{format: 'yy-mm-dd'}
 	);
