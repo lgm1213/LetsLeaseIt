@@ -6,10 +6,10 @@
         <%= link_to "Home", root_path %></a>
       </li>
       <li>
-        <%= link_to "Portfolio", buildings_path %>
+        <%= link_to "Rental Communities", buildings_path %>
       </li>
       <li class="active">
-        <strong><%= link_to "New Building or Property", new_building_path %></strong>
+        <strong><%= link_to "New Rental Community", new_building_path %></strong>
       </li>
     </ol>
   </div>
@@ -21,7 +21,7 @@
     <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-title">
-          <h5>Create New Building Form</h5>
+          <h5>Create New Rental Community Form</h5>
           <div class="ibox-tools">
             <a class="collapse-link">
               <i class="fa fa-chevron-up"></i>
@@ -29,8 +29,8 @@
           </div>
         </div>
         <div class="ibox-content">
-          <h2>New Building Creation Form</h2>
-          <p>Here you can fill in the fields below and create a new Building. The Building will hold the listings within the database</p>
+          <h2>New Rental Community Creation Form</h2>
+          <p>Here you can fill in the fields below and create a new Rental Community. The Rental Community will hold the MLS Listings within the database</p>
 					<%= render 'form', building: @building %>
 					<br>
 					<%= link_to 'Back', buildings_path %>

@@ -6,10 +6,10 @@
         <%= link_to "Home", root_path %></a>
       </li>
       <li>
-        <strong><%= link_to "Portfolio", building_listings_path %></strong>
+        <strong><%= link_to "MLS Listing Portfolio", building_listings_path %></strong>
       </li>
       <li class="active">
-        <strong><%= link_to "New Listing", new_building_listing_path %></strong>
+        <strong><%= link_to "New MLS Listing", new_building_listing_path %></strong>
       </li>
     </ol>
   </div>
@@ -28,7 +28,7 @@
   <div class="ibox-content">
     <h2 >Listing Id#<%= @listing.id %></h2><br/>
     <p id="notice"><%= notice %></p>
-    <p><strong>Building:</strong><%= @listing.building.id %></p>
+    <p><strong>Rental Community:</strong><%= @listing.building.id %></p>
     <p><strong>Listing Active? </strong><%= @listing.active %></p>
     <p><strong>Unit no:</strong><%= @listing.unit_no %></p>
     <p><strong>Unit model:</strong><%= @listing.unit_model %></p>

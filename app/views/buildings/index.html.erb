@@ -6,10 +6,10 @@
         <%= link_to "Home", root_path %></a>
       </li>
       <li class="active">
-        <strong><%= link_to "Portfolio", buildings_path %></strong>
+        <strong><%= link_to "Rental Communities", buildings_path %></strong>
       </li>
       <li>
-        <%= link_to "New Building or Property", new_building_path %>
+        <%= link_to "New Rental Community", new_building_path %>
       </li>
     </ol>
   </div>
@@ -17,7 +17,7 @@
   </div>
 </div>
 <p id="notice"><%# notice %></p>
-<h1>Buildings</h1>
+<h1>Rental Communities</h1>
 <div class="row">
 <% @buildings.each do |building| %>
   <div class="col-sm-3 col-md-4">
