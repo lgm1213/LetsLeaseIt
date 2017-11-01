@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    New Building or Property
+    <h2>New Building or Property</h2>
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Rental Communities", buildings_path %></li>
@@ -33,6 +32,7 @@
 					    <p><strong>Area:</strong><%= @building.area %></p>    
 					  </div>
 					  <div class="col-sm-4">
+							<p id="notice"><%= notice %></p>
 						  <p><strong>Folio: </strong><%= @building.folio %></p>
 						  <p><strong>Street: </strong><%= @building.street %></p>
 						  <p><strong>Compasspoint: </strong><%= @building.compass_point %></p>
