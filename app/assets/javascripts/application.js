@@ -24,3 +24,6 @@
 //= require highcharts
 //= require turbolinks
 //= require bootstrap-switch
+//= require select2-full
+
+

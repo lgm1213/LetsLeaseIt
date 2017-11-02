@@ -7,7 +7,7 @@ class Building < ApplicationRecord
   belongs_to :property_manager, foreign_key: :property_manager_id, class_name: 'User'
 
   has_many :listings, dependent: :destroy
-  has_many :appointments, through: :listings
+  has_many :appointments
 
   has_many :building_images, inverse_of: :building
 
