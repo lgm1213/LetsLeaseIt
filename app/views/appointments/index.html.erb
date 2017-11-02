@@ -8,9 +8,11 @@
       <li class="active">
         <strong><%= link_to "Listing Portfolio", building_listings_path %></strong>
       </li>
-      <li>
-        <%= link_to "Create New Appointment", new_building_listing_appointment_path(@building,@listing) %>
-      </li>
+      <% if can? :create, Appointment %>
+        <li>
+          <%= link_to "Create New Appointment", new_building_listing_appointment_path(@building,@listing) %>
+        </li>
+      <%end%>  
     </ol>
   </div>
   <div class="col-lg-2">

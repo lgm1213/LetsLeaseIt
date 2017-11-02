@@ -11,8 +11,11 @@
       <li>
         <strong><%= link_to "Portfolio", building_listings_path %></strong>
       </li>
+      <% if can? :create, Listing %>
       <li class="active">
         <%= link_to "New Listing", new_building_listing_path %>
+      <%end%>
+
       </li>
     </ol>
   </div>
@@ -51,13 +54,15 @@
           <td><%= listing.bath %></td>
           <td><%= listing.half_bath %></td>
           <td><%= listing.sqft %></td>
-          <td><%= listing.date_available.strftime('%A, %m/%d/%Y') %></td>
+          <td><%= listing.date_available.strftime('%A, %m/%d/%Y') rescue nil %></td>
           <td><%= listing.notes %></td>
           <td><%= listing.active %></td>
           <td><%= listing.created_at.strftime("%A, %m/%d/%Y @ %I:%M%p")%></td>
           <td><%= link_to 'Show', building_listing_path(@building, listing) %></td>
-          <td><%= link_to 'Edit', edit_building_listing_path(@building, listing) %></td>
-          <td><%= link_to 'Destroy', building_listing_path(@building, listing), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if can? :modify, Listing  %>
+            <td><%= link_to 'Edit', edit_building_listing_path(@building, listing) %></td>
+            <td><%= link_to 'Destroy', building_listing_path(@building, listing), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
         </tr>
       <% end %>
     </tbody>
@@ -65,5 +70,6 @@
 </div>
 
 <br>
-
-<%= link_to 'New Listing', new_building_listing_path %>
+<% if !current_user.regional_manager? %>
+  <%= link_to 'New Listing', new_building_listing_path %>
+<%end%>

@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_building, only: [:show, :edit, :update, :destroy, :open_building_modal]
   protect_from_forgery except: [:index, :open_building_modal, :show]
 
@@ -6,11 +7,8 @@ class BuildingsController < ApplicationController
   # GET /buildings
   # GET /buildings.json
   def index
-    if current_user.role == [99, 100]
-      @buildings = Building.all
-    else
-      @buildings = Building.where(user_id: current_user.id)
-    end
+      @buildings = Building.all if current_user.role != "regional_manager"
+      @buildings = Building.all.where(:company_id => current_user.company_id) if current_user.role == "regional_manager" rescue nil
   end
 
   # GET /buildings/1

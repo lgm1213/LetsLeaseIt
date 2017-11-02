@@ -8,9 +8,11 @@
       <li class="active">
         <strong><%= link_to "Portfolio", buildings_path %></strong>
       </li>
-      <li>
-        <%= link_to "New Building or Property", new_building_path %>
-      </li>
+      <% if can? :create, Building %>
+        <li>
+          <%= link_to "New Building or Property", new_building_path %>
+        </li>
+      <%end%>
     </ol>
   </div>
   <div class="col-lg-2">
@@ -41,7 +43,9 @@
 <br>
 <br>
 <br>
-<%= link_to 'New Building', new_building_path, class: 'btn btn-primary' %>
+<% if can? :create, Building %>
+  <%= link_to 'New Building', new_building_path, class: 'btn btn-primary' %>
+<%end%>
 <script>
   $(function(){
     var windowH = $(window).height();
