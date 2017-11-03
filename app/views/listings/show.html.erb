@@ -1,16 +1,10 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    New Building or Property
+    <h2>New Building or Property</h2>
     <ol class="breadcrumb">
-      <li>
-        <%= link_to "Home", root_path %></a>
-      </li>
-      <li>
-        <strong><%= link_to "Portfolio", building_listings_path %></strong>
-      </li>
-      <li class="active">
-        <strong><%= link_to "New Listing", new_building_listing_path %></strong>
-      </li>
+      <li><%= link_to "Home", root_path %></a></li>
+      <li><strong><%= link_to "Portfolio", building_listings_path %></strong></li>
+      <li class="active"><strong><%= link_to "New Listing", new_building_listing_path %></strong></li>
     </ol>
   </div>
   <div class="col-lg-2">
@@ -19,28 +13,31 @@
 <div class="wrapper wrapper-content animaed fadeInRight">
   <div class="row">
     <div class="col-lg-12">
-      <div class="box">
-<div class="col-lg-12">
-  <div class="ibox float-e-margins">
-    <div class="ibox-title">
-      <h5>Listing Details<small class="m-l-sm"></small></h5>
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Listing Details<small class="m-l-sm"></small></h5>
+        </div>
+        <div class="ibox-content">
+          <h2 >Listing Id#<%= @listing.id %></h2><br/>
+          <p id="notice"><%= notice %></p>
+          <p><strong>Building:</strong><%= @listing.building.id %></p>
+          <p><strong>Listing Active? </strong><%= @listing.active %></p>
+          <p><strong>Unit no:</strong><%= @listing.unit_no %></p>
+          <p><strong>Unit model:</strong><%= @listing.unit_model %></p>
+          <p><strong>Price:</strong><%= @listing.price %></p>
+          <p><strong>Bedrooms:</strong><%= @listing.bedrooms %></p>
+          <p><strong>Bath:</strong><%= @listing.bath %></p>
+          <p><strong>Half bath:</strong><%= @listing.half_bath %></p>
+          <p><strong>Sqft:</strong><%= @listing.sqft %></p>
+          <p><strong>Date available:</strong><%= @listing.date_available %></p>
+          <p><strong>Notes:</strong><%= @listing.notes %></p>
+          <%= link_to 'Edit', edit_building_listing_path(@building, @listing), class: 'btn btn-primary' %> |
+          <%= link_to 'Back', building_listings_path, class: 'btn btn-primary' %> |
+          <%= link_to 'View Appointments', building_listing_appointments_path(@building, @listing), class: 'btn btn-primary' %> |
+          <%= link_to 'Create Appointment', new_building_listing_appointment_path(@building, @listing), class: 'btn btn-primary' %>
+        </div>
+      </div>
     </div>
-  <div class="ibox-content">
-    <h2 >Listing Id#<%= @listing.id %></h2><br/>
-    <p id="notice"><%= notice %></p>
-    <p><strong>Building:</strong><%= @listing.building.id %></p>
-    <p><strong>Listing Active? </strong><%= @listing.active %></p>
-    <p><strong>Unit no:</strong><%= @listing.unit_no %></p>
-    <p><strong>Unit model:</strong><%= @listing.unit_model %></p>
-    <p><strong>Price:</strong><%= @listing.price %></p>
-    <p><strong>Bedrooms:</strong><%= @listing.bedrooms %></p>
-    <p><strong>Bath:</strong><%= @listing.bath %></p>
-    <p><strong>Half bath:</strong><%= @listing.half_bath %></p>
-    <p><strong>Sqft:</strong><%= @listing.sqft %></p>
-    <p><strong>Date available:</strong><%= @listing.date_available %></p>
-    <p><strong>Notes:</strong><%= @listing.notes %></p>
-    <%= link_to 'Edit', edit_building_listing_path(@building, @listing), class: 'btn btn-primary' %> |
-    <%= link_to 'Back', building_listings_path, class: 'btn btn-primary' %> |
-    <%= link_to 'View Appointments', building_listing_appointments_path(@building, @listing), class: 'btn btn-primary' %> |
-    <%= link_to 'Create Appointment', new_building_listing_appointment_path(@building, @listing), class: 'btn btn-primary' %>
-  
+  </div>
+</div>
+      

@@ -1,17 +1,11 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    New Building or Property
+    <h2>New Building or Property</h2>
     <ol class="breadcrumb">
-      <li>
-        <%= link_to "Home", root_path %></a>
-      </li>
-      <li class="active">
-        <strong><%= link_to "Portfolio", buildings_path %></strong>
-      </li>
+      <li><%= link_to "Home", root_path %></a></li>
+      <li class="active"><strong><%= link_to "Portfolio", buildings_path %></strong></li>
       <% if can? :create, Building %>
-        <li>
-          <%= link_to "New Building or Property", new_building_path %>
-        </li>
+      <li><%= link_to "New Building or Property", new_building_path %></li>
       <%end%>
     </ol>
   </div>
