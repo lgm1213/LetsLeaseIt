@@ -1,24 +1,5 @@
-# README
+Built using RoR 5.1.4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app uses various javascript libraries.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It is intended to be used by LeaseIt inc as a way to manage and assist Property Management Companies get their vacant units leased faster
