@@ -1,22 +1,13 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    New Building or Property
+    <h2>New Building or Property</h2>
     <ol class="breadcrumb">
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "Buildings", buildings_path %>
-      </li>
-      <li>
-        <strong><%= link_to "Portfolio", building_listings_path %></strong>
-      </li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Rental Communities", buildings_path %></li>
+      <li><strong><%= link_to "MLS Listings Portfolio", building_listings_path %></strong></li>
       <% if can? :create, Listing %>
-      <li class="active">
-        <%= link_to "New Listing", new_building_listing_path %>
+      <li class="active"><%= link_to "New Listing", new_building_listing_path %></li>
       <%end%>
-
-      </li>
     </ol>
   </div>
   <div class="col-lg-2">
@@ -28,7 +19,7 @@
   <table>
     <thead>
       <tr>
-        <th>Building</th>
+        <th>Rental Community</th>
         <th>Unit Number</th>
         <th>Unit Model</th>
         <th>Price</th>
@@ -67,9 +58,8 @@
       <% end %>
     </tbody>
   </table>
-</div>
-
 <br>
 <% if !current_user.regional_manager? %>
   <%= link_to 'New Listing', new_building_listing_path %>
 <%end%>
+</div>

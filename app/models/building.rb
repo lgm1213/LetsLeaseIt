@@ -1,8 +1,13 @@
 class Building < ApplicationRecord
   belongs_to :company
   belongs_to :user
+
+  belongs_to :account_manager, foreign_key: :account_manager_id, class_name: 'User'
+  belongs_to :regional_manager, foreign_key: :regional_manager_id, class_name: 'User'
+  belongs_to :property_manager, foreign_key: :property_manager_id, class_name: 'User'
+
   has_many :listings, dependent: :destroy
-  has_many :appointments, through: :listings
+  has_many :appointments
 
   has_many :building_images, inverse_of: :building
 

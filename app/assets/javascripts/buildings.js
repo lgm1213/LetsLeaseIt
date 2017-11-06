@@ -15,7 +15,6 @@
 //= require fullcalendar/moment.min.js
 //= require clockpicker/clockpicker.js
 //= require daterangepicker/daterangepicker.js
-//= require select2/select2.full.min.js
 //= require touchspin/jquery.bootstrap-touchspin.min.js
 //= require bootstrap-markdown/bootstrap-markdown.js
 //= require bootstrap-markdown/markdown.js
@@ -24,6 +23,13 @@
 //= require typehead/bootstrap3-typeahead.min.js
 //= require codemirror/codemirror.js
 //= require codemirror/mode/javascript/javascript.js
+//= require select2-full
+
+$(".select.select-form").select2({
+    placeholder: "Options to Select",
+    allowClear: true
+  });
+
 
     $(function() {
 
@@ -95,3 +101,4 @@
                 });
 
     });
+

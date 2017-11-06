@@ -1,42 +1,48 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    Chart Analytics
+    <h2>Chart Analytics</h2>
     <ol class="breadcrumb">
-      <li>
-        <%= link_to "Home", root_path %></a>
-      </li>
-      <li class="active">
-        <strong><%= link_to "Building Portfolio", buildings_path %></strong>
-      </li>
-      <li>
-        <a href="#">Something will add</a>
-      </li>
+      <li><%= link_to "Home", root_path %></a></li>
+      <li class="active"><strong><%= link_to "Rental Communities Portfolio", buildings_path %></strong></li>
+      <li><a href="#">Something will add</a></li>
     </ol>
   </div>
+  <div class="col-lg-2">
+  </div>
 </div>
-<h1>Analytics/Reporting</h1>
-<div class="ibox-content">
-  <div class="panel-body">
-    <div class="panel-group" id="accordion">
-      <div class="panel panel-default">
-        <div class="row">
-          <div class="col-md-6">
-            <%=render 'line_chart'%>
-          </div>
-          <div class="col-md-6">
-            <%=render 'area_chart'%>
-          </div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+        <h5>Analytics/Reporting</h5>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <%=render 'bar_chart'%>
-          </div>
-          <div class="col-md-6">
-            <%=render 'pie_chart'%>
+        <div class="ibox-content">
+          <div class="panel-body">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="row">
+                  <div class="col-md-6">
+                    <%=render 'line_chart'%>
+                  </div>
+                  <div class="col-md-6">
+                    <%=render 'area_chart'%>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%=render 'bar_chart'%>
+                  </div>
+                  <div class="col-md-6">
+                    <%=render 'pie_chart'%>
+                  </div>
+                </div>
+              </div>
+              <%= link_to "Back", :back %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= link_to "Back", :back %>

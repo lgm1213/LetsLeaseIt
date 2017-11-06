@@ -82,6 +82,7 @@ class BuildingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def building_params
       params.require(:building).permit(:user_id, :company_id, :county, :area, :city, :folio, :street,
+                                       :account_manager_id, :regional_manager_id, :property_manager_id,
                                        :compass_point, :street_name, :state, :zip,:zip4,
                                        :unit, :legal, :zoning, :geographical, :municip_code,
                                        :township, :section, :subdivision, :parcel, :map_coordinates,

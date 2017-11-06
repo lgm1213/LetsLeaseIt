@@ -1,4 +1,4 @@
-class ListingImageController < ApplicationController
+class MlsListingImageController < ApplicationController
   def index
   end
 
