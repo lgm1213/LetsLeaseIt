@@ -12,11 +12,13 @@
   </div>
 </div>
 <div class="col-md-12">
-  <h1>Building Info</h1>
+  <h1>Building Info </h1>
   <div class="ibox">
     <div class="ibox-content">
       <div class="product-imitation">
-	      <%#= image_tag @building.building_images.image.url(:square) %>
+      	<% @building.building_images.each do |p| %>
+      	  <%= image_tag p.image(:square) %>
+      	<% end %> 
       </div>
       <div class="product-desc">
         <span class="product-price">

@@ -538,4 +538,16 @@ module BuildingsHelper
 			['Yound Womans Prep Academy',	'Yound Womans Prep Academy']
 		]
 	end
+
+	def account_managers
+	  account_managers = User.where(role: "account_manager")	
+	end
+
+	def regional_managers
+	  regional_managers = User.where(role: "regional_manager")	
+	end
+
+	def property_managers
+	  property_managers = User.where(role: "property_manager")	
+	end
 end
