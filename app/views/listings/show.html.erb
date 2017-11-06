@@ -33,7 +33,7 @@
           <p><strong>Notes:</strong><%= @listing.notes %></p>
           <%= link_to 'Edit', edit_building_listing_path(@building, @listing), class: 'btn btn-primary' %> |
           <%= link_to 'Back', building_listings_path, class: 'btn btn-primary' %> |
-          <%= link_to 'View Appointments', building_listing_appointments_path(@building, @listing), class: 'btn btn-primary' %> |
+          <%= link_to 'View Appointments', building_appointments_path(@building), class: 'btn btn-primary' %> |
           <%= link_to 'Create Appointment', new_building_listing_appointment_path(@building, @listing), class: 'btn btn-primary' %>
         </div>
       </div>

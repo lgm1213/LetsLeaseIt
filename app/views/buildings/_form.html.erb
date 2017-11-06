@@ -134,12 +134,12 @@
         </div>
 
         <div class="col-lg-4">
-          <%= f.label :regional_manager, "Regional Manager" %>
-          <%= f.select :regional_manager, options_for_select(regional_managers.collect {|r| [ "#{r.username}", r.id] }), {},class: 'form-control' %> 
+          <%= f.label :regional_manager_id, "Regional Manager" %>
+          <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.username}", r.id] }), {},class: 'form-control' %> 
         </div>
         <div class="col-lg-4">
-          <%= f.label :property_manager, "Property_manager" %>
-          <%= f.select :property_manager, options_for_select(property_managers.collect {|p| [ "#{p.username}", p.id] }), {},class: 'form-control' %> 
+          <%= f.label :property_manager_id, "Property_manager" %>
+          <%= f.select :property_manager_id, options_for_select(property_managers.collect {|p| [ "#{p.username}", p.id] }), {},class: 'form-control' %> 
         </div>
         
       </div>

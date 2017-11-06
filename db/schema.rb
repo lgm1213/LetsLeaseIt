@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030103651) do
-
+ActiveRecord::Schema.define(version: 20171102231646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -428,12 +427,6 @@ ActiveRecord::Schema.define(version: 20171030103651) do
     t.integer "account_manager_id"
     t.integer "regional_manager_id"
     t.integer "property_manager_id"
-<<<<<<< HEAD
-    t.integer "account_manager"
-    t.integer "regional_manager"
-    t.integer "property_manager"
-=======
->>>>>>> building_flow
     t.index ["user_id"], name: "index_buildings_on_user_id"
     t.index ["users_id"], name: "index_buildings_on_users_id"
   end
