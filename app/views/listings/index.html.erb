@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>New Building or Property</h2>
+    <h2>New MLS Listing</h2>
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Rental Communities", buildings_path %></li>
@@ -15,7 +15,7 @@
 </div>
 <p id="notice"><%= notice %></p>
 <div class="ibox-content">
-  <h1>Listings</h1>
+  <h1>MLS Listings</h1>
   <table>
     <thead>
       <tr>
@@ -58,9 +58,9 @@
       <% end %>
     </tbody>
   </table>
+  <% if !current_user.regional_manager? %>
+    <%= link_to 'New Listing', new_building_listing_path %>
+  <%end%>
 </div>
 
 <br>
-<% if !current_user.regional_manager? %>
-  <%= link_to 'New Listing', new_building_listing_path %>
-<%end%>

@@ -5,7 +5,7 @@
       <li><%= link_to "Home", root_path %></a></li>
       <li class="active"><strong><%= link_to "MLS Listing Portfolio", building_listings_path %></strong></li>
       <% if can? :create, Appointment %>
-      <li><%= link_to "Create New Appointment", new_building_listing_appointment_path(@building,@listing) %></li>
+      <li><%= link_to "Create New Appointment", new_building_appointment_path(@building,@listing) %></li>
       <%end%>  
     </ol>
   </div>
@@ -37,12 +37,13 @@
                     <%= date %>
                       <% appointments.each do |meeting| %>
                       <div>
-                        <%= link_to"#{meeting.start_time.strftime('%I:%M%p')}, #{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, meeting)  %>
+                        <%= link_to"#{meeting.start_time.strftime('%I:%M%p')}, #{meeting.realtor_name}", building_appointment_path(@building.id, meeting)  %>
                       </div>
                     <% end %>
                   <% end %>
                 </tbody>
               </table>
+              <%= link_to 'Set an Appointment', new_building_appointment_path %> | <%= link_to "Back to Rental Communities", buildings_path %>
             </div>
           </div>
       </div>
@@ -91,4 +92,3 @@
 <br> -->
 
 
-<%= link_to 'New Appointment', new_building_listing_appointment_path %>

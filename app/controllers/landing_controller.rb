@@ -13,4 +13,9 @@ class LandingController < ApplicationController
 
   def help
   end
+
+  def splash
+    @building = Building.all
+    @listing = Listing.all
+  end
 end

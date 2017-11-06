@@ -45,8 +45,9 @@
 							<% if can? :update, Building %>
 							  <%= link_to 'Edit', edit_building_path(@building), class: 'btn btn-primary' %> |
 							<%end%>
-							<%= link_to 'Back', buildings_path, class: 'btn btn-primary' %>
-							<%= link_to "See MLS Listings", building_listings_path(@building), class: 'btn btn-info' %>
+							<%= link_to 'Back', buildings_path, class: 'btn btn-primary' %> |
+							<%= link_to "See MLS Listings", building_listings_path(@building), class: 'btn btn-info' %> |
+							<%= link_to "See Calendar", building_appointments_path(@building), class: 'btn btn-info' %>
 					  </div>
 			    </div>
 		    </div>

@@ -8,9 +8,16 @@ Rails.application.routes.draw do
   get 'landing/about'
   get 'landing/contact'
   get 'landing/help'
+  get 'landing/splash'
 
   # user routes
-  resources :users
+  resources :users do
+    resources :buildings do
+      resources :appointments do
+      end
+    end
+  end
+
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   post '/users/id/edit' => 'users#edit'
@@ -24,11 +31,14 @@ Rails.application.routes.draw do
   #building and associated routes
   resources :buildings do
     resources :listings do
-      resources :appointments do
-        resources :rented_units
-      end
     end
   end
+  resources :buildings do 
+    resources :appointments do
+      resources :rented_units
+    end
+  end
+  
 
   #Analytics Routes
   resources :analytics, only: [:index]
