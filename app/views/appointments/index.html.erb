@@ -15,35 +15,14 @@
 <div class="wrapper wrapper-content animaed fadeInRight">
   <div class="row">
     <div class="col-lg-12">
-      <div class="box">
-      <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-            <h5>Calendar Details<small class="m-l-sm"></small></h5>
-          </div>
-          <div class="ibox-content">
-            <p id="notice"><%= notice %></p>
-            <div class="simple-calendar">
-              <div class="calendar-heading">  
-              </div>
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <h1>Appointments</h1>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= month_calendar events: @appointments do |date, appointments| %>
-                    <%= date %>
-                      <% appointments.each do |meeting| %>
-                      <div>
-                        <%= link_to"#{meeting.start_time.strftime('%I:%M%p')}, #{meeting.realtor_name}", building_appointment_path(@building.id, meeting)  %>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </tbody>
-              </table>
-              <%= link_to 'Set an Appointment', new_building_appointment_path %> | <%= link_to "Back to Rental Communities", buildings_path %>
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Calendar Details<small class="m-l-sm"></small></h5>
+        </div>
+        <div class="ibox-content">
+          <p id="notice"><%= notice %></p>
+          <div class="simple-calendar">
+            <div class="calendar-heading">  
             </div>
             <table class="table table-striped">
               <thead>
@@ -56,18 +35,19 @@
                   <%= date %>
                     <% appointments.each do |meeting| %>
                     <div>
-                      <%= link_to"#{meeting.start_time.strftime('%I:%M%p')}, #{meeting.realtor_name}", building_listing_appointment_path(@building.id,@listing.id, meeting)  %>
+                      <%= link_to"#{meeting.start_time.strftime('%I:%M%p')}, #{meeting.realtor_name}", building_appointment_path(@building.id, meeting)  %>
                     </div>
                   <% end %>
                 <% end %>
               </tbody>
             </table>
+            <%= link_to 'Set an Appointment', new_building_appointment_path %> | <%= link_to "Back to Rental Communities", buildings_path %>
           </div>
-          <%= link_to 'New Appointment', new_building_listing_appointment_path %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 

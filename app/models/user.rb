@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :companies
   has_many :buildings
   has_many :listings, through: :building
-  has_many :appointments, through: :listings
+  has_many :appointments
 
   scope :realty_group, -> {where company: current_user.company}
 

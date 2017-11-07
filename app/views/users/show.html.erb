@@ -16,6 +16,8 @@
       <div class="ibox-content">
         <p id="notice"><%= notice %></p>
         <%= gravatar_for @user %>
+        <br>
+        <br>
         <p><strong>Username: </strong><%= @user.username %></p>
         <p><strong>Email: </strong><%= @user.email %></p>
         <p><strong>Company: </strong><%= link_to "#{Company.find(@user.company_id).name}", company_path(Company.find(@user.company_id))%></p>
@@ -54,6 +56,25 @@
         <% if can? :create, Building %>
           <%= link_to "| New Building", new_building_path %>
         <%end%>
+        <br>
+        <br>
+        <h5>Upcoming Appointments</h5>
+        <% @user.appointments.each do |user_appointment| %>
+        <table class="table-striped">
+          <th>Time</th>
+          <th>Building</th>
+          <th>Unit</th>
+          <th>Unit Model</th>
+          <tbody>
+            <tr>
+            <td><%= user_appointment.start_time.strftime("%a %B %d, %Y")%></td>
+            <td><%= user_appointment.building.development_name %></td>
+            <td>To Be Filled In</td>
+            <td>To Be Filled In</td>              
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
       </div>
     </div>
   </div>

@@ -70,7 +70,7 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:realtor_name, :realtor_phone, :start_time, :end_time, :building_id)
+      params.require(:appointment).permit(:realtor_name, :realtor_phone, :start_time, :end_time, :building_id, :user_id)
     end
 
     def building
