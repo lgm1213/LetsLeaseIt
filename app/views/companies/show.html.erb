@@ -1,16 +1,10 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    New Building or Property
+    <h2>New Building or Property</h2>
     <ol class="breadcrumb">
-      <li>
-        <%= link_to "Home", root_path %></a>
-      </li>
-      <li class="active">
-        <strong><%= link_to "Portfolio", companies_path %></strong>
-      </li>
-      <li>
-        <%= link_to "New Building or Property", new_company_path %>
-      </li>
+      <li><%= link_to "Home", root_path %></a></li>
+      <li class="active"><strong><%= link_to "Company Portfolio", companies_path %></strong></li>
+      <li><%= link_to "New Building or Property", new_company_path %></li>
     </ol>
   </div>
   <div class="col-lg-2">
@@ -19,7 +13,6 @@
 <h1>Company Info</h1>
 <div class="ibox-content">
 	<p id="notice"><%= notice %></p>
-
 	<p><strong>Name: </strong><%= @company.name %></p>
 	<p><strong>Street Address: </strong><%= @company.street_address %></p>
 	<p><strong>City: </strong><%= @company.city %></p>
@@ -39,24 +32,18 @@
         <th colspan="3"></th>
       </tr>
     </thead>
-
     <tbody>
       <% @company.buildings.each do |company_buildings| %>
         <tr>
           <td><%= company_buildings.id %></td>
           <td><%= company_buildings.development_name %></td>
           <td><%= company_buildings.listings.count %></td>
-          <% company_buildings.listings.each do |company_buildings_listings| %>
-          <td><%= company_buildings_listings.appointments.count %></td>
-          <% end %>
-          <td><%= link_to 'Show', company_buildings %></td>
+          <td><%= company_buildings.appointments.count %></td>
+          <td><%= link_to 'Show', company_building_path(company_buildings) %></td>
           <td><%= link_to 'Edit', edit_company_path(company_buildings) %></td>
           <td><%= link_to 'Destroy', company_buildings, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
-      <% end %>
     </tbody>
   </table>
-
-
-	
 </div>
