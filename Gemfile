@@ -84,3 +84,4 @@ gem 'humanize'
 gem "bootstrap-switch-rails"
 #bootstrap datepicker
 gem 'bootstrap-datepicker-rails'
+gem 'select2-rails'

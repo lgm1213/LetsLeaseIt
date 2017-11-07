@@ -25,6 +25,10 @@
 //= require codemirror/codemirror.js
 //= require codemirror/mode/javascript/javascript.js
 
+$(function() {  
+  setTimeout(function(){ $("#account-manager, #property-manager, #regional-manager").select2(); }, 0001);
+});
+
     $(function() {
 
         $("#wizard").steps();
