@@ -38,6 +38,7 @@ ActiveAdmin.register Listing do
   form do |f|
     f.inputs "Listings" do
       f.input :building_id, as: :select, collection: Building.all.map { |m| [m.development_name, m.id] }
+      f.input :active, as: :boolean
       f.input :unit_no
       f.input :unit_model
       f.input :price
