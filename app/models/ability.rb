@@ -19,6 +19,10 @@ def initialize(user)
       can :manage, Building
       can :manage, Listing
       can :manage, Appointment
+    elsif user.leasing_consultant?
+      can :read, Listing
+      can :read, Appointment
+      can :read, Building
     else
       can :read, :all
     end
