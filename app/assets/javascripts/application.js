@@ -24,4 +24,4 @@
 //= require highcharts
 //= require turbolinks
 //= require bootstrap-switch
-//= require select2
+//= require select2-full
