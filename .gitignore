@@ -17,6 +17,7 @@
 /yarn-error.log
 
 .byebug_history
-#Ignore databse file to prevent git conflicts
+#Ignore databse and secret files to prevent git conflicts and exposures
 /config/database.yml
+/config/secrets.yml
 public/system/*

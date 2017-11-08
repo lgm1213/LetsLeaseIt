@@ -1,16 +1,10 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    Appointment Calendar
+    <h2>Appointment Calendar</h2>
     <ol class="breadcrumb">
-      <li>
-        <%= link_to "Home", root_path %></a>
-      </li>
-      <li class="active">
-        <strong><%= link_to "Listing Portfolio", building_listings_path %></strong>
-      </li>
-      <li>
-        <a href="#">Something will add</a>
-      </li>
+      <li><%= link_to "Home", root_path %></a></li>
+      <li class="active"><strong><%= link_to "MLS Listing Portfolio", building_listings_path %></strong></li>
+      <li><a href="#">Something will add</a></li>
     </ol>
   </div>
   <div class="col-lg-2">
@@ -19,12 +13,10 @@
 <div class="wrapper wrapper-content animaed fadeInRight">
   <div class="row">
     <div class="col-lg-12">
-      <div class="box">
-      <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-            <h5>Rented Unit Record Details<small class="m-l-sm"></small></h5>
-          </div>
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Rented Unit Record Details<small class="m-l-sm"></small></h5>
+        </div>
         <div class="ibox-content">
           <p id="notice"><%= notice %></p>
           <p><strong>Unit no: </strong><%= @rented_unit.unit_no %></p>
@@ -39,3 +31,8 @@
           <p><strong>Lease Span: </strong><%#= @rented_unit.spanend.strftime("%m/%d/%Y")%></p>
           <%= link_to 'Edit', edit_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, @rented_unit) %> |
           <%= link_to 'Back', building_listing_appointment_rented_units_path(@building, @listing, @appointment) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

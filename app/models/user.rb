@@ -8,13 +8,13 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_secure_password
 
-  ROLES = %i[ super_admin admin account_manager regional_manager property_manager]
+  ROLES = %i[ super_admin admin account_manager regional_manager property_manager leasing_consultant]
 
   #listing relationship
   has_and_belongs_to_many :companies
   has_many :buildings
   has_many :listings, through: :building
-  has_many :appointments, through: :listings
+  has_many :appointments
 
   scope :realty_group, -> {where company: current_user.company}
 

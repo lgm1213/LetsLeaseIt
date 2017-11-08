@@ -1,18 +1,17 @@
-<p id="notice"><%= notice %></p>
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    New Building or Property
+    <h2>New Building or Property</h2>
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Buildings", buildings_path %></li>
-      <li><%= link_to "Listing Portfolio", building_listings_path(@building) %></li>
+      <li><%= link_to "Rental Communities", buildings_path %></li>
+      <li><%= link_to "MLS Listing Portfolio", building_listings_path(@building) %></li>
     </ol>
   </div>
   <div class="col-lg-2">
   </div>
 </div>
 <div class="col-md-12">
-  <h1>Building Info </h1>
+  <h1>Rental Community Info</h1>
   <div class="ibox">
     <div class="ibox-content">
       <div class="product-imitation">
@@ -22,7 +21,7 @@
       </div>
       <div class="product-desc">
         <span class="product-price">
-          Building Id: <%= @building.id %></span>
+          Rental Community Id: <%= @building.id %></span>
         <small class="text-muted">Development Name</small>
         <%= link_to "#{@building.development_name}", @building %>     
 		    <div class="small m-t-xs">
@@ -35,6 +34,7 @@
 					    <p><strong>Area:</strong><%= @building.area %></p>    
 					  </div>
 					  <div class="col-sm-4">
+							<p id="notice"><%= notice %></p>
 						  <p><strong>Folio: </strong><%= @building.folio %></p>
 						  <p><strong>Street: </strong><%= @building.street %></p>
 						  <p><strong>Compasspoint: </strong><%= @building.compass_point %></p>
@@ -47,8 +47,9 @@
 							<% if can? :update, Building %>
 							  <%= link_to 'Edit', edit_building_path(@building), class: 'btn btn-primary' %> |
 							<%end%>
-							<%= link_to 'Back', buildings_path, class: 'btn btn-primary' %>
-							<%= link_to "See Building Listings", building_listings_path(@building), class: 'btn btn-info' %>
+							<%= link_to 'Back', buildings_path, class: 'btn btn-primary' %> |
+							<%= link_to "See MLS Listings", building_listings_path(@building), class: 'btn btn-info' %> |
+							<%= link_to "See Calendar", building_appointments_path(@building), class: 'btn btn-info' %>
 					  </div>
 			    </div>
 		    </div>
