@@ -49,5 +49,7 @@ Rails.application.routes.draw do
   get 'listing_image/new'
   get 'listing_image/create'
 
-  resources :companies
+  resources :companies do
+    resources :buildings
+  end
 end
