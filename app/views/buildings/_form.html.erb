@@ -613,24 +613,25 @@
   <h1>Managers</h1>
   <fieldset>
     <h2>Assign Rental Community Managers</h2>
-    <div class="row">
-      <div class="form-group">
-        <% if current_user.role=="super_admin" %>
-          <div class="col-lg-4">
-            <%= f.label :account_manager, "Account Manager" %>
-            <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.email}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager"%> 
-          </div>
-        <% end %>
-        <div class="col-lg-4">
-          <%= f.label :regional_manager, "Regional Manager" %>
-          <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.email}", r.id]}, :selected => building.regional_manager_id), {},class: 'form-control', id: "regional-manager" %> 
+    <br>
+      <% if current_user.role== "super_admin"||"admin" %>
+      <div class="row">
+        <div class="col-md-4">
+          <p><strong><%= f.label :account_manager, "Account Manager"%></strong></p>
+          <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.email}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager", :multiple => "multiple"%>
+          <% end %>
         </div>
-        <div class="col-lg-4">
-          <%= f.label :property_manager, "Property Manager" %>
+        <br>
+        <div class="col-md-4">
+          <p><strong><%= f.label :regional_manager, "Regional Manager"%></strong></p>
+          <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.email}", r.id]}, :selected => building.regional_manager_id), {},class: 'form-control', id: "regional-manager" %>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <p><strong><%= f.label :property_manager, "Property Manager", class: "control-label" %></strong></p>
           <%= f.select :property_manager_id, options_for_select(property_managers.collect {|p| [ "#{p.email}", p.id]}, :selected => building.property_manager_id), {},class: 'form-control', id: "property-manager" %> 
         </div>
       </div>
-    </div>
   </fieldset>
 
 
