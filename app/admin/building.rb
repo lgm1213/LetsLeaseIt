@@ -5,7 +5,6 @@ ActiveAdmin.register Building do
 #
 # permit_params :list, :of, :attributes, :on, :model
 config.clear_action_items!
-
 action_item :only => :index do
     link_to "New Building" , "/buildings/new" 
 end
