@@ -133,15 +133,6 @@
           <%= f.text_field :model_name_in_mls, class: 'form-control' %>
         </div>
 
-        <div class="col-lg-4">
-          <%= f.label :regional_manager_id, "Regional Manager" %>
-          <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.username}", r.id] }), {},class: 'form-control' %> 
-        </div>
-        <div class="col-lg-4">
-          <%= f.label :property_manager_id, "Property_manager" %>
-          <%= f.select :property_manager_id, options_for_select(property_managers.collect {|p| [ "#{p.username}", p.id] }), {},class: 'form-control' %> 
-        </div>
-        
       </div>
   </fieldset>
 
@@ -622,22 +613,25 @@
   <h1>Managers</h1>
   <fieldset>
     <h2>Assign Rental Community Managers</h2>
-    <div class="row">
-      <div class="form-group">
-        <div class="col-lg-4">
-          <%= f.label :account_manager %>
-          <%= f.select :account_manager_id, User.where(role: 'account_manager').map{|u| [u.email, u.id]}, class: 'form-control' %>
+    <br>
+      <% if current_user.role== "super_admin"||"admin" %>
+      <div class="row">
+        <div class="col-md-4">
+          <p><strong><%= f.label :account_manager, "Account Manager"%></strong></p>
+          <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.email}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager", :multiple => "multiple"%>
+          <% end %>
         </div>
-        <div class="col-lg-4">
-          <%= f.label :regional_manager %>
-          <%= f.select :regional_manager_id, User.where(role: 'regional_manager').map{|u| [u.email, u.id]}, class: 'form-control' %>
+        <br>
+        <div class="col-md-4">
+          <p><strong><%= f.label :regional_manager, "Regional Manager"%></strong></p>
+          <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.email}", r.id]}, :selected => building.regional_manager_id), {},class: 'form-control', id: "regional-manager" %>
         </div>
-        <div class="col-lg-4">
-          <%= f.label :property_manager %>
-          <%= f.select :property_manager_id, User.where(role: 'property_manager').map{|u| [u.email, u.id]}, class: 'form-control' %>
+        <br>
+        <div class="col-md-4">
+          <p><strong><%= f.label :property_manager, "Property Manager", class: "control-label" %></strong></p>
+          <%= f.select :property_manager_id, options_for_select(property_managers.collect {|p| [ "#{p.email}", p.id]}, :selected => building.property_manager_id), {},class: 'form-control', id: "property-manager" %> 
         </div>
       </div>
-    </div>
   </fieldset>
 
 

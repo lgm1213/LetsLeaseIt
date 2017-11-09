@@ -31,6 +31,13 @@ $(".select.select-form").select2({
   });
 
 
+$(function() {  
+  setTimeout(function(){ $("#account-manager, #property-manager, #regional-manager").select2({
+    placeholder: "Options to Select",
+    allowClear: true
+  }); }, 0001);
+});
+
     $(function() {
 
         $("#wizard").steps();
