@@ -494,28 +494,27 @@
           <%= f.label :co_list_agent_mls_id, "Co-Listing Agent's MLS Id" %>
           <%= f.text_field :co_list_agent_mls_id, class: 'form-control' %>
         </div>
-      
-    <br>
-    
-        <div class="col-lg-3">
+      <br>
+      <div class="form-group">
+        <div class="col-lg-4">
           <%= f.label :internet, "Internet Available" %>
           <%= f.select :internet, options_for_select(yes_or_no), {}, class: 'form-control' %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <%= f.label :avm, "AVM " %>
           <%= f.select :avm, options_for_select(yes_or_no), {}, class: 'form-control' %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <%= f.label :blogging, "Blogging" %>
           <%= f.select :blogging, options_for_select(yes_or_no), {}, class: 'form-control' %>
         </div>
-        <div class="col-lg-3">
+      </div>
+      <br>
+      <div class="form-group">
+        <div class="col-lg-4">
           <%= f.label :address_on_internet, "Address is on the Internet?" %>
           <%= f.select :address_on_internet, options_for_select(yes_or_no), {}, class: 'form-control' %>
-        </div>
-      
-    <br>
-    
+        </div>   
         <div class="col-lg-4">
           <%= f.label :list_type, "Listing Type" %>
           <%= f.select :list_type, options_for_select(listing_type), {}, class: 'form-control' %>
@@ -524,14 +523,13 @@
           <%= f.label :owners_name, "Owner's Name" %>
           <%= f.text_field :owners_name, class: 'form-control' %>
         </div>
+      </div>
+      <br>
+      <div class="form-group">
         <div class="col-lg-4">
           <%= f.label :owners_phone, "Owner's Phone" %>
           <%= f.text_field :owners_phone, class: 'form-control' %>
         </div>
-     
-    <br>
-    <div class="row">
-      <div class="form-group">
         <div class="col-lg-4">
           <%= f.label :variable_dual_rate, "Variable/Dual Rate" %>
           <%= f.select :variable_dual_rate, options_for_select(yes_or_no), {}, class: 'form-control' %>
@@ -540,55 +538,50 @@
           <%= f.label :owner_agent, "Owner Agent" %>
           <%= f.select :owner_agent, options_for_select(yes_or_no), {}, class: 'form-control' %>
         </div>
+      </div>
+    <br>
+      <div class="form-group">
         <div class="col-lg-4">
           <%= f.label :occupancy_information, "Occupany Information" %>
           <%= f.select :occupancy_information, options_for_select(occupancy_info), {}, class: 'form-control' %>
         </div>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-      <div class="form-group">
-        <div class="col-lg-2">
+        <div class="col-lg-4">
           <%= f.label :show_instruction, "Showing Instructions" %>
-          <br>
-          <br>
-          <%= f.collection_select(:show_instruction_ids, ShowInstruction.all, :id, :options,{})%>
-                     
+          <%= f.collection_select(:show_instruction_ids, ShowInstruction.all, :id, :options,{})%>               
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-4">
           <%= f.label :compensation_trans_broker, "Comensation Trans Broker" %>
           <%= f.text_field :compensation_trans_broker, class: 'form-control' %>
         </div>
-        <div class="col-lg-2">
+      </div>
+    <br>
+      <div class="form-group">
+        <div class="col-lg-4">
           <%= f.label :compensation_buyers_agent, "Compensation Buyer's Agent" %>
           <%= f.text_field :compensation_buyers_agent, class: 'form-control' %>
         </div>
-        <div class="col-lg-2">
-          <%= f.text_field :compensation_non_rep, class: 'form-control' %>
+        <div class="col-lg-4">
           <%= f.label :compensation_non_rep, "Compensation Non Rep" %>
+          <%= f.text_field :compensation_non_rep, class: 'form-control' %>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-4">
           <%= f.label :renewal_commission, "Renewal Commission" %>
           <%= f.select :renewal_commission, options_for_select(renewal_commision), {}, class: 'form-control' %>
         </div>
       </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-lg-4">
-        <%= f.label :agent_url, "Agent URL" %>
-        <%= f.text_field :agent_url, class: 'form-control' %>
-      </div>
-      <div class="col-lg-4">
-        <%= f.label :photo_instructions, "Photo Instructions" %>
-        <%= f.text_field :photo_instructions, class: 'form-control' %>
-      </div>
-      <div class="col-lg-4">
-        <%= f.label :company_id, "Company Rental Community Belongs To" %>
-        <%= f.collection_select(:company_id, Company.all, :id, :name, prompt: true) %>
+      <div class="form-group">
+        <div class="col-lg-4">
+          <%= f.label :agent_url, "Agent URL" %>
+          <%= f.text_field :agent_url, class: 'form-control' %>
+        </div>
+        <div class="col-lg-4">
+          <%= f.label :photo_instructions, "Photo Instructions" %>
+          <%= f.text_field :photo_instructions, class: 'form-control' %>
+        </div>
+        <div class="col-lg-4">
+          <%= f.label :company_id, "Company Rental Community Belongs To" %>
+          <%= f.collection_select(:company_id, Company.all, :id, :name, prompt: true) %>
+        </div>
       </div>
     </div>  
   </fieldset>

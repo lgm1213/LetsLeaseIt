@@ -36,7 +36,7 @@ class BuildingsController < ApplicationController
   # POST /buildings
   # POST /buildings.json
   def create
-    @building = Building.new(building_params.merge({user_id: current_user.id}))
+    @building = Building.new(building_params.merge({user_id: current_user.id, account_manager_id: 16, property_manager_id: 14, regional_manager_id: 15 }))
 
     respond_to do |format|
       if @building.save
