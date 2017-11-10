@@ -55,7 +55,7 @@
             </dl>
             <div class="text-right">
               <div class="btn-group">
-                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                <%= link_to "See Detailed List of MLS Listings", building_listings_path(building), class: "btn btn-white btn-sm" %> 
                 <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
               </div>
             </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="ibox-footer">
-        <span class="pull-right">Full stock - <i class="fa fa-clock-o"></i><%= Date.today.strftime("%A, %m/%d/%Y %I:%M%p")%></span>
+        <span class="pull-right">As of <i class="fa fa-clock-o"></i><%= Date.today.strftime("%A, %m/%d/%Y")%></span>
         The generated Lorem Ipsum is therefore always free
       </div>
     </div>
