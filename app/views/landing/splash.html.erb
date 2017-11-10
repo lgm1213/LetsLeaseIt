@@ -5,45 +5,62 @@
 
 <br>
 
-<div class="container">
-	<div class="row">
-	<% @building.each do |building| %>
-		<div class="col-xs-10 col-lg-12">
-			<div class="panel default-panel">
-				<div class="panel-body">
-					<div class="col-md-4">
-						<img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
-					</div>
-					<div class="col-md-8">
-						
-					</div>
-					<div class="caption">
-						<h3><%= building.development_name %>--Test</h3>
-						<p>Lorem Ipsum</p>
-						<p><%= building.street %> <%= building.compass_point %> <%= building.street_name %> </p>
-						<p><%#= listing.date_available.strftime("%a, %M %d, %Y") %></p>
-						<%= link_to "Stuff", buildings_path, class: 'btn btn-primary' %>
-					</div>
-				</div>
-			</div>
-		</div>
-		<% building.listings.each do |building_listing| %>
-		<div class="col-xs-10 col-lg-4">
-			<div class="panel defaul-panel">
-				<div class="panel-body">
-					<img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
-					<div class="caption">
-						<h3><%= building_listing.unit_no %></h3>
-						<p>Lorem Ipsum</p>
-						<p>Bedrooms: <%= building_listing.bedrooms %></p>
-						<p>Baths: <%= building_listing.bath %></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<% end %>
-
-	<% end %>
-	</div>
+  <% @building.each do |building| %>
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="ibox product-detail">
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="product-images">
+              <div>
+                <img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
+              </div>
+              <div>
+                <img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
+              </div>
+              <div>
+                <img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <h2 class="font-bold m-b-xs"><%= building.development_name %>--Test--</h2>
+            <small>Many desktop publishing packages and web page editors now.</small>
+            <hr>
+            <div>
+              <button class="btn btn-primary pull-right">Add to cart</button>
+              <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
+            </div>
+            <hr>
+            <h4>Building Info</h4>
+            <div class="small text-muted"><%= building.remarks %>--Lorem Ipsum</div>
+            <dl class="dl-horizontal m-t-md small">
+              <dt>Available Listings</dt>
+              <dd></dd>
+	        		<% building.listings.each do |building_listing| %>
+              <dt><%= link_to "Unit:#{building_listing.unit_no}", building_listing_path(building, building_listing) %></dt>
+              <dd>Floor Model: <%= building_listing.unit_model %></dd>
+							<% end %>
+            </dl>
+            <div class="text-right">
+              <div class="btn-group">
+                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ibox-footer">
+        <span class="pull-right">Full stock - <i class="fa fa-clock-o"></i><%= Date.today.strftime("%A, %m/%d/%Y %I:%M%p")%></span>
+        The generated Lorem Ipsum is therefore always free
+      </div>
+    </div>
+  </div>
 </div>
+<% end %>
+
+
 

@@ -14,23 +14,61 @@
 </div>
 <p id="notice"><%# notice %></p>
 <h1>Rental Communities</h1>
-<div class="row">
 <% @buildings.each do |building| %>
-  <div class="col-sm-3 col-md-4">
-    <div class="thumbnail">
-      <!-- <img src="..." alt="..."> -->
-      <div class="caption">
-        <h3>Id#<%= building.id %>-<%= building.development_name %></h3>
-        <p>Lorem Ipsum Create Building Descriptions for Copy</p>
-        <p>Total # of Listings: <%= building.listings.count %></p>
-        <div class="text-center">
-          <%= link_to "Id##{building.id} #{building.development_name}", {controller: 'buildings',action: 'open_building_modal', id: building.id, format: :js }, class: 'btn btn-primary', remote: true %>
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="ibox product-detail">
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="product-images">
+              <div>
+                <img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
+              </div>
+              <div>
+                <img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
+              </div>
+              <div>
+                <img src="http://lorempixel.com/output/city-q-c-300-300-10.jpg" class="img-responsive">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <h2 class="font-bold m-b-xs"><%= building.development_name %>--Test--</h2>
+            <small>Many desktop publishing packages and web page editors now.</small>
+            <hr>
+            <div>
+              <%= link_to "See Scheduled Appointments Calendar", building_appointments_path(building), class: "btn btn-primary pull-right" %>
+              <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
+            </div>
+            <hr>
+            <h4>Building Info</h4>
+            <div class="small text-muted"><%= building.remarks %>--Lorem Ipsum</div>
+            <dl class="dl-horizontal m-t-md small">
+              <dt>Active Listings</dt>
+              <dd><%= building.listings.count %></dd>
+              <% building.listings.each do |building_listing| %>
+              <dt><%= link_to "Unit:#{building_listing.unit_no}", building_listing_path(building, building_listing) %></dt>
+              <dd>Floor Model: <%= building_listing.unit_model %></dd>
+              <% end %>
+            </dl>
+            <div class="text-right">
+              <div class="btn-group">
+                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="ibox-footer">
+        <span class="pull-right">Full stock - <i class="fa fa-clock-o"></i><%= Date.today.strftime("%A, %m/%d/%Y %I:%M%p")%></span>
+        The generated Lorem Ipsum is therefore always free
       </div>
     </div>
   </div>
-  <div id="open-building-modal">
-  </div>
+</div>
 <% end %>
   
 </div>

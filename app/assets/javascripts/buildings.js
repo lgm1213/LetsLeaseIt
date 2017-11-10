@@ -24,6 +24,10 @@
 //= require codemirror/codemirror.js
 //= require codemirror/mode/javascript/javascript.js
 //= require select2-full
+//= require footable/footable.all.min.js
+//= require slick/slick.min.js
+
+$('.product-images').slick({dots: true});
 
 $(".select.select-form").select2({
     placeholder: "Options to Select",

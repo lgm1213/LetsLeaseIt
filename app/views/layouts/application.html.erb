@@ -25,10 +25,14 @@
         <%= render 'layouts/topnavbar' %>
         
         <!-- Main view  -->
-        <%= yield %>
+        <div class="row">
+          <div class="col-lg-12">
+            <%= yield %>
+          </div>
+          <%= render 'layouts/footer' %>
+        </div>
         
         <!-- Footer -->
-        <%= render 'layouts/footer' %>
       
       </div>
       <!-- End page wrapper-->

@@ -7,6 +7,13 @@ def initialize(user)
     if user.super_admin?
       can :manage, :all
       can :read, ActiveAdmin::Page, name: "Dashboard"
+    elsif user.admin?
+      can :manage, Building
+      can :manage, Listing
+      can :manage, Appointment
+      can :manage, Company
+      can :manage, User
+      can :read, ActiveAdmin::Page, name: "Dashboard"
     elsif user.property_manager?
       can :read, Building
       can :manage, Listing
