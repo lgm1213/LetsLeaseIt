@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
 
     <!-- Include style per-controller - vendor plugins -->
-    <%#= stylesheet_link_tag params[:controller] if ::Rails.application.assets_manifest.files.values.map{|v| v['assets/stylesheets']}.include?('#{params[:controller]}') %>
-    <%#=stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.scss") %>
+    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets_manifest.files.values.map{|v| v['assets/stylesheets']}.include?('#{params[:controller]}') %>
+    <%=stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.scss") %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

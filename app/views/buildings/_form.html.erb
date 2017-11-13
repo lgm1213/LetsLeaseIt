@@ -113,15 +113,15 @@
       
         <div class="col-lg-4">    
           <%= f.label :Elementary_School, "Elementary School" %>
-          <%= f.select :elementary_school, options_for_select(sofl_elem),{}, class: 'form-control col-lg-4' %>
+          <%= f.select :elementary_school, options_for_select(sofl_elem),{prompt: 'Select if Applicable'}, class: 'form-control col-lg-4' %>
         </div>  
         <div class="col-lg-4">
           <%= f.label :Middle_School, "Middle School" %>
-          <%= f.select :middle_school, options_for_select(sofl_middle), {}, class: 'form-control' %>
+          <%= f.select :middle_school, options_for_select(sofl_middle), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>  
         <div class="col-lg-4">
           <%= f.label :Senior_High_School, "Senior High School" %>
-          <%= f.select :senior_high_school, options_for_select(sofl_hs), {}, class: 'form-control' %>
+          <%= f.select :senior_high_school, options_for_select(sofl_hs), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>  
      
         <div class="col-lg-4">
@@ -169,11 +169,11 @@
       
         <div class="col-lg-4">
           <%= f.label :carport_description, "Carport Description" %>
-          <%= f.select :carport_description, options_for_select(carport_description), {}, class: 'form-control' %>
+          <%= f.select :carport_description, options_for_select(carport_description), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>
         <div class="col-lg-4">
           <%= f.label :waterfront, "Waterfront" %>
-          <%= f.select :waterfront, options_for_select(yes_or_no), {}, class: 'form-control' %>
+          <%= f.select :waterfront, options_for_select(yes_or_no), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>
         <div class="col-lg-4">
           <%= f.label "Waterfront Frontage" %>
@@ -190,7 +190,7 @@
         </div>
         <div class="col-lg-4">
           <%= f.label "Lot Description" %>
-          <%= f.select :lot_description, options_for_select(lot_description), {}, class: 'form-control' %>
+          <%= f.select :lot_description, options_for_select(lot_description), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>
       
         <div class="col-lg-4">
@@ -208,7 +208,7 @@
 
         <div class="col-lg-2">
           <%= f.label :lot_description, "Lot Description" %>
-          <%= f.select :lot_description, options_for_select(lot_description), {}, class: 'form-control' %>                    
+          <%= f.select :lot_description, options_for_select(lot_description), {prompt: 'Select if Applicable'}, class: 'form-control' %>                    
         </div>
         <div class="col-lg-2">
           <%= f.label :waterfront_desc, "Waterfront View Description" %>
@@ -409,69 +409,69 @@
       <br>
           <div class="col-lg-4">
             <%= f.label :sewer_description, "Sewer Description" %>
-            <%= f.select :sewer_description, options_for_select(sewer_description), {}, class: 'form-control' %>
+            <%= f.select :sewer_description, options_for_select(sewer_description), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :water, "Water Source" %>
-            <%= f.select :water, options_for_select(water_source), {}, class: 'form-control' %>
+            <%= f.select :water, options_for_select(water_source), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :housing_older_persons_act, "Housing Older Persons Act(HOPA)" %>
-            <%= f.select :housing_older_persons_act, options_for_select(hopa), {}, class: 'form-control' %>
+            <%= f.select :housing_older_persons_act, options_for_select(hopa), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
         
       <br>
       
           <div class="col-lg-4">
             <%= f.label :rs_jan, "Rental Status-January" %>
-            <%= f.select :rs_jan, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_jan, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_feb, "Rental Status-February" %>
-            <%= f.select :rs_feb, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_feb, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_march, "Rental Status-March" %>
-            <%= f.select :rs_march, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_march, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>                      
         
           <div class="col-lg-4">
             <%= f.label :rs_april, "Rental Status-April" %>
-            <%= f.select :rs_april, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_april, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_may, "Rental Status-May" %>
-            <%= f.select :rs_may, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_may, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_june, "Rental Status-June" %>
-            <%= f.select :rs_june, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_june, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>                      
         
           <div class="col-lg-4">
             <%= f.label :rs_july, "Rental Status-July" %>
-            <%= f.select :rs_july, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_july, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_aug, "Rental Status-August" %>
-            <%= f.select :rs_aug, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_aug, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_sept, "Rental Status-September" %>
-            <%= f.select :rs_sept, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_sept, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>                      
         
           <div class="col-lg-4">
             <%= f.label :rs_oct, "Rental Status-October" %>
-            <%= f.select :rs_oct, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_oct, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_nov, "Rental Status-November" %>
-            <%= f.select :rs_nov, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_nov, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>
           <div class="col-lg-4">
             <%= f.label :rs_dec, "Rental Status-December" %>
-            <%= f.select :rs_dec, options_for_select(rental_status), {}, class: 'form-control' %>
+            <%= f.select :rs_dec, options_for_select(rental_status), {prompt: 'Select if Applicable'}, class: 'form-control' %>
           </div>                      
         </div>
       </div>
@@ -517,7 +517,7 @@
         </div>   
         <div class="col-lg-4">
           <%= f.label :list_type, "Listing Type" %>
-          <%= f.select :list_type, options_for_select(listing_type), {}, class: 'form-control' %>
+          <%= f.select :list_type, options_for_select(listing_type), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>
         <div class="col-lg-4">
           <%= f.label :owners_name, "Owner's Name" %>
@@ -543,7 +543,7 @@
       <div class="form-group">
         <div class="col-lg-4">
           <%= f.label :occupancy_information, "Occupany Information" %>
-          <%= f.select :occupancy_information, options_for_select(occupancy_info), {}, class: 'form-control' %>
+          <%= f.select :occupancy_information, options_for_select(occupancy_info), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>
         <div class="col-lg-4">
           <%= f.label :show_instruction, "Showing Instructions" %>
@@ -566,7 +566,7 @@
         </div>
         <div class="col-lg-4">
           <%= f.label :renewal_commission, "Renewal Commission" %>
-          <%= f.select :renewal_commission, options_for_select(renewal_commision), {}, class: 'form-control' %>
+          <%= f.select :renewal_commission, options_for_select(renewal_commision), {prompt: 'Select if Applicable'}, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group">
@@ -609,13 +609,19 @@
     <br>
       <% if current_user.role== "super_admin"||"admin" %>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
           <p><strong><%= f.label :account_manager, "Account Manager"%></strong></p>
-          <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.email}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager", :multiple => "multiple"%>
+          <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.email}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager", :multiple => "multiple", :style => "width:75%" %>
           <% end %>
         </div>
-        <br>
-        <div class="col-md-4">
+        <div class="col-lg-1"></div>
+      </div>
+      <div class="row">
+        
+      </div>
+      <div class="col-lg-1"></div>
+        <div class="col-lg-10">
           <p><strong><%= f.label :regional_manager, "Regional Manager"%></strong></p>
           <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.email}", r.id]}, :selected => building.regional_manager_id), {},class: 'form-control', id: "regional-manager" %>
         </div>

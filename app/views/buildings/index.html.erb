@@ -38,13 +38,9 @@
             <h2 class="font-bold m-b-xs"><%= building.development_name %>--Test--</h2>
             <small>Many desktop publishing packages and web page editors now.</small>
             <hr>
-            <div>
-              <%= link_to "See Scheduled Appointments Calendar", building_appointments_path(building), class: "btn btn-primary pull-right" %>
-              <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
-            </div>
-            <hr>
             <h4>Building Info</h4>
             <div class="small text-muted"><%= building.remarks %>--Lorem Ipsum</div>
+            <hr>
             <dl class="dl-horizontal m-t-md small">
               <dt>Active Listings</dt>
               <dd><%= building.listings.count %></dd>
@@ -56,7 +52,7 @@
             <div class="text-right">
               <div class="btn-group">
                 <%= link_to "See Detailed List of MLS Listings", building_listings_path(building), class: "btn btn-white btn-sm" %> 
-                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                <%= link_to "See Scheduled Appointments Calendar", building_appointments_path(building), class: "btn btn-white btn-sm pull-right" %>
               </div>
             </div>
           </div>
