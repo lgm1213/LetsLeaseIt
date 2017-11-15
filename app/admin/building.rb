@@ -5,9 +5,12 @@ ActiveAdmin.register Building do
 #
 # permit_params :list, :of, :attributes, :on, :model
 config.clear_action_items!
-action_item :only => :index do
-    link_to "New Building" , "/buildings/new" 
+action_item :new, only: :index do
+    link_to "New Building" , new_building_url 
 end
+action_item :edit, only: :show do
+	link_to "Edit Building", edit_admin_building_path(building)
+end 
 # or
 #
 # permit_params do
