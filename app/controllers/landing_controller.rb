@@ -15,7 +15,10 @@ class LandingController < ApplicationController
   end
 
   def splash
-    @building = Building.all
     @listing = Listing.all
+    @building = Building.all if params[:location].blank?
+    @building = Building.search_result(params[:location], params[:no_of_bed_rooms], params[:no_of_bath_rooms], params[:min_sqr_ft], params[:max_sqr_ft], params[:price]) if params[:location].present?
   end
+  
 end
+

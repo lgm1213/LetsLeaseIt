@@ -3,3 +3,8 @@
 //= require slick/slick.min.js
 
 $('.product-images').slick({dots: true});
+
+$(function() {
+  $("#location").prepend('<option value="City" selected>City</option>');
+});
+

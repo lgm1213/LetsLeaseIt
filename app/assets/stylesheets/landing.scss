@@ -4,3 +4,18 @@
 //= require footable/footable.core.css
 //= require slick/slick.css
 //= require slick/slick-theme.css
+
+#btn_adv_search{
+  background-color: #FF4147;
+  border-color: #FF4147;
+  color: #38678b;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+#btn_adv_search:hover {
+    background-color: #FF4147 !important;
+    color: white;
+    text-decoration: none;
+
+}

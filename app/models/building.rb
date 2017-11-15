@@ -93,5 +93,19 @@ class Building < ApplicationRecord
   has_many :waterfront_descs, :through => :building_waterfront_descs
 
   accepts_nested_attributes_for :building_images, reject_if: :all_blank, allow_destroy: true
-
+  
+  def self.search_result(location, bedroom, bath, min_sqr_ft, max_sqr_ft, price)
+    buildings = Building.all
+    buildings = buildings.where(city: location) if location!= "City" 
+    building_bed_bath = Listing.where("bedrooms = ? or bath = ?", bedroom, bath) if bedroom.present? || bath.present?
+    buildings_id = building_bed_bath.pluck(:building_id) if bedroom.present? || bath.present?
+    buildings = buildings.where(id: buildings_id) if bedroom.present? || bath.present?
+    building_price = Listing.where(price: price.to_f) if price.present?
+    building_ids = building_price.pluck(:building_id) if price.present?
+    buildings = buildings.where(id: building_ids) if price.present?
+    building_sqft = Listing.where('sqft::int BETWEEN ? AND ?', min_sqr_ft.to_i, max_sqr_ft.to_i) if min_sqr_ft.present? && max_sqr_ft.present?
+    building_ids_sqft = building_sqft.pluck(:building_id) if min_sqr_ft.present? && max_sqr_ft.present?
+    buildings = buildings.where(id: building_ids_sqft) if min_sqr_ft.present? && max_sqr_ft.present?
+    return buildings
+  end
 end

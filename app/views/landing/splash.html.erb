@@ -2,10 +2,76 @@
 	Test
 </nav>
 <br>
-
 <br>
 
-  <% @building.each do |building| %>
+
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="ibox product-detail">
+      <div class="ibox-content">
+        <h2 class="font-bold m-b-xs"> ADVANCED SEARCH </h2>
+        <br>
+        <%= form_tag "splash", id: "form", method: :get do %>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label>Location:</label>
+              <%= select_tag "location", options_for_select(sofl_cities), class: 'form-control'%>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <label>Bed:</label>
+            <input type="text" class="form-control" placeholder="Any" name="no_of_bed_rooms" id="no_of_bed_rooms">
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label>Bath:</label>
+              <input type="text" class="form-control" placeholder="Any" name="no_of_bath_rooms" id="no_of_bath_rooms">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label>Square Foot Min:</label>
+              <input type="text" class="form-control" placeholder="Any" name="min_sqr_ft" id="min_sqr_ft_id">
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label>Square Foot Max:</label>
+              <input type="text" class="form-control" placeholder="Any" name="max_sqr_ft" id="max_sqr_ft_id">
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label>Price:</label>
+              <input type="text" class="form-control" placeholder="Any" name="price" id="price">
+            </div>
+          </div>
+          <div class="col-lg-3" >
+             <div class="form-group">
+              <label></label>
+              <input type="submit" class="form-control" value="Search" id="btn_adv_search">
+            </div>
+          </div>
+        </div>
+        <!-- </form> -->
+        <%end%>
+      </div>
+      <div class="ibox-footer">
+      </div>
+    </div>
+  </div>
+  <%if @building.blank? %>
+  <div class="row">       
+   <h2 class="font-bold m-b-xs"> Search criteria doesn't match. </h2>
+  </div>
+  <%end%>
+</div>
+
+<% @building.each do |building| %>
 <div class="row">
   <div class="col-lg-2"></div>
   <div class="col-lg-8">
@@ -61,6 +127,3 @@
   </div>
 </div>
 <% end %>
-
-
-
