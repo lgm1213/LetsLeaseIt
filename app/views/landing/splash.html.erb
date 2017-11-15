@@ -60,8 +60,6 @@
         <!-- </form> -->
         <%end%>
       </div>
-      <div class="ibox-footer">
-      </div>
     </div>
   </div>
   <%if @building.blank? %>
@@ -92,16 +90,16 @@
             </div>
           </div>
           <div class="col-md-7">
-            <h2 class="font-bold m-b-xs"><%= building.development_name %>--Test--</h2>
-            <small>Many desktop publishing packages and web page editors now.</small>
+            <h2 class="font-bold m-b-xs"><%= building.development_name %></h2>
+            <small><%= building.remarks %></small>
             <hr>
             <div>
               <%= link_to "Schedule an Appointment Today", new_building_appointment_path(building), class: "btn btn-primary pull-right"%>
-              <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
+              <h1 class="product-main-price"><small class="text-muted">Exclude Tax</small> </h1>
             </div>
             <hr>
             <h4>Building Info</h4>
-            <div class="small text-muted"><%= building.remarks %>--Lorem Ipsum</div>
+            <div class="small text-muted"><%= building.remarks %></div>
             <dl class="dl-horizontal m-t-md small">
               <dt>Available Listings</dt>
               <dd></dd>
@@ -120,8 +118,8 @@
         </div>
       </div>
       <div class="ibox-footer">
-        <span class="pull-right">Full stock - <i class="fa fa-clock-o"></i><%= Date.today.strftime("%A, %m/%d/%Y %I:%M%p")%></span>
-        The generated Lorem Ipsum is therefore always free
+        <span class="pull-right">As of <i class="fa fa-clock-o"></i><%= Date.today.strftime("%A, %m/%d/%Y %I:%M%p")%></span>
+        Login or register to set an appointment with the Rental Community!
       </div>
     </div>
   </div>
