@@ -8,22 +8,12 @@
   </li>
   <li class="<%= active_page(:sent) %>">
     <%= link_to mailbox_sent_path do %>
-      <em class="fa fa-paper-plane-o fa-lg"></em>
-      <span>Sent</span>
+      <i class="fa fa-envelope-o"></i>Sent
     <% end %>
   </li>
   <li class="<%= active_page(:trash) %>">
     <%= link_to mailbox_trash_path do %>
-      <em class="fa fa-trash-o fa-lg"></em>
-      <span>Trash</span>
+      <i class="fa fa-trash-o"></i>Trash
     <% end %>
   </li>
 </ul>
-
-          <ul class="folder-list m-b-md" style="padding: 0">
-            <li><a href="<%= url_for :controller => 'mailbox', :action => 'inbox' %>"> <i class="fa fa-inbox "></i> Inbox <span class="label label-warning pull-right">16</span> </a></li>
-            <li><a href="<%= url_for :controller => 'mailbox', :action => 'inbox' %>"> <i class="fa fa-envelope-o"></i> Send Mail</a></li>
-            <li><a href="<%= url_for :controller => 'mailbox', :action => 'inbox' %>"> <i class="fa fa-certificate"></i> Important</a></li>
-            <li><a href="<%= url_for :controller => 'mailbox', :action => 'inbox' %>"> <i class="fa fa-file-text-o"></i> Drafts <span class="label label-danger pull-right">2</span></a></li>
-            <li><a href="<%= url_for :controller => 'mailbox', :action => 'inbox' %>"> <i class="fa fa-trash-o"></i> Trash</a></li>
-          </ul>
