@@ -9,4 +9,16 @@ class ConversationsController < ApplicationController
 		flash[:success]= "Your Message Was Successfully Sent"
 		redirect_to_conversation_path(conversation)
 	end
+
+	def show
+		@receipts = conversation.receipts_for(current_user)
+		#marks conversation as read
+		conversation.mark_as_read(current_user)
+	end
+
+  private
+
+  def conversation_params
+  	params.require(:conversation).permit(:subject, :body, recipients:[])
+  end
 end
