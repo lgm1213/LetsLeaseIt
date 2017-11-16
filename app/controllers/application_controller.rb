@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 	include ApplicationHelper
   include MailboxHelper
 
-  helper_method :mailbox
+  helper_method :mailbox, :conversation
   # rescue_from CanCan::AccessDenied do |exception|
   #   redirect_to (super_admin? ? building_path : root_path), :alert => exception.message
   # end
@@ -42,6 +42,10 @@ private
 
   def mailbox
     @mailbox ||= current_user.mailbox
+  end
+
+  def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
   end
   # def set_time_zone
   #   Time.zone = current_user.time_zone
