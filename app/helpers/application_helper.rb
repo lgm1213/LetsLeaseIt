@@ -16,7 +16,11 @@ module ApplicationHelper
   # to help make sure a current action is the active choice
 	def is_active_action(action_name)
 	  params[:action] == action_name ? "active" : nil
-	end	
+	end
+
+  def active_page(active_page)
+    @active == active_page ? "active" : ""
+  end	
 	
   ## TODO: These should come from state model
 	# for state drop down menus
