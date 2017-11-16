@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_secure_password
+  acts_as_messageable
 
   ROLES = %i[ super_admin admin account_manager regional_manager property_manager leasing_consultant]
 
@@ -40,6 +41,14 @@ class User < ApplicationRecord
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def mailboxer_username
+    self.username
+  end
+
+  def mailboxer_email(object)
+    self.email
   end
 
   # Forgets a user.
