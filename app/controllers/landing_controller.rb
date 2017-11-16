@@ -18,6 +18,8 @@ class LandingController < ApplicationController
     @listing = Listing.all
     @building = Building.all if params[:location].blank?
     @building = Building.search_result(params[:location], params[:no_of_bed_rooms], params[:no_of_bath_rooms], params[:min_sqr_ft], params[:max_sqr_ft], params[:price]) if params[:location].present?
+    @error = true if @building.blank?
+    @building = Building.all if @building.blank?
   end
   
 end

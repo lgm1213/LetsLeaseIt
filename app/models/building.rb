@@ -103,8 +103,8 @@ class Building < ApplicationRecord
     building_price = Listing.where(price: price.to_f) if price.present?
     building_ids = building_price.pluck(:building_id) if price.present?
     buildings = buildings.where(id: building_ids) if price.present?
-    building_sqft = Listing.where('sqft::int BETWEEN ? AND ?', min_sqr_ft.to_i, max_sqr_ft.to_i) if min_sqr_ft.present? && max_sqr_ft.present?
-    building_ids_sqft = building_sqft.pluck(:building_id) if min_sqr_ft.present? && max_sqr_ft.present?
+    building_sqft = Listing.where('sqft::int BETWEEN ? AND ?', min_sqr_ft.to_i, max_sqr_ft.to_i) rescue [] if min_sqr_ft.present? && max_sqr_ft.present?
+    building_ids_sqft = building_sqft.pluck(:building_id) rescue [] if min_sqr_ft.present? && max_sqr_ft.present?
     buildings = buildings.where(id: building_ids_sqft) if min_sqr_ft.present? && max_sqr_ft.present?
     return buildings
   end
