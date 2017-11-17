@@ -16,4 +16,5 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "st
 # folder are already added.
 Rails.application.config.assets.precompile += %w( admin.js admin.css appointments.js appointments.scss 
 buildings.js buildings.scss companies.js companies.scss inspinia.js landing.js landing.scss listings.js 
-listings.scss rented_units.js rented_units.scss sessions.js sessions.scss users.js users.scss)
+listings.scss rented_units.js rented_units.scss sessions.js sessions.scss users.js users.scss mailbox.js 
+mailbox.scss conversations.js conversations.scss )

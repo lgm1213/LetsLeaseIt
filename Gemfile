@@ -84,4 +84,7 @@ gem 'humanize'
 gem "bootstrap-switch-rails"
 #bootstrap datepicker
 gem 'bootstrap-datepicker-rails'
+#select2 js library
 gem 'select2-rails'
+#mailbox for internal messaging
+gem 'mailboxer'
