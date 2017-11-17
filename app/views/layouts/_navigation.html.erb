@@ -25,7 +25,12 @@
       </li>
       <li class="landing_link">
         <%= link_to root_path do %>
-        <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Landing page </span>
+        <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Home page </span>
+        <% end %>
+      </li>
+      <li class="landing_link">
+        <%= link_to mailbox_inbox_path do %>
+        <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Message Inbox </span>
         <% end %>
       </li>
       <li class="landing_link">
