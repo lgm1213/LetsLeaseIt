@@ -1,18 +1,33 @@
 <% @receipts.each do |receipt| %>
   <% message = receipt.message %>
-  <div class="media">
-    <div class="media-left">
-      <!-- user avators can go here -->
-      <a href="#">
-        <img class="media-object" src="http://placehold.it/64x64" alt="...">
-      </a>
+  
+  <div class="mail-box-header">
+    <div class="pull-right tooltip-demo">
+      <%= link_to reply_conversation_path(conversation), class: "btn btn-white btn-sm", :data => { :toogle => "tooltip", :placement => "top", title: "Reply"} do %>
+      <i class="fa fa-reply"></i>
+      <% end %>
+      <% if conversation.is_trashed?(current_user) %>
+        <%= link_to untrash_conversation_path(conversation), class: "btn btn-white btn-sm", :data => { :toogle => "tooltip", :placement => "top", title: "Untrash"} do %>
+        <i class="fa fa-undo"></i>
+        <% end %>
+      <% else %>
+        <%= link_to trash_conversation_path(conversation), class: "btn btn-white btn-sm", :data => { :toogle => "tooltip", :placement => "top", title: "Trash", confirm: 'Are you sure?'} do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      <% end %>  
     </div>
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= message.sender.username %> <br>
-        <small><b>Subject: </b><%= message.subject %></small><br>
-        <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-      </h4>
+    <div class="mail-tools tooltip-demo m-t-d">
+      <h3>
+          <span class="font-normal">Subject: </span><%= message.subject %>
+        </h3>
+        <h5>
+          <span class="pull-right font-normal"><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></span>
+          <span class="font-normal">From: </span><%= message.sender.username %>
+        </h5>
+    </div>
+  </div>
+  <div class="mail-box">
+    <div class="mail-body">
       <%= message.body %>
     </div>
   </div>
