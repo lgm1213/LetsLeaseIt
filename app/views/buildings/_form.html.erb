@@ -618,18 +618,20 @@
         <div class="col-lg-1"></div>
       </div>
       <div class="row">
-        
-      </div>
-      <div class="col-lg-1"></div>
+        <div class="col-lg-1"></div>
         <div class="col-lg-10">
           <p><strong><%= f.label :regional_manager, "Regional Manager"%></strong></p>
           <%= f.select :regional_manager_id, options_for_select(regional_managers.collect {|r| [ "#{r.email}", r.id]}, :selected => building.regional_manager_id), {},class: 'form-control', id: "regional-manager" %>
         </div>
-        <br>
-        <div class="col-md-4">
+      </div>
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
           <p><strong><%= f.label :property_manager, "Property Manager", class: "control-label" %></strong></p>
           <%= f.select :property_manager_id, options_for_select(property_managers.collect {|p| [ "#{p.email}", p.id]}, :selected => building.property_manager_id), {},class: 'form-control', id: "property-manager" %> 
         </div>
+        
+      </div>
       </div>
   </fieldset>
 
