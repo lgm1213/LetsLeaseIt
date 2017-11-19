@@ -7,7 +7,7 @@ class ConversationsController < ApplicationController
 		recipients = User.where(id: conversation_params[:recipients])
 		conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
 		flash[:success]= "Your Message Was Successfully Sent"
-		redirect_to_conversation_path(conversation)
+		redirect_to conversation_path(conversation)
 	end
 
 	def show
@@ -39,6 +39,6 @@ class ConversationsController < ApplicationController
   end
 
   def message_params
-  	params.require(:message).permit(:body, :subject)
+  	params.require(:message).permit(:body, :subject, recipients:[])
   end
 end

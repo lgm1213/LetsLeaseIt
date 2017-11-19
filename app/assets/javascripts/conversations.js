@@ -10,6 +10,7 @@ ready = function(){
     });
 }
 
+
 $(document).ready(ready);
 // if using turbolinks
 $(document).on("page:load",ready);
