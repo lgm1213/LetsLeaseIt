@@ -15,6 +15,7 @@
             </a>
           <ul class="dropdown-menu animated fadeInRight m-t-xs">
             <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Message Inbox (#{unread_messages_count})", mailbox_inbox_path %></li>
             <li class="divider"></li>
             <li><%= link_to "Logout", logout_path %></li>
           </ul>
