@@ -88,3 +88,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'select2-rails'
 #mailbox for internal messaging
 gem 'mailboxer'
+#chosen select
+gem 'chosen-rails'
+#local time by basecamp
+gem 'local_time'
