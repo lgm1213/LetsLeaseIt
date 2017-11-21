@@ -47,6 +47,8 @@ private
   def conversation
     @conversation ||= mailbox.conversations.find(params[:id])
   end
+
+  
   # def set_time_zone
   #   Time.zone = current_user.time_zone
   # end

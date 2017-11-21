@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   resources :conversations do
     member do
       post :reply
+      get :reply
       post :trash
       post :untrash
     end

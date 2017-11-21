@@ -1,17 +1,6 @@
 <div class="wrapper wrapper-content">
   <div class="row">
-    <div class="col-lg-3">
-      <div class="ibox float-e-margins">
-        <div class="ibox-content mailbox-content">
-          <div class="file-manager">
-            <%= link_to "Compose", new_conversation_path, class: "btn btn-block btn-primary compose-mail" %>
-            <div class="space-25"></div>
-            <%= render 'mailbox/folders' %>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'mailbox/left_folders' %>
     <div class="col-lg-9 animated fadeInRight">
       <div class="mail-box-header">
         <% if is_conversation %>
@@ -24,17 +13,43 @@
       </div>
         <% else %>
       <div class="mail-box-header">
-        <h2>Inbox(Will Fill Later With Count)</h2>     
+        <% if current_page?(action: 'inbox') %>
+        <h2>Inbox</h2>     
       </div>
       <div class="mail-box">
         <table class="table table-hover table-mail">
           <tbody>
             <tr>
               <th class="check-mail">Select</th>
-              <th class="mail-contact">User</th>
+              <th class="mail-contact">Sent By</th>
               <th class="mail-subject">Subject</th>
               <th class="text-right mail-date">Recieved</th>
             </tr>
+        <% elsif current_page?(action: 'sent')%>
+        <h2>Sent</h2>     
+      </div>
+      <div class="mail-box">
+        <table class="table table-hover table-mail">
+          <tbody>
+            <tr>
+              <th class="check-mail">Select</th>
+              <th class="mail-contact">Sent To</th>
+              <th class="mail-subject">Subject</th>
+              <th class="text-right mail-date">Recieved</th>
+            </tr>
+        <% elsif current_page?(action: 'trash') %>
+        <h2>Sent</h2>     
+      </div>
+      <div class="mail-box">
+        <table class="table table-hover table-mail">
+          <tbody>
+            <tr>
+              <th class="check-mail">Select</th>
+              <th class="mail-contact">Sent To/By</th>
+              <th class="mail-subject">Subject</th>
+              <th class="text-right mail-date">Recieved</th>
+            </tr>
+        <% end %>        
               <%= render partial: 'conversations/conversation', collection: messages %>
               <% end %>
           </tbody>
