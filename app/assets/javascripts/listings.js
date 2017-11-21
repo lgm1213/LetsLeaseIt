@@ -22,9 +22,6 @@
 //= require bootstrap-tagsinput/bootstrap-tagsinput.js
 //= require dualListbox/jquery.bootstrap-duallistbox.js
 //= require typehead/bootstrap3-typeahead.min.js
-//= require codemirror/codemirror.js
-//= require codemirror/mode/javascript/javascript.js
-
 
 // Bootstrap Swithc
 $('input:checkbox').bootstrapSwitch();
