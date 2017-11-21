@@ -1,9 +1,8 @@
 <% @receipts.each do |receipt| %>
   <% message = receipt.message %>
-  
   <div class="mail-box-header">
     <div class="pull-right tooltip-demo">
-      <a href="#" class="btn btn-white btn-sm" id="reveal-reply" data-toggle="collapse" data-target="#form-hide" data-placement="top" title="Reply"><i class="fa fa-reply"></i> Reply</a>
+      <a class="btn btn-white btn-sm" id="reveal-reply" data-toggle="collapse" data-target="#form-hide<%=receipt.id%>" data-placement="top" title="Reply"><i class="fa fa-reply"></i> Reply</a>
       <% if conversation.is_trashed?(current_user) %>
         <%= link_to untrash_conversation_path(conversation), class: "btn btn-white btn-sm", method: :post,:data => { :toogle => "tooltip", :placement => "top", title: "Untrash"} do %>
         <i class="fa fa-undo"></i> Untrash
@@ -29,7 +28,7 @@
     <div class="mail-body">
       <%= message.body %>
     </div>
-    <div class="mail-text h-200 collapse" id="form-hide">
+    <div class="mail-text h-200 collapse" id="form-hide<%=receipt.id%>">
       <%= form_for :message, url: reply_conversation_path(conversation), html: {id: "reply-form"} do |f| %>
         <div class="form-group">
           <%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control" %>
