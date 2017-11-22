@@ -1,6 +1,5 @@
 class RentedUnitsController < ApplicationController
   before_action :building
-  before_action :listing
   before_action :appointment
   before_action :set_rented_unit, only: [:show, :edit, :update, :destroy]
 
@@ -77,10 +76,6 @@ class RentedUnitsController < ApplicationController
 
     def building
     	@building ||= Building.find(params[:building_id])
-    end
-
-    def listing
-    	@listing ||= Listing.find(params[:listing_id])
     end
 
     def appointment
