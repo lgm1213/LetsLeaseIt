@@ -30,6 +30,10 @@ def initialize(user)
       can :read, Listing
       can :read, Appointment
       can :read, Building
+    elsif user.realtor? || user.consumer?
+      can :read, Listing
+      can :manage, Appointment
+      can :read, Building
     else
       can :read, :all
     end

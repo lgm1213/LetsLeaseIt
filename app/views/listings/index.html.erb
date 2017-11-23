@@ -58,7 +58,7 @@
       <% end %>
     </tbody>
   </table>
-  <% if !current_user.regional_manager? %>
+  <% if can? :modify, Listing  %>
     <%= link_to 'New Listing', new_building_listing_path %>
   <%end%>
 </div>

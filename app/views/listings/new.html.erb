@@ -4,7 +4,9 @@
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></a></li>
       <li><strong><%= link_to "MLS Listing Portfolio", building_listings_path %></strong></li>
-      <li class="active"><strong><%= link_to "New MLS Listing", new_building_listing_path %></strong></li>
+      <% if can? :modify, Listing  %>
+        <li class="active"><strong><%= link_to "New MLS Listing", new_building_listing_path %></strong></li>
+      <% end %>
     </ol>
   </div>
   <div class="col-lg-2">
