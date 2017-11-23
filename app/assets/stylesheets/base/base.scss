@@ -1422,3 +1422,16 @@ body.mini-navbar.fixed-sidebar .logo-element {
 .fullscreen-video .animated {
   animation: none;
 }
+
+.footer-fixed{
+  position: fixed;
+  margin-left: 220px;
+}
+
+.nav-fixed{
+  position: fixed !important;
+  overflow: none;
+  background: #FF4147;
+  height:100%;
+}
+

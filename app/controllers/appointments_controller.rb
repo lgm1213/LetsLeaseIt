@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = building.appointments.new(appointment_params.merge({building_id: building.id}))
+    @appointment = building.appointments.new(appointment_params.merge({building_id: building.id, user_id: current_user.id}))
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to [building, @appointment], notice: 'Appointment was successfully created.' }
