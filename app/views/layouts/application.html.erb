@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
 
     <!-- Include style per-controller - vendor plugins -->
-    <%#= stylesheet_link_tag params[:controller] if ::Rails.application.assets_manifest.files.values.map{|v| v['assets/stylesheets']}.include?('#{params[:controller]}') %>
-    <%#=stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.scss") %>
+    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets_manifest.files.values.map{|v| v['assets/stylesheets']}.include?('#{params[:controller]}') %>
+    <%=stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.scss") %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -25,10 +25,16 @@
         <%= render 'layouts/topnavbar' %>
         
         <!-- Main view  -->
-        <%= yield %>
+        <div class="row">
+          <div class="col-lg-12">
+            <%= yield %>
+            <br>
+            <br>
+          </div>
+          <%= render 'layouts/footer' %>
+        </div>
         
         <!-- Footer -->
-        <%= render 'layouts/footer' %>
       
       </div>
       <!-- End page wrapper-->
@@ -50,7 +56,5 @@
     <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
     <%= yield :javascript %>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </body>
 </html>

@@ -13,7 +13,9 @@
 //= require rails-ujs
 //= require jquery/jquery-3.1.1.min.js
 //= require jquery_ujs
+//= require chosen-jquery
 //= require bootstrap-sprockets
+//= require local-time
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require peity/jquery.peity.min.js
@@ -27,4 +29,13 @@
 //= require select2-full
 
 
+// var hide;
 
+// hide = function(){
+// 	$('#reply-form').hide();
+// 	$('#reveal-reply').click(function(){
+// 		$('#reply-form').show();
+// 	});
+// }
+
+// $(document).ready(hide);

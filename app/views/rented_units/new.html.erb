@@ -4,7 +4,7 @@
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></a></li>
       <li><strong><%= link_to "Active MLS Listings", building_listings_path %></strong></li>
-      <li class="active"><strong><%= link_to "Calendar", new_building_listing_path %></strong>
+      <li class="active"><strong><%= link_to "Calendar", building_appointments_path %></strong>
       </li>
     </ol>
   </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="ibox-content">
       		<%= render 'form', rented_unit: @rented_unit %>
-      		<%= link_to 'Back', building_listing_appointment_rented_units_path(@building, @listing, @appointment) %>
+      		<%= link_to 'Back', building_appointment_rented_units_path(@building, @appointment) %>
         </div>
       </div>
     </div>

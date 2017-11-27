@@ -1,4 +1,4 @@
-<%= form_with(model: user, local: true, html: {id: 'form', class: 'form-horizontal'}) do |form| %>
+<%= form_with(model: user, local: true, html: {id: 'form', class: 'm-t'}) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,48 +12,30 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :username, class: 'control-label col-sm-4' %>
-    <div class="col-sm-2">
-      <%= form.text_field :username, id: :user_username, class: "form-control" %>
-    </div>
+    <%= form.text_field :username, id: :user_username, class: "form-control", placeholder: 'Username' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :email, class: 'control-label col-sm-4' %>
-    <div class="col-sm-2">
-      <%= form.text_field :email, id: :user_email, class: "form-control" %>
-    </div>
+    <%= form.text_field :email, id: :user_email, class: "form-control", placeholder: 'Email' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :password, class: 'control-label col-sm-4' %>
-    <div class="col-sm-2">
-      <%= form.password_field :password, id: :user_password_digest, class: "form-control" %>
-    </div>
+    <%= form.password_field :password, id: :user_password_digest, class: "form-control", placeholder: 'Password' %>
   </div>
 
    <div class="form-group">
-    <%= form.label :password_confirmation, class: 'control-label col-sm-4' %>
-    <div class="col-sm-2">
-      <%= form.password_field :password_confirmation, id: :user_password_digest, class: "form-control" %>
-    </div>
+    <%= form.password_field :password_confirmation, id: :user_password_digest, class: "form-control", placeholder: 'Password Confirmation' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :company, class: 'control-label col-sm-4' %>
-    <div class="col-sm-2">
-      <%= form.text_field :company_id, id: :user_company, class: "form-control" %>
-    </div>
+    <%= form.text_field :company_id, id: :user_company, class: "form-control", placeholder: 'Company' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :title, class: 'control-label col-sm-4' %>
-    <div class="col-sm-2">
-      <%= form.text_field :title, id: :user_title, class: "form-control" %>
-    </div>
+    <%= form.text_field :title, id: :user_title, class: "form-control", placeholder: 'Title' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Register', class: "btn btn-primary block full-width m-b" %>
   </div>
 <% end %>

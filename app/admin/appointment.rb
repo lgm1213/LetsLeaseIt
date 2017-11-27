@@ -2,7 +2,7 @@ ActiveAdmin.register Appointment do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+permit_params :realtor_name, :realtor_phone, :start_time, :end_time, :building_id, :user_id
 #
 # or
 #

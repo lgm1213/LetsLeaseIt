@@ -45,7 +45,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @listing.attributes = listing_params
     respond_to do |format|
-       if @listing.save
+      if @listing.save
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
       elsif params[:listing][:active] == "0"

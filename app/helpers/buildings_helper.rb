@@ -346,7 +346,8 @@ module BuildingsHelper
 			['Wychem Charles',	'Wychem Charles'],
 			['Youngl Nathan',	'Youngl Nathan'],
 			['Young; Virginia ',	'Young; Virginia '],
-			['Zora Hurston ',	'Zora Hurston ']
+			['Zora Hurston ',	'Zora Hurston '],
+			['--Not Applicable--', 'Not Applicable']
 					]
 	end
 
@@ -449,7 +450,8 @@ module BuildingsHelper
 			['Westpine',	'Westpine'],
 			['Westview',	'Westview'],
 			['West Miami',	'West Miami'],
-			['Young; Walter C',	'Young; Walter C'],  	
+			['Young; Walter C',	'Young; Walter C'],
+			['--Not Applicable--', 'Not Applicable']  	
 		]
 	end
 
@@ -535,7 +537,20 @@ module BuildingsHelper
 			['Western',	'Western'],
 			['West Land',	'West Land'],
 			['Yound Mans Prep Academy',	'Yound Mans Prep Academy'],
-			['Yound Womans Prep Academy',	'Yound Womans Prep Academy']
+			['Yound Womans Prep Academy',	'Yound Womans Prep Academy'],
+			['--Not Applicable--', 'Not Applicable'],
 		]
+	end
+
+	def account_managers
+	  account_managers = User.where(role: "account_manager")	
+	end
+
+	def regional_managers
+	  regional_managers = User.where(role: "regional_manager")	
+	end
+
+	def property_managers
+	  property_managers = User.where(role: "property_manager")	
 	end
 end

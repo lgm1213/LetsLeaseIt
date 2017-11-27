@@ -7,6 +7,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
+    # @all_appointments = building.listings.all.appointments.order('start_time') 
     @appointments = listing.appointments.order('start_time')
   end
 
@@ -27,7 +28,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = listing.appointments.new(appointment_params.merge({listing_id: listing.id}))
+    @appointment = listing.appointments.new(appointment_params.merge({listing_id: listing.id, user_id: current_user.id}))
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to [building, listing, @appointment], notice: 'Appointment was successfully created.' }
@@ -71,7 +72,7 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:realtor_name, :realtor_phone, :start_time, :end_time, :listing_id)
+      params.require(:appointment).permit(:realtor_name, :realtor_phone, :start_time, :end_time, :listing_id, :user_id)
     end
 
     def building

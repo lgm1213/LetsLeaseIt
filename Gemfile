@@ -84,5 +84,11 @@ gem 'humanize'
 gem "bootstrap-switch-rails"
 #bootstrap datepicker
 gem 'bootstrap-datepicker-rails'
-#select-2 for multiple selection
-gem "select2-rails"
+#select2 js library
+gem 'select2-rails'
+#mailbox for internal messaging
+gem 'mailboxer'
+#chosen select
+gem 'chosen-rails'
+#local time by basecamp
+gem 'local_time'

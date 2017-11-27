@@ -25,9 +25,9 @@
           </p><p><strong>Realtor phone: </strong><%= @appointment.realtor_phone %></p>
           <p><strong>Start time: </strong><%= @appointment.start_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
           <p><strong>End time: </strong><%= @appointment.end_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
-          <p><strong>Listing: </strong>Unit# <%= @appointment.listing.unit_no %></p>
+          <p><strong>Building: </strong> <%= @building.development_name %></p>
           <p><strong>Did this appointment turn into a lease?</strong>
-          <%= link_to "Yes", new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, @rented_unit, rented_unit: { leased: true}) %> or <%= link_to "No", new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, @rented_unit, rented_unit: {leased: false}) %>  </p>
+          <%= link_to "Yes", new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit: { leased: true}) %> or <%= link_to "No", new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit: {leased: false}) %>  </p>
 
 
           <%= link_to 'Edit Appointment Info', edit_building_listing_appointment_path(@building, @listing, @appointment) %> |

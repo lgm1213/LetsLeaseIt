@@ -7,14 +7,14 @@ class BuildingsController < ApplicationController
   # GET /buildings
   # GET /buildings.json
   def index
-      @buildings = Building.all if current_user.role != "regional_manager"
-      @buildings = Building.all.where(:company_id => current_user.company_id) if current_user.role == "regional_manager" rescue nil
+    @buildings = Building.all if current_user.role != "regional_manager"
+    @buildings = Building.all.where(:company_id => current_user.company_id) if current_user.role == "regional_manager" rescue nil
   end
 
   # GET /buildings/1
   # GET /buildings/1.json
   def show
-    # render layout: !request.xhr?
+    render layout: !request.xhr?
   end
 
   def open_building_modal
@@ -36,7 +36,7 @@ class BuildingsController < ApplicationController
   # POST /buildings
   # POST /buildings.json
   def create
-    @building = Building.new(building_params.merge({user_id: current_user.id}))
+    @building = Building.new(building_params.merge({user_id: current_user.id, account_manager_id: 16, property_manager_id: 14, regional_manager_id: 15 }))
 
     respond_to do |format|
       if @building.save
@@ -79,10 +79,11 @@ class BuildingsController < ApplicationController
       @building = Building.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def building_params
-      params.require(:building).permit(:user_id, :company_id, :county, :area, :city, :folio, :street,
-                                       :account_manager_id, :regional_manager_id, :property_manager_id,
+      params.require(:building).permit(:user_id, :company_id, :property_manager_id, :account_manager_id,
+                                       :regional_manager_id, :county, :area, :city, :folio, :street,
                                        :compass_point, :street_name, :state, :zip,:zip4,
                                        :unit, :legal, :zoning, :geographical, :municip_code,
                                        :township, :section, :subdivision, :parcel, :map_coordinates,

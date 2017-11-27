@@ -19,25 +19,26 @@ ActiveAdmin.register Listing do
   #   permitted
   # end
 
-  controller do
-    def create
-      if params[:listing].present? && params[:listing][:building_id].present?
-        building = Building.find(params[:listing][:building_id])
-        if building.unit.to_i == building.listings.size
-          flash[:error] = 'You have already reached to the maximum listing limit for this building'
-          redirect_to admin_listings_path
-        else
-          super
-        end
-      else
-        super
-      end
-    end
-  end
+  # controller do
+  #   def create
+  #     if params[:listing].present? && params[:listing][:building_id].present?
+  #       building = Building.find(params[:listing][:building_id])
+  #       if building.unit.to_i == building.listings.size
+  #         flash[:error] = 'You have already reached to the maximum listing limit for this building'
+  #         redirect_to admin_listings_path
+  #       else
+  #         super
+  #       end
+  #     else
+  #       super
+  #     end
+  #   end
+  # end
 
   form do |f|
     f.inputs "Listings" do
       f.input :building_id, as: :select, collection: Building.all.map { |m| [m.development_name, m.id] }
+      f.input :active, as: :boolean
       f.input :unit_no
       f.input :unit_model
       f.input :price
