@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
       redirect_to admin_root_path
     elsif ["regional_manager", "property_manager"].include? user.role
       redirect_to user_path(user)
+    elsif ["realtor", "consumer"].include? user.role
+      redirect_to landing_splash_path
     else
       root_path
     end
