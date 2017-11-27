@@ -5,7 +5,7 @@
       <li><%= link_to "Home", root_path %></a></li>
       <li class="active"><strong><%= link_to "MLS Listing Portfolio", building_listings_path %></strong></li>
       <% if can? :create, Appointment %>
-      <li><%= link_to "Create New Appointment", new_building_appointment_path(@building,@listing) %></li>
+      <li><%= link_to "Create New Appointment", new_building_listing_appointment_path(@building, @listing) %></li>
       <%end%>  
     </ol>
   </div>

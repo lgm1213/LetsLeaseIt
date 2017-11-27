@@ -47,7 +47,7 @@
 							<%end%>
 							<%= link_to 'Back', buildings_path, class: 'btn btn-primary' %> |
 							<%= link_to "See MLS Listings", building_listings_path(@building), class: 'btn btn-info' %> |
-							<%= link_to "See Calendar", building_appointments_path(@building), class: 'btn btn-info' %>
+							<%= link_to "See Calendar", building_listing_appointments_path(@building, @listing), class: 'btn btn-info' %>
 					  </div>
 			    </div>
 		    </div>

@@ -4,8 +4,8 @@
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Rental Communities", buildings_path %></li>
-      <li class="active"><strong><%= link_to "Rental Community Appointment Calendar", building_appointments_path %></strong></li>
       <li><%= link_to "MLS Listing Portfolio", building_listings_path(@building) %></li>
+      <li class="active"><strong><%= link_to "Appointment Calendar", building_listing_appointments_path(@building, @listing) %></strong></li>
     </ol>
   </div>
   <div class="col-lg-2">

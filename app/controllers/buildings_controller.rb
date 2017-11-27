@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/1
   # GET /buildings/1.json
   def show
-    render layout: !request.xhr?
+    # render layout: !request.xhr?
   end
 
   def open_building_modal
