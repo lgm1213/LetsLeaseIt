@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    # @all_appointments = building.listings.all.appointments.order('start_time') 
+    @listings = building.listings.all
     @appointments = listing.appointments.order('start_time')
   end
 
