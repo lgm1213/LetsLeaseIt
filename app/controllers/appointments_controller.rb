@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
   def index
     # @all_appointments = building.listings.all.appointments.order('start_time') 
     @appointments = building.appointments.order('start_time')
+    @listings = building.listings.all
   end
 
   # GET /appointments/1

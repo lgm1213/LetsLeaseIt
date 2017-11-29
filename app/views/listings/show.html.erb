@@ -4,7 +4,9 @@
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></a></li>
       <li><strong><%= link_to "MLS Listing Portfolio", building_listings_path %></strong></li>
-      <li class="active"><strong><%= link_to "New MLS Listing", new_building_listing_path %></strong></li>
+      <% if can? :modify, Listing  %>
+        <li class="active"><strong><%= link_to "New MLS Listing", new_building_listing_path %></strong></li>
+      <% end %>
     </ol>
   </div>
   <div class="col-lg-2">
@@ -31,7 +33,9 @@
           <p><strong>Sqft:</strong><%= @listing.sqft %></p>
           <p><strong>Date available:</strong><%= @listing.date_available %></p>
           <p><strong>Notes:</strong><%= @listing.notes %></p>
-          <%= link_to 'Edit', edit_building_listing_path(@building, @listing), class: 'btn btn-primary' %> |
+          <% if can? :modify, Listing  %>
+            <%= link_to 'Edit', edit_building_listing_path(@building, @listing), class: 'btn btn-primary' %> |
+          <% end %>
           <%= link_to 'Back', building_listings_path, class: 'btn btn-primary' %> |
           <%= link_to 'View Appointments', building_listing_appointments_path(@building, @listing), class: 'btn btn-primary' %> |
           <%= link_to 'Create Appointment', new_building_listing_appointment_path(@building, @listing), class: 'btn btn-primary' %>
