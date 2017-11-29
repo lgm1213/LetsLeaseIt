@@ -35,6 +35,20 @@ ActiveAdmin.register Listing do
   #   end
   # end
 
+  controller do
+    def update
+      if params[:listing][:active] == "0" || Listing.find(params[:id]).active ==true
+        listing = Listing.find(params[:id])
+        listing.attributes = permitted_params[:listing]
+        listing.save(validate: false)          
+        flash[:notice] = 'Listing was successfully updated.'
+        redirect_to admin_listing_path
+      else
+        super
+      end
+    end
+  end
+
   form do |f|
     f.inputs "Listings" do
       f.input :building_id, as: :select, collection: Building.all.map { |m| [m.development_name, m.id] }
@@ -59,7 +73,7 @@ ActiveAdmin.register Listing do
     f.actions
   end
 
-  permit_params :building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath,
+  permit_params :active, :building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath,
                 :sqft, :date_available, :notes, :state, listing_images_attributes: [:image, :listing_id]
 
 end
