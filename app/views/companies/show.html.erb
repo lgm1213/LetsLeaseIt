@@ -47,3 +47,55 @@
     </tbody>
   </table>
 </div>
+
+<h1>Building Analytics</h1>
+<br>
+  <div class="row">
+    <div class="col-sm-3">
+      <input type="text" id="startdate"
+       name="start_date" class="datepicker" placeholder="Start Date" >
+    </div>    
+    <div class="col-sm-3">
+      <input type="text" id="enddate"
+       name="end_date" class="datepicker" placeholder="End Date" >
+    </div>  
+    <div class="col-sm-2">
+      <input type="radio" id="year"
+       name="contact" value="year" class="analytics">
+      <label for="year">Year</label>
+    </div>    
+    <div class="col-sm-2">
+      <input type="radio" id="month"
+       name="contact" value="month" checked="checked" class="analytics">
+      <label for="month">Month</label>
+    </div>    
+    <div class="col-sm-2">
+      <input type="radio" id="week"
+       name="contact" value="week" class="analytics">
+      <label for="week">Week</label>
+    </div>
+  </div>
+<div class="ibox-content">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Building Id#</th>
+        <th>Company Id#</th>
+        <th>Lease Count </th>
+        <th>Appointment Count</th>
+        <th>L/A Ratio</th>
+      </tr>
+    </thead>
+    <tbody id="tbody_building_analytics">
+      <% @company.buildings.each do |company_buildings| %>
+        <tr>
+          <td><%= company_buildings.id %></td>
+          <td><%= company_buildings.company_id %></td>
+          <td><%= rented_units_count(company_buildings) %></td>
+          <td><%= appointments_count(company_buildings) %></td>
+          <td><%= (rented_units_count(company_buildings).to_f/appointments_count(company_buildings).to_f).nan? ? 0.0 : rented_units_count(company_buildings).to_f/appointments_count(company_buildings).to_f %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
