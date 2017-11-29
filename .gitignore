@@ -12,7 +12,6 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-/config/secrets.yml
 
 /node_modules
 /yarn-error.log
@@ -20,4 +19,5 @@
 .byebug_history
 #Ignore databse and secret files to prevent git conflicts and exposures
 /config/database.yml
+/config/secrets.yml
 public/system/*
