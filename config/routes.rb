@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :buildings
   end
+  post 'companies/building_analytics'
 
   # mailbox folder routes
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox

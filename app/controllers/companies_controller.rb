@@ -61,8 +61,25 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def building_analytics
+    from, to = get_filtered_time(params[:filter]) if params[:filter] != "datepicker" 
+    from, to = params[:start], params[:end] if params[:start].present?
+    buildings = Company.find(params[:company_id]).buildings
+    appointments,rented_units = Company.building_analytics_data(buildings,to,from)
+    la_ratio = []
+    rented_units.each.with_index {|r,index| la_ratio << ((r.to_f/appointments[index].to_f).nan? ? 0 : (r.to_f/appointments[index].to_f)) }
+    render json: {buildings: buildings, appointments:appointments, rented_units:rented_units, la_ratio:la_ratio }
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_filtered_time(filter)
+      from = eval("Time.zone.now.beginning_of_" + filter)
+      to =  eval("Time.zone.now.end_of_" + filter)
+      return from, to
+    end
+
     def set_company
       @company = Company.find(params[:id])
     end
