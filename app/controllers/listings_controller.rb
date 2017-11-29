@@ -43,12 +43,12 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1.json
   def update
     @listing = Listing.find(params[:id])
-    @listing.attributes = listing_params
+    @listing.attributes = listing_params  
     respond_to do |format|
       if @listing.save
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
-      elsif params[:listing][:active] == "0"
+      elsif params[:listing][:active] == "0" || Listing.find(params[:id]).active ==true
         @listing.save(validate: false)
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
