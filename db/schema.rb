@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116053416) do
+ActiveRecord::Schema.define(version: 20171127081249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(version: 20171116053416) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "building_id"
     t.bigint "user_id"
-    t.index ["building_id"], name: "index_appointments_on_building_id"
+    t.bigint "listing_id"
+    t.index ["listing_id"], name: "index_appointments_on_listing_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
@@ -699,7 +699,7 @@ ActiveRecord::Schema.define(version: 20171116053416) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "appointments", "buildings"
+  add_foreign_key "appointments", "listings"
   add_foreign_key "appointments", "users"
   add_foreign_key "building_additional_parking", "additional_parking_infos"
   add_foreign_key "building_additional_parking", "buildings"

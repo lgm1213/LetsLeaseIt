@@ -47,14 +47,14 @@
               <% building.listings.each do |building_listing| %>
               <dt><%= link_to "Unit:#{building_listing.unit_no}", building_listing_path(building, building_listing) %></dt>
               <dd>Floor Model: <%= building_listing.unit_model %></dd>
-              <% end %>
             </dl>
             <div class="text-right">
               <div class="btn-group">
                 <%= link_to "See Detailed List of MLS Listings", building_listings_path(building), class: "btn btn-white btn-sm" %> 
-                <%= link_to "See Scheduled Appointments Calendar", building_appointments_path(building), class: "btn btn-white btn-sm pull-right" %>
+                <%= link_to "See Scheduled Appointments Calendar", building_listing_appointments_path(building, building_listing), class: "btn btn-white btn-sm pull-right" %>
               </div>
             </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -79,6 +79,7 @@ class BuildingsController < ApplicationController
       @building = Building.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def building_params
       params.require(:building).permit(:user_id, :company_id, :property_manager_id, :account_manager_id,

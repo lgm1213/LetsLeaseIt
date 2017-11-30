@@ -31,14 +31,12 @@ Rails.application.routes.draw do
   #building and associated routes
   resources :buildings do
     resources :listings do
+      resources :appointments do
+        resources :rented_units
+      end
     end
   end
-  resources :buildings do 
-    resources :appointments do
-      resources :rented_units
-    end
-  end
-  
+ 
 
   #Analytics Routes
   resources :analytics, only: [:index]
@@ -52,6 +50,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :buildings
   end
+  post 'companies/building_analytics'
 
   # mailbox folder routes
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox

@@ -92,3 +92,5 @@ gem 'mailboxer'
 gem 'chosen-rails'
 #local time by basecamp
 gem 'local_time'
+#dotenv
+gem 'dotenv-rails', groups: [:development, :test]

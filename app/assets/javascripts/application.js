@@ -27,6 +27,7 @@
 //= require turbolinks
 //= require bootstrap-switch
 //= require select2-full
+//= require datapicker/bootstrap-datepicker.js
 
 
 // var hide;
