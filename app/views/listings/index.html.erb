@@ -19,7 +19,8 @@
   <table>
     <thead>
       <tr>
-        <th>Rental Community</th>
+        <th>Listing Id </th>
+        <th>Rental Community Name</th>
         <th>Unit Number</th>
         <th>Unit Model</th>
         <th>Price</th>
@@ -37,7 +38,8 @@
     <tbody>
       <% @listings.each do |listing| %>
         <tr>
-          <td><%= link_to "#{listing.building.id}", listing.building %></td>
+          <td><%= link_to listing.id, listing.building %></td>
+          <td><%= link_to "#{listing.building.development_name}", listing.building %></td>
           <td><%= listing.unit_no %></td>
           <td><%= listing.unit_model %></td>
           <td><%= listing.price %></td>
