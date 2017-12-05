@@ -16,9 +16,9 @@
 /node_modules
 /yarn-error.log
 
-.env
 .byebug_history
 #Ignore databse and secret files to prevent git conflicts and exposures
 /config/database.yml
 /config/secrets.yml
 public/system/*
+config/environment_variables.yml
