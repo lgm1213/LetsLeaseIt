@@ -17,13 +17,14 @@
         <div class="ibox-title">
         <h5>Analytics/Reporting</h5>
         </div>
+        <%= select_tag "buildings", options_for_select(buildings.collect {|r| [ "#{r.development_name}", r.id]}), :prompt => "Buildings", class: ''%>
         <div class="ibox-content">
           <div class="panel-body">
             <div class="panel-group" id="accordion">
               <div class="panel panel-default">
                 <div class="row">
                   <div class="col-md-6">
-                    <%=render 'line_chart'%>
+                    <canvas id="line_chart" width="400" height="400"></canvas>
                   </div>
                   <div class="col-md-6">
                     <%=render 'area_chart'%>
@@ -31,12 +32,13 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <%=render 'bar_chart'%>
+                    <canvas id="bar_chart" width="400" height="400"></canvas>
                   </div>
                   <div class="col-md-6">
                     <%=render 'pie_chart'%>
                   </div>
                 </div>
+                
               </div>
               <%= link_to "Back", :back %>
             </div>
