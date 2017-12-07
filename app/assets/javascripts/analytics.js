@@ -7,28 +7,18 @@ var line_chart_leases={};
 var max_appointments = {};
 var bar_chart={};
 
-var ctx = document.getElementById("bar_chart");
-myChart_canvas_bar = new Chart(ctx, {
-  type: 'bar',
-  data: {}
-});
-
-var ctx_line = document.getElementById("line_chart");
-myChart_canvas_line = new Chart(ctx_line, {
-  type: 'line',
-  data: {}
-});
+initial_graph();
 
 $("#buildings").change(function(){
   building = $(this).val();
+  myChart_canvas_bar.destroy();
+  myChart_canvas_line.destroy();
   if(building!=""){
     $.ajax({ 
       type: 'POST', 
       url: "/analytics/show_graph", 
      data: { id: building }, 
       success: function (data) {
-        myChart_canvas_bar.destroy();
-        myChart_canvas_line.destroy();
         //bar chart
         bar_chart = data["bar_chart"]; 
         var ctx = document.getElementById("bar_chart").getContext('2d');
@@ -52,6 +42,13 @@ $("#buildings").change(function(){
                           beginAtZero:true
                       }
                   }]
+              },
+              title: 
+              {
+                display: true,
+                fontSize: 16,
+                text: 'Bar Chart'
+
               }
           }
         });
@@ -98,10 +95,52 @@ $("#buildings").change(function(){
                         beginAtZero:true
                     }
                 }]
+            },
+            title: 
+            {
+              display: true,
+              fontSize: 16,
+              text: 'Line Chart'
+
             }
           }      
         });
       }  
     });
   }
+  else{
+    initial_graph();
+  }
 });
+
+function initial_graph(){
+  var ctx = document.getElementById("bar_chart");
+  myChart_canvas_bar = new Chart(ctx, {
+    type: 'bar',
+    data: {},
+    options: 
+    {
+      title:
+      {
+        display: true,
+        fontSize: 16,
+        text: 'Bar Chart'
+      }
+    }
+  });
+  var ctx_line = document.getElementById("line_chart");
+  myChart_canvas_line = new Chart(ctx_line, {
+    type: 'line',
+    data: {},
+    options:
+    {
+      title: 
+      {
+        display: true,
+        fontSize: 16,
+        text: 'Line Chart'
+
+      }
+    }
+  });
+}
