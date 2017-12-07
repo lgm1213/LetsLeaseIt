@@ -1,6 +1,8 @@
 class AnalyticsController < ApplicationController
-  def index
+  before_action :set_company, only: [:index]
 
+  def index
+  
   end
 
   def show_graph
@@ -46,4 +48,8 @@ class AnalyticsController < ApplicationController
     return line_chart_leases
   end
 
+  private
+    def set_company
+      @company = Company.find(current_user.company_id)
+    end
 end

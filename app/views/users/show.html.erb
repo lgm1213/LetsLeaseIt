@@ -24,7 +24,7 @@
         <p><strong>Title: </strong><%= @user.title %></p>
         <br/>
         <h5>Most Reccent Building and Listings</h5>
-        <% @user.buildings[0,3].each do |user_building| %>
+        <% @user.company_id.buildings[0,3].each do |user_building| %>
         <div class="list-group">
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
@@ -59,7 +59,7 @@
         <br>
         <br>
         <h5>Upcoming Appointments</h5>
-        <% @user.appointments.each do |user_appointment| %>
+        <% @user.companies.buildings.listings.appointments.each do |user_appointment| %>
         <table class="table-striped">
           <th>Time</th>
           <th>Building</th>
