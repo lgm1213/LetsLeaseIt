@@ -3,8 +3,8 @@ class Listing < ApplicationRecord
   has_many :users, through: :building
   has_many :companies, through: :users
   has_many :appointments, dependent: :destroy
-  has_many :listing_images, dependent: :destroy
-  accepts_nested_attributes_for :listing_images
+  has_many :listing_images, dependent: :destroy, inverse_of: :listing
+  accepts_nested_attributes_for :listing_images, reject_if: :all_blank, allow_destroy: true
   validate :validate_listing_count, on: [:create, :update]
 
   STATE = [:pending, :showing, :toured, :closed, :listed]
