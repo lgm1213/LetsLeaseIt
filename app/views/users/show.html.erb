@@ -24,7 +24,7 @@
         <p><strong>Title: </strong><%= @user.title %></p>
         <br/>
         <h5>Most Reccent Building and Listings</h5>
-        <% @user.buildings[0,3].each do |user_building| %>
+        <% company_info.buildings[0,3].each do |user_building| %>
         <div class="list-group">
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
@@ -52,29 +52,33 @@
           </div>
         </div>
         <% end %>
-        <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>  
-        <% if can? :create, Building %>
-          <%= link_to "| New Building", new_building_path %>
-        <%end%>
         <br>
         <br>
         <h5>Upcoming Appointments</h5>
-        <% @user.appointments.each do |user_appointment| %>
-        <table class="table-striped">
-          <th>Time</th>
-          <th>Building</th>
-          <th>Unit</th>
-          <th>Unit Model</th>
-          <tbody>
-            <tr>
-            <td><%= user_appointment.start_time.strftime("%a %B %d, %Y")%></td>
-            <td><%= user_appointment.building.development_name %></td>
-            <td>To Be Filled In</td>
-            <td>To Be Filled In</td>              
-            </tr>
-          </tbody>
-        </table>
+          <table class="table-striped">
+            <th>Time</th>
+            <th>Building</th>
+            <th>Unit</th>
+            <th>Unit Model</th>
+              <% company_info.buildings.each do |c| %>
+                <% c.listings.each do |d| %>
+                  <% d.appointments.each do |user_appointment| %>
+            <tbody>
+              <tr>
+              <td><%= user_appointment.start_time.strftime("%a %B %d, %Y")%></td>
+              <td><%= user_appointment.building.development_name %></td>
+              <td>To Be Filled In</td>
+              <td>To Be Filled In</td>              
+              </tr>
+            </tbody>
+            <% end %>
+          <% end %>
         <% end %>
+          </table>
+          <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>  
+        <% if can? :create, Building %>
+          <%= link_to "| New Building", new_building_path %>
+        <%end%>
       </div>
     </div>
   </div>

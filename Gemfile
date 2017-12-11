@@ -92,3 +92,4 @@ gem 'mailboxer'
 gem 'chosen-rails'
 #local time by basecamp
 gem 'local_time'
+gem 'groupdate'

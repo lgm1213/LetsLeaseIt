@@ -40,8 +40,11 @@ Rails.application.routes.draw do
 
   #Analytics Routes
   resources :analytics, only: [:index]
+  post 'analytics/show_graph', to: 'analytics#show_graph'
+
   #route for modal that opens
   get 'buildings/:id/modal', to: 'buildings#open_building_modal'
+
   
   get 'listing_image/index'
   get 'listing_image/new'
