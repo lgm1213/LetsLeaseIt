@@ -32,6 +32,35 @@ $('.datepicker').datepicker(
 	{format: 'yy-mm-dd'}
 	);
 
+
+if($(".drag-drop").length>=4){
+  $(".add_fields").hide();
+}
+
+$('.add_fields').click(function(){
+  if($(".drag-drop").length>=3){
+    $(".add_fields").hide();
+  }
+  else{
+    $(".add_fields").show();
+  }
+});
+
+function upload_limit()
+{
+  $(".add_fields").show();
+}
+
+function file_change(file_data)
+{
+  if(file_data.value!=""){
+    $("#"+file_data.id).prev().text(file_data.files[0].name);
+  }
+  else{
+    $("#"+file_data.id).prev().text("Drag your files here or click in this area.");
+  }
+ }
+
 // // wizard initialization  
 // $(function(){
 // 	$("#wizard").steps();

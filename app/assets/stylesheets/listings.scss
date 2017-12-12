@@ -24,3 +24,26 @@
 //= require codemirror/ambiance.css
 //= require codemirror/codemirror.css
 @import "bootstrap3-switch";
+
+.drag-drop{
+  position: relative;
+  background: #f3f3f4;
+  border: 4px dashed gray;
+  height: 200px;
+  text-align: center;
+  line-height: 170px;
+  color:black;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.file-input{
+  position: relative;
+  padding-top: 172px;
+  margin-top: -200px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+}

@@ -56,10 +56,10 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: 'leasedup',
-      access_key_id: ENV['AWS_ACCESS_KEY'],
-      secret_access_key: ENV['AWS_SECRET_KEY'],
-      s3_region: ENV['AWS_REGION']
+      bucket: ENV.fetch('AWS_DEV_BUCKET'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY'),
+      secret_access_key: ENV.fetch('AWS_SECRET_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
     },
     :url =>':s3_domain_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename'

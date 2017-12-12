@@ -33,6 +33,14 @@
           <p><strong>Sqft:</strong><%= @listing.sqft %></p>
           <p><strong>Date available:</strong><%= @listing.date_available %></p>
           <p><strong>Notes:</strong><%= @listing.notes %></p>
+          <div class="row">
+            <% @listing.listing_images.each do |p| %>
+              <div class="col-lg-3">
+                <%= image_tag p.image(:square) %>
+              </div>
+            <% end %>
+          </div>
+          <br>
           <% if can? :modify, Listing  %>
             <%= link_to 'Edit', edit_building_listing_path(@building, @listing), class: 'btn btn-primary' %> |
           <% end %>
@@ -44,4 +52,3 @@
     </div>
   </div>
 </div>
-

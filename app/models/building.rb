@@ -108,4 +108,28 @@ class Building < ApplicationRecord
     buildings = buildings.where(id: building_ids_sqft) if min_sqr_ft.present? && max_sqr_ft.present?
     return buildings
   end
+ 
+  def self.bar_chart_appointments(building)
+    appointment_all = {}
+    appointment_all = building.appointments.where('start_time between ? AND ?', Time.zone.now.beginning_of_month,Time.zone.now.end_of_month).group_by_day(:start_time, format: "%A-%d").count
+  end
+
+  def self.line_chart_appointments(building)
+    line_chart_appointments = {}
+    line_chart_appointments = building.appointments.where("start_time between ? AND ?" , Time.zone.now.beginning_of_year, Time.zone.now.end_of_year).group('extract(month from start_time)').count
+  end
+
+  def self.line_chart_leases(building)
+    return RentedUnit.where('spanstart between ? AND ?', Time.zone.now.beginning_of_year, Time.zone.now.end_of_year ).where(appointment_id: (building.appointments.ids)).group('extract(month from spanstart)').count
+  end
+
+  def self.max_appointments_bar(building)
+    max_appoint, max_appointments = {}, {}
+    (1..12).each do |p|
+      a=building.appointments.where('extract(month from start_time) = ?', p).group_by_day(:start_time, format: "%a,%d-%m-%y").count
+      max_appoint[p]= a.key(a.values.max)
+    end
+    max_appoint.keys.each do |p| max_appointments[Date::MONTHNAMES[p]] =  max_appoint[p] end
+    return max_appointments    
+  end
 end
