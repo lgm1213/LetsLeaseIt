@@ -23,6 +23,7 @@
         <p><strong>Company: </strong><%= link_to "#{Company.find(@user.company_id).name}", company_path(Company.find(@user.company_id))%></p>
         <p><strong>Title: </strong><%= @user.title %></p>
         <br/>
+        <% unless @user.role = 1 || 2|| 5 %>
         <h5>Most Reccent Building and Listings</h5>
         <% company_info.buildings[0,3].each do |user_building| %>
         <div class="list-group">
@@ -52,8 +53,7 @@
           </div>
         </div>
         <% end %>
-        <br>
-        <br>
+        <% end %>
         <h5>Upcoming Appointments</h5>
         <br>
           <table class="table-striped">
@@ -76,6 +76,8 @@
           <% end %>
         <% end %>
           </table>
+          <br>
+          <br>
           <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>  
         <% if can? :create, Building %>
           <%= link_to "| New Building", new_building_path %>
