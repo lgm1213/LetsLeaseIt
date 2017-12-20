@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_secure_password
   acts_as_messageable
 
-  ROLES = %i[ super_admin admin account_manager regional_manager property_manager leasing_consultant]
+  ROLES = %i[ super_admin admin account_manager regional_manager property_manager leasing_consultant realtor renter]
 
   #listing relationship
   has_and_belongs_to_many :companies

@@ -2,7 +2,6 @@
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,32 +9,25 @@
       </ul>
     </div>
   <% end %>
-
+  <% if @user.new_record? %>
+  <div class="form-group">
+    <%= form.radio_button :role, 'realtor', id: :user_realtor %> Realtor <br>
+    <%= form.radio_button :role, 'renter', id: :user_renter %> Renter <br>
+  </div>
+  <% end %>
   <div class="form-group">
     <%= form.text_field :username, id: :user_username, class: "form-control", placeholder: 'Username' %>
   </div>
-
   <div class="form-group">
     <%= form.text_field :email, id: :user_email, class: "form-control", placeholder: 'Email' %>
   </div>
-
   <div class="form-group">
-    <%= form.password_field :password, id: :user_password_digest, class: "form-control", placeholder: 'Password' %>
+    <%= form.password_field :password, class: "form-control", placeholder: 'Password' %>
   </div>
-
-   <div class="form-group">
-    <%= form.password_field :password_confirmation, id: :user_password_digest, class: "form-control", placeholder: 'Password Confirmation' %>
-  </div>
-
   <div class="form-group">
-    <%= form.text_field :company_id, id: :user_company, class: "form-control", placeholder: 'Company' %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: 'Password Confirmation' %>
   </div>
-
-  <div class="form-group">
-    <%= form.text_field :title, id: :user_title, class: "form-control", placeholder: 'Title' %>
-  </div>
-
   <div class="actions">
-    <%= form.submit 'Register', class: "btn btn-primary block full-width m-b" %>
+    <%= form.submit yield(:button_text), class: "btn btn-primary block full-width m-b" %>
   </div>
 <% end %>

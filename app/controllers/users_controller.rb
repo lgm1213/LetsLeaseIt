@@ -32,6 +32,15 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+      if @user.role = 'renter'
+        @user.company_id = 24
+        @user.title = 'renter'
+        @user.save
+      elsif @user.role = 'realtor'
+        @user.company_id = 25
+        @user.title = 'realtor'
+        @user.save
+      end
 
     respond_to do |format|
       if @user.save
