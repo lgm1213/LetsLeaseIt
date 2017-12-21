@@ -74,6 +74,6 @@ ActiveAdmin.register Listing do
   end
 
   permit_params :active, :building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath,
-                :sqft, :date_available, :notes, :state, listing_images_attributes: [:image, :listing_id]
+                :sqft, :date_available, :notes, :state, listing_images_attributes: [:id, :image, :_destroy]
 
 end

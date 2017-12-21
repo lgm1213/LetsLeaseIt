@@ -7,7 +7,7 @@ function upload_limit()
 }
 
 $(function() {
-  if($(".file.input.optional").length==4){
+  if($(".file.input.optional").length>=4){
     $(".has_many_add").hide();
   }
   $(".has_many_add").click(function(){
@@ -16,13 +16,13 @@ $(function() {
     }, 1000);
   	if($(".file.input.optional").length==3){
   	  setTimeout(function(){ $(".has_many_remove").last().trigger("click"); }, 5);
-	  $(".has_many_add").hide();
-	}
+	    $(".has_many_add").hide();
+	  }
   	else if($(".file.input.optional").length>=2){
-	  $(".has_many_add").hide();
-	}
-	else{
+	    $(".has_many_add").hide();
+	  }
+	  else{
 	    $(".has_many_add").show();
-	}
+	  }
   });
 });
