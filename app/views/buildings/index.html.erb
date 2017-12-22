@@ -23,9 +23,12 @@
         <div class="row">
           <div class="col-md-5">
             <div class="product-images">
-              <% building.building_images.each do |p| %>
+              <div>
+                <%= image_tag building.building_images.first.image(:square), class: "img-responsive" rescue nil %>
+              </div>
+              <% building_listing_images(building).each do |p| %>
                 <div>
-                  <%= image_tag p.image(:square), class: "img-responsive"%>
+                  <%= image_tag p.image(:square), class: "img-responsive" %>
                 </div>
               <% end %>
             </div>

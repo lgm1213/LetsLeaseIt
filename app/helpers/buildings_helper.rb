@@ -553,4 +553,9 @@ module BuildingsHelper
 	def property_managers
 	  property_managers = User.where(role: "property_manager")	
 	end
+
+    def building_listing_images(building)
+      listings_images = ListingImage.where(listing_id: building.listings.ids)
+    end
+
 end
