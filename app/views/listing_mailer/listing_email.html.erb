@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Please be informed that Listing Id 
+      <strong> #(<%= @listing.id%>) </strong> of Building <strong>(<%= @listing.building_id %>, <%= @listing.building.development_name %> </strong> ) was updated. <br>
+      The following attributes were update::<br>
+    </p>
+    <p>
+      <% @changes.each do |c | %>
+        <%next if c.first == "updated_at"%>
+        The value of <b><%= c.first %></b> is changed from 
+        <b><%= c.last[0] %></b> to <b><%= c.last[1] %></b> <br>
+      <%end%>
+    </p>
+  </body>
+</html>

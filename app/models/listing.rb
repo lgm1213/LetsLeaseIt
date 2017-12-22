@@ -7,6 +7,9 @@ class Listing < ApplicationRecord
   accepts_nested_attributes_for :listing_images, reject_if: :all_blank, allow_destroy: true
   validate :validate_listing_count, on: [:create, :update]
 
+  include ActiveModel::Dirty
+  after_update :listing_update_notification
+
   STATE = [:pending, :showing, :toured, :closed, :listed]
 
   state_machine :state, initial: :pending do
@@ -46,5 +49,9 @@ class Listing < ApplicationRecord
 
     def too_many_siblings?
       active_siblings >= building.listing_limit
+    end
+
+    def listing_update_notification
+      ListingMailer.listing_email(self, self.changes).deliver
     end
 end
