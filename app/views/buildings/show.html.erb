@@ -15,46 +15,43 @@
   <div class="ibox">
     <div class="ibox-content">
       <div class="product-imitation">
-      	<%#= image_tag @building.building_images.url(:square), class: 'img-responsive' %>
-      <!-- 	<#% @building.building_images.each do |p| %>
-      	  <%#= image_tag p.image(:square) %>
-      	# <#% end %>  -->
+        <%= image_tag @building.building_images.first.image(:medium), class: 'img-responsive' rescue nil %>
       </div>
       <div class="product-desc">
         <span class="product-price">
           Rental Community Id: <%= @building.id %></span>
         <small class="text-muted">Development Name</small>
         <%= link_to "#{@building.development_name}", @building %>     
-		    <div class="small m-t-xs">
-		      <p id="notice"><%= notice %></p>
-		      <div class="row">
-					  <div class="col-sm-4">
-					    <p><strong>County:</strong><%= @building.county %></p>
-					  </div>
-					  <div class="col-sm-4">
-					    <p><strong>Area:</strong><%= @building.area %></p>    
-					  </div>
-					  <div class="col-sm-4">
-							<p id="notice"><%= notice %></p>
-						  <p><strong>Folio: </strong><%= @building.folio %></p>
-						  <p><strong>Street: </strong><%= @building.street %></p>
-						  <p><strong>Compasspoint: </strong><%= @building.compass_point %></p>
-						  <p><strong>Streetname: </strong><%= @building.street_name %></p>
-						  <p><strong>State: </strong><%= @building.state %></p>
-						  <p><strong>Zip: </strong><%= @building.zip %></p>
-						  <p><strong>Zip4: </strong><%= @building.zip4 %></p>
-					    <p><strong>City: </strong><%= @building.city %></p>
-						  <p><strong>User: </strong><%= User.find(@building.user_id).username %></p>
-							<% if can? :update, Building %>
-							  <%= link_to 'Edit', edit_building_path(@building), class: 'btn btn-primary' %> |
-							<%end%>
-							<%= link_to 'Back', buildings_path, class: 'btn btn-primary' %> |
-							<%= link_to "See MLS Listings", building_listings_path(@building), class: 'btn btn-info' %> |
-							<%#= link_to "See Calendar", building_listing_appointments_path(@building, @listing), class: 'btn btn-info' %>
-					  </div>
-			    </div>
-		    </div>
+        <div class="small m-t-xs">
+          <p id="notice"><%= notice %></p>
+          <div class="row">
+            <div class="col-sm-4">
+              <p><strong>County:</strong><%= @building.county %></p>
+            </div>
+            <div class="col-sm-4">
+              <p><strong>Area:</strong><%= @building.area %></p>  
+            </div>
+            <div class="col-sm-4">
+              <p id="notice"><%= notice %></p>
+              <p><strong>Folio: </strong><%= @building.folio %></p>
+              <p><strong>Street: </strong><%= @building.street %></p>
+              <p><strong>Compasspoint: </strong><%= @building.compass_point %></p>
+              <p><strong>Streetname: </strong><%= @building.street_name %></p>
+              <p><strong>State: </strong><%= @building.state %></p>
+              <p><strong>Zip: </strong><%= @building.zip %></p>
+              <p><strong>Zip4: </strong><%= @building.zip4 %></p>
+              <p><strong>City: </strong><%= @building.city %></p>
+              <p><strong>User: </strong><%= User.find(@building.user_id).username %></p>
+              <% if can? :update, Building %>
+                <%= link_to 'Edit', edit_building_path(@building), class: 'btn btn-primary' %> |
+              <%end%>
+              <%= link_to 'Back', buildings_path, class: 'btn btn-primary' %> |
+              <%= link_to "See MLS Listings", building_listings_path(@building), class: 'btn btn-info' %> |
+              <%#= link_to "See Calendar", building_listing_appointments_path(@building, @listing), class: 'btn btn-info' %>
+            </div>
+          </div>
+        </div>
       </div>
-	  </div>
+    </div>
   </div>
 </div>
