@@ -4,6 +4,6 @@ class ListingMailer < ApplicationMailer
    def listing_email(listing,changes)
     @listing = listing
     @changes = changes
-    mail(to: Rails.application.secrets["gmail_username"], subject: 'Listing Updated')
+    mail(to: "leaseit@realestateshoppefl.com", subject: 'Listing Updated #{Time.now.strftime("%B %A, %Y")}')
   end
 end
