@@ -97,7 +97,7 @@ Rails.application.configure do
    domain: 'letsleaseit.com',    
    user_name: ENV['GMAIL_USER'],
    password: ENV['GMAIL_PW'],
-   authentication: 'login',
+   authentication: 'plain',
    enable_starttls_auto: true  }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
