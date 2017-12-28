@@ -1,5 +1,5 @@
 class ListingMailer < ApplicationMailer
-  default from: ENV.fetch('GMAIL_USER')
+  default from: ENV['GMAIL_USER']
 
    def listing_email(listing,changes)
     @listing = listing
