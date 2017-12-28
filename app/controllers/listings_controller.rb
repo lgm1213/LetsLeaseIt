@@ -48,12 +48,12 @@ class ListingsController < ApplicationController
       if @listing.save
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
-        ListingMailer.listing_email.deliver_now
+        # ListingMailer.listing_email.deliver_now
       elsif params[:listing][:active] == "0" || Listing.find(params[:id]).active ==true
         @listing.save(validate: false)
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
-        ListingMailer.listing_email.deliver_now
+        # ListingMailer.listing_email.deliver_now
       else
         format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
