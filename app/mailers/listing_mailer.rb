@@ -4,6 +4,6 @@ class ListingMailer < ApplicationMailer
    def listing_email(listing,changes)
     @listing = listing
     @changes = changes
-    mail(to: "itskcin@gmail.com", subject: 'Listing Updated #{Time.now.strftime("%B %A, %Y")}')
+    mail(to: "itskcin@gmail.com", subject: "Listing Updated #{Time.now.strftime('%B %A, %Y')}")
   end
 end
