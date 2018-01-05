@@ -8,7 +8,7 @@
       Please be advised that a Listing has been updated. <br>
       <strong> Listing Id# <%= @listing.id%>, Unit <%=@listing.unit_no %> </strong> of <strong> Building <%= @listing.building_id %>, <%= @listing.building.development_name %> </strong> was updated. <br>
       <br>
-      The following attributes were updated by <%= User.find(id: @listing.users_id ).username %>  <br>
+      The following attributes were updated by <%= User.find(@listing.users_id).username %>  <br>
     </p>
     <p>
       <% @changes.each do |c | %>
