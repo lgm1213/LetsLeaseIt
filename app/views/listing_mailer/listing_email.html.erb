@@ -5,15 +5,18 @@
   </head>
   <body>
     <p>
-      Please be informed that Listing Id 
-      <strong> Listing Id#<%= @listing.id%>, Unit <%=@listing.unit_no %> </strong> of Building <strong>(<%= @listing.building_id %>, <%= @listing.building.development_name %> </strong> ) was updated. <br>
-      The following attributes were update::<br>
+      Please be advised that a Listing has been updated. <br>
+      <strong> Listing Id# <%= @listing.id%>, Unit <%=@listing.unit_no %> </strong> of <strong> Building <%= @listing.building_id %>, <%= @listing.building.development_name %> </strong> was updated. <br>
+      <br>
+      The following attributes were updated by <%= User.where(id=@listing.user_id).username %>  <br>
     </p>
     <p>
       <% @changes.each do |c | %>
         <%next if c.first == "updated_at"%>
-        The value of <b><%= c.first %></b> is changed from 
-        <b><%= c.last[0] %></b> to <b><%= c.last[1] %></b> <br>
+        The value of <b><%= c.first %></b> is changed from:
+        <ul>
+          <b><%= c.last[0] %></b> to <b><%= c.last[1] %></b> <br>
+        </ul> 
       <%end%>
     </p>
   </body>
