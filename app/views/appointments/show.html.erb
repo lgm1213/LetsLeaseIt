@@ -1,0 +1,42 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>New Building or Property</h2>
+    <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Rental Communities", buildings_path %></li>
+      <li><%= link_to "MLS Listing Portfolio", building_listings_path(@building) %></li>
+      <li class="active"><strong><%= link_to "Appointment Calendar", building_listing_appointments_path(@building, @listing) %></strong></li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Appointment Details<small class="m-l-sm"></small></h5>
+        </div>
+        <div class="ibox-content">
+          <p id="notice"><%= notice %></p>
+          <p><strong>Appointment ID: </strong><%= @appointment.id %></p>
+          <p><strong>Realtor name: </strong><%= @appointment.realtor_name %>
+          </p><p><strong>Realtor phone: </strong><%= @appointment.realtor_phone %></p>
+          <p><strong>Start time: </strong><%= @appointment.start_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
+          <p><strong>End time: </strong><%= @appointment.end_time.strftime('%A, %m/%d/%Y @ %I:%M%p') %></p>
+          <p><strong>Building: </strong> <%= @building.development_name %></p>
+          <p><strong>Did this appointment turn into a lease?</strong>
+          <%= link_to "Yes", new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit: { leased: true}) %> or <%= link_to "No", new_building_listing_appointment_rented_unit_path(@building, @listing, @appointment, rented_unit: {leased: false}) %>  </p>
+
+
+          <%= link_to 'Edit Appointment Info', edit_building_listing_appointment_path(@building, @listing, @appointment) %> |
+          <%= link_to 'Cancel Appointment', building_listing_appointment_path(@building, @listing, @appointment), method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Back to Calendar', building_listing_appointments_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+

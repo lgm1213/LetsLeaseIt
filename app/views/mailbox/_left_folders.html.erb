@@ -1,0 +1,12 @@
+<div class="col-lg-3">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content mailbox-content">
+      <div class="file-manager">
+        <%= link_to "Compose", new_conversation_path, class: "btn btn-block btn-primary compose-mail" %>
+        <div class="space-25"></div>
+        <%= render 'mailbox/folders' %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def bridge(input_date)
+    return input_date
+  end
+
 	# to help assign which controller will be currently used
 	def is_active_controller(controller_name, class_name = nil)
 	  if params[:controller] == controller_name
@@ -11,7 +16,11 @@ module ApplicationHelper
   # to help make sure a current action is the active choice
 	def is_active_action(action_name)
 	  params[:action] == action_name ? "active" : nil
-	end	
+	end
+
+  def active_page(active_page)
+    @active == active_page ? "active" : ""
+  end	
 	
   ## TODO: These should come from state model
 	# for state drop down menus
@@ -68,7 +77,8 @@ module ApplicationHelper
       ['Washington', 'WA'],
       ['West Virginia', 'WV'],
       ['Wisconsin', 'WI'],
-      ['Wyoming', 'WY']
+      ['Wyoming', 'WY'],
+      ['--Not Applicable--', 'Not Applicable']
     ]
   end
 
@@ -220,7 +230,8 @@ module ApplicationHelper
 			['Williams Island', 	'Williams Island' ],
 			['Winter Beach', 	'Winter Beach' ],
 			['West Palm Beach', 	'West Palm Beach' ],
-			['West Park ', 	'West Park ' ]
+			['West Park ', 	'West Park ' ],
+      ['--Not Applicable--', 'Not Applicable']
   	]
   end
 
@@ -282,7 +293,8 @@ module ApplicationHelper
       ['Multifamily', 'Multifamily'],
       ['Single', 'Single'],
       ['Townhouse', 'Townhouse'],
-      ['Villa', 'Villa']
+      ['Villa', 'Villa'],
+      ['--Not Applicable--', 'Not Applicable']
   	]
   end
 
@@ -306,7 +318,8 @@ module ApplicationHelper
   		['R81-Condo/Co-Op/Offseason', 'R81-Condo/Co-Op/Offseason'],
   		['R82-Apartments-Offseason', 'R82-Apartments-Offseason'],
   		['R83-Duplex/Tri/Quad-Offseason', 'R83-Duplex/Tri/Quad-Offseason'],
-  		['R84-Townhouse/Villa-Offseason', 'R84-Townhouse/Villa-Offseason']
+  		['R84-Townhouse/Villa-Offseason', 'R84-Townhouse/Villa-Offseason'],
+      ['--Not Applicable--', 'Not Applicable']
   	]
   end
 
@@ -332,7 +345,8 @@ module ApplicationHelper
   		['Parking Garage', 'Parking Garage'],
   		['Slab/Strip', 'Slab/Strip'],
   		['Street Parking', 'Street Parking'],
-  		['Valet Parking', 'Valet Parking']
+  		['Valet Parking', 'Valet Parking'],
+      ['--Not Applicable--', 'Not Applicable']
   	]
   end
 
@@ -360,7 +374,8 @@ module ApplicationHelper
   	['Oversized Lot', 'Oversized Lot'],
   	['Regular Lot', 'Regular Lot'],
   	['West of US-1', 'West of US-1'],
-  	['Zero Lot Line Lot', 'Zero Lot Line Lot']
+  	['Zero Lot Line Lot', 'Zero Lot Line Lot'],
+    ['--Not Applicable--', 'Not Applicable']
   ]  	
   end
 
@@ -389,7 +404,8 @@ module ApplicationHelper
   		['Point Lot','Point Lot'],
   		['Pond Front', 'Pond Front'],
   		['Rip Rap', 'Rip Rap'],
-  		['River Front','River Front']
+  		['River Front','River Front'],
+      ['--Not Applicable--', 'Not Applicable']
   	]
   end
 
@@ -399,7 +415,8 @@ module ApplicationHelper
 			['Limited Number Of Vehicles', 'Limited Number of Videos'],
 			['No Motorcycle', 'No Motorcycle'],
 			['No Rv/Boats', 'No Rv/Boats'],
-			['No Trucks/Trailers','No Trucks/Trailers']
+			['No Trucks/Trailers','No Trucks/Trailers'],
+      ['--Not Applicable--', 'Not Applicable']
 		]
 	end
 
@@ -484,6 +501,16 @@ module ApplicationHelper
   end
 
   ## TODO: Always good to save these enteries in tables
+  def renewal_commision
+   	[
+   		['2+ Year Commission', '2+ Year Commission'],
+   		['Less Commission On Renewal', 'Less Commission On Renewal'],
+   		['None/Non-Applicable', 'None/Non-Applicable'],
+   		['Renewable Commission', 'Renewable Commission']
+   	]
+  end
+
+  ## TODO: Always good to save these enteries in tables
   def faces
     [
       ['North', 'North'],
@@ -523,7 +550,29 @@ module ApplicationHelper
       ['Ocean View', 'Ocean View'],
       ['Pool Area View', 'Pool Area View'],
       ['River', 'River'],
-      ['Water View', 'Water View']
+      ['Water View', 'Water View'],
+      ['--Not Applicable--', 'Not Applicable']
+    ]
+  end
+
+  def heat
+    [
+      ['Central Heat', 'Central Heat'],
+      ['Electric Heat', 'Electric Heat'],
+      ['Gas Heat', 'Gas Heat'],
+      ['Heat Strip', 'Heat Strip'],
+      ['Heat Pump/Reverse Cycle', 'Heat Pump/Reverse Cycle'],
+      ['No Heat', 'No Heat'],
+      ['Oil Heat', 'Oil Heat'],
+      ['Other', 'Other'],
+      ['Radiant Heat', 'Radiant Heat'],
+      ['Reverse Cycle Unit', 'Reverse Cycle Unit'],
+      ['Solar Heat', 'Solar Heat'],
+      ['Space Heater', 'Space Heater'],
+      ['Wall Furnace', 'Wall Furnace'],
+      ['Window/Wall', 'Window/Wall'],
+      ['Zoned Heat', 'Zoned Heat'],
+      ['--Not Applicable--', 'Not Applicable']
     ]
   end
 

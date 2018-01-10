@@ -1,0 +1,28 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    Record of Leased Units
+    <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></a></li>
+      <li><strong><%= link_to "Active MLS Listings", building_listings_path %></strong></li>
+      <li class="active"><strong><%= link_to "Calendar", building_appointments_path %></strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Rented Unit Records</h5>
+        </div>
+        <div class="ibox-content">
+      		<%= render 'form', rented_unit: @rented_unit %>
+      		<%= link_to 'Back', building_appointment_rented_units_path(@building, @appointment) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

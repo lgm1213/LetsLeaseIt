@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if current_user.role == [99, 100]
+      @users = User.all
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   # GET /users/1
@@ -16,16 +20,27 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @buildings = Building.all
   end
 
   # GET /users/1/edit
   def edit
+    @building = Building.all
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+      if @user.role = 'renter'
+        @user.company_id = 24
+        @user.title = 'renter'
+        @user.save
+      elsif @user.role = 'realtor'
+        @user.company_id = 25
+        @user.title = 'realtor'
+        @user.save
+      end
 
     respond_to do |format|
       if @user.save
@@ -71,6 +86,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :company, :title)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :role, :title, :company_id, company_ids:[])
     end
 end

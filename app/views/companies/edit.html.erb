@@ -1,0 +1,23 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    New Building or Property
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Home", root_path %></a>
+      </li>
+      <li class="active">
+        <strong><%= link_to "Company Index", companies_path %></strong>
+      </li>
+      <li>
+        <%= link_to "New Company", new_company_path %>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<h1>Editing Company</h1>
+<div class="ibox-content">
+	<%= render 'form', company: @company %>
+	<%= link_to 'Show', @company %> | <%= link_to 'Back', companies_path %>
+</div>

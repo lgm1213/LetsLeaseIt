@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <div class="field">
+    <br/>
+    <p class="drag-drop">Drag your files here or click in this area.</p>
+    <%= f.file_field :image, onchange: "file_change(this)", class: "file-input", accept: "image/*" %>
+  </div>
+  <%= link_to_remove_association "Remove image", f , onclick: "upload_limit()" %>
+</div>

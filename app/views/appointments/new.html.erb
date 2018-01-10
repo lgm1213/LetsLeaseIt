@@ -1,0 +1,29 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    New Building or Property
+    <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Rental Communities", buildings_path %></li>
+      <li><%= link_to "MLS Listing Portfolio", building_listings_path(@building) %></li>
+      <li class="active"><strong><%= link_to "Appointment Calendar", building_listing_appointments_path(@building, @listing) %></strong></li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Appointment Details<small class="m-l-sm"></small></h5>
+        </div>
+        <div class="ibox-content">
+  				<%= render 'form', building_appointment: @appointment %>
+  				<%= link_to 'Back', building_path(@building) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  	

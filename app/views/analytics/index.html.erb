@@ -1,0 +1,89 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Chart Analytics</h2>
+    <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></a></li>
+      <li class="active"><strong><%= link_to "Rental Communities Portfolio", buildings_path %></strong></li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<div class="wrapper wrapper-content animaed fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Analytics/Reporting</h5>
+        </div>
+        <div class="ibox-content">
+          <div class="panel-body">
+            <%= select_tag "buildings", options_for_select(buildings.collect {|r| [ "Id: #{r.id}, #{r.development_name}", r.id]}), :prompt => "Buildings", class: ''%>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="row">
+                  <div class="col-md-5">
+                    <canvas id="line_chart" width="400" height="400"></canvas>
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <canvas id="bar_chart" width="400" height="400"></canvas>
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <input type="text" id="startdate"
+                       name="start_date" class="datepicker" placeholder="Start Date" >
+                    </div>    
+                    <div class="col-sm-3">
+                      <input type="text" id="enddate"
+                       name="end_date" class="datepicker" placeholder="End Date" >
+                    </div>  
+                    <div class="col-sm-2">
+                      <input type="radio" id="year"
+                       name="contact" value="year" class="analytics">
+                      <label for="year">Year</label>
+                    </div>    
+                    <div class="col-sm-2">
+                      <input type="radio" id="month"
+                       name="contact" value="month" checked="checked" class="analytics">
+                      <label for="month">Month</label>
+                    </div>    
+                    <div class="col-sm-2">
+                      <input type="radio" id="week"
+                       name="contact" value="week" class="analytics">
+                      <label for="week">Week</label>
+                    </div>
+                  </div>
+                  <table class='table table-striped'>
+                    <thead>
+                      <tr>
+                        <th>Building Id#</th>
+                        <th>Rental Community</th>
+                        <th>Lease Count </th>
+                        <th>Appointment Count</th>
+                        <th>L/A Ratio</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody_building_analytics">
+                      <% @company.buildings.each do |company_buildings| %>
+                        <tr>
+                          <td><%= link_to company_buildings.id, building_path(company_buildings) %></td>
+                          <td><%= link_to company_buildings.development_name, building_path(company_buildings) %></td>
+                          <td><%= rented_units_count(company_buildings) %></td>
+                          <td><%= appointments_count(company_buildings) %></td>
+                          <td><%= (rented_units_count(company_buildings).to_f/appointments_count(company_buildings).to_f).nan? ? 0.0 : rented_units_count(company_buildings).to_f/appointments_count(company_buildings).to_f %> </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table> 
+              </div>
+              <%= link_to "Back", :back %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

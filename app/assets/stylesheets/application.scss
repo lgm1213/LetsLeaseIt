@@ -11,5 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_directory .
+ *= require font-awesome
+ *= require chosen
  *= require_self
+ *= require simple_calendar
+ *= require bootstrap-datepicker3
+ *= require select2
+ *= require select2-bootstrap
  */
+
+a:link, a:visited, a:active { 
+  text-decoration: none;
+ }
+
+

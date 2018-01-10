@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
@@ -24,7 +25,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    @listing = building.listings.new(listing_params)
+    @listing = building.listings.new(listing_params.merge({state: :pending}))
     respond_to do |format|
       if @listing.save
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully created.' }
@@ -41,8 +42,14 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
+    @listing = Listing.find(params[:id])
+    @listing.attributes = listing_params  
     respond_to do |format|
-      if @listing.update(listing_params)
+      if @listing.save
+        format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
+        format.json { render :show, status: :ok, location: @listing }
+      elsif params[:listing][:active] == "0" || Listing.find(params[:id]).active ==true
+        @listing.save(validate: false)
         format.html { redirect_to [building, @listing], notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
       else
@@ -70,7 +77,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath, :sqft, :date_available, :notes)
+      params.require(:listing).permit(:active, :building_id, :unit_no, :unit_model, :price, :bedrooms, :bath, :half_bath, :sqft, :date_available, :notes, :state, listing_images_attributes: [:id, :image, :_destroy])
     end
 
     def building

@@ -1,0 +1,19 @@
+<h5>Folders</h5>
+<ul class="folder-list m-b-md" style="padding: 0">
+  <li class="<%= active_page(:inbox) %>">
+    <%= link_to mailbox_inbox_path do  %>
+      <i class="fa fa-inbox"></i> Inbox
+      <span class="label label-warning pull-right"><%= unread_messages_count %></span>
+    <% end %>
+  </li>
+  <li class="<%= active_page(:sent) %>">
+    <%= link_to mailbox_sent_path do %>
+      <i class="fa fa-envelope-o"></i>Sent
+    <% end %>
+  </li>
+  <li class="<%= active_page(:trash) %>">
+    <%= link_to mailbox_trash_path do %>
+      <i class="fa fa-trash-o"></i>Trash
+    <% end %>
+  </li>
+</ul>

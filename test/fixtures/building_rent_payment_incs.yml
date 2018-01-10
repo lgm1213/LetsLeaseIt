@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building: one
+  rent_payment_inc: one
+
+two:
+  building: two
+  rent_payment_inc: two

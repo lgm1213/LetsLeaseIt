@@ -28,7 +28,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -88,4 +88,29 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # SMTP Settings for Sending Email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   address: 'smtp.gmail.com',
+   port: 587,
+   domain: 'letsleaseit.com',    
+   user_name: ENV['GMAIL_USER'],
+   password: ENV['GMAIL_PW'],
+   authentication: 'plain',
+   enable_starttls_auto: true  }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('AWS_BUCKET'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY'),
+      secret_access_key: ENV.fetch('AWS_SECRET_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
+    },
+    :url =>':s3_domain_url',
+    :path => '/:class/:attachment/:id_partition/:style/:filename'
+  }
 end

@@ -1,0 +1,53 @@
+<% @building.each do |building| %>
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="ibox product-detail">
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="product-images">
+              <div>
+                <%= image_tag building.building_images.first.image(:square), class: "img-responsive" rescue nil %>
+              </div>
+              <% building_listing_images(building).each do |p| %>
+                <div>
+                  <%= image_tag p.image(:square), class: "img-responsive" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <h2 class="font-bold m-b-xs"><%= building.development_name %></h2>
+            <small><%= building.remarks %></small>
+            <hr>
+            <div>
+              <%#= link_to "Schedule an Appointment Today", new_building_listing_appointment_path(building, @listing), class: "btn btn-primary pull-right"%>
+              <h1 class="product-main-price"><small class="text-muted">Exclude Tax</small> </h1>
+            </div>
+            <hr>
+            <h4>Building Info</h4>
+            <dl class="dl-horizontal m-t-md small">
+              <dt>Available Listings</dt>
+              <dd></dd>
+              <% building.listings.each do |building_listing| %>
+              <dt><%= link_to "Unit:#{building_listing.unit_no}", building_listing_path(building, building_listing) %></dt>
+              <dd>Floor Model: <%= building_listing.unit_model %> | <%= link_to "Schedule an Appointment Today", new_building_listing_appointment_path(building, building_listing)%></dd>
+              <% end %>
+            </dl>
+            <div class="text-right">
+              <div class="btn-group">
+                <button class="btn btn-white btn-sm"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:leaseit@realestateshoppefl.com">Contact Us</a> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ibox-footer">
+        <span class="pull-right">As of <i class="fa fa-clock-o"></i> <%= Date.today.strftime("%A, %m/%d/%Y %I:%M%p")%></span>
+        Login or register to set an appointment with the Rental Community!
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

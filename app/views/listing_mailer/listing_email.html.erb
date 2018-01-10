@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Please be advised that a Listing has been updated. <br>
+      <strong> Listing Id# <%= @listing.id%>, Unit <%=@listing.unit_no %> </strong> of <strong> Building <%= @listing.building_id %>, <%= @listing.building.development_name %> </strong> was updated. <br>
+      <br>
+      The following attributes were updated by  <br>
+    </p>
+    <p>
+      <% @changes.each do |c | %>
+        <%next if c.first == "updated_at"%>
+        The value of <b><%= c.first %></b> is changed from:
+        <ul>
+          <b><%= c.last[0] %></b> to <b><%= c.last[1] %></b> <br>
+        </ul> 
+      <%end%>
+    </p>
+  </body>
+</html>

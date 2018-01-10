@@ -1,2 +1,10 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+//= require wow/wow.min.js
+//= require footable/footable.all.min.js
+//= require slick/slick.min.js
+
+$('.product-images').slick({dots: true});
+
+$(function() {
+  $("#location").prepend('<option value="City" selected>City</option>');
+});
+

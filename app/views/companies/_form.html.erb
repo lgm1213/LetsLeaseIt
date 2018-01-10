@@ -1,0 +1,61 @@
+<%= form_with(model: company, local: true, html: {id: 'form', class: 'form-horizontal'}) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, class: 'control-label col-sm-4' %>
+    <div class="col-sm-6">
+      <%= form.text_field :name, id: :company_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :street_address, class: 'control-label col-sm-4' %>
+    <div class="col-sm-6">
+      <%= form.text_field :street_address, id: :company_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :city, class: 'control-label col-sm-4' %>
+    <div class="col-sm-6">
+      <%= form.text_field :city, id: :company_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :state, class: 'control-label col-sm-4' %>
+    <div class="col-sm-3">
+      <%= form.select :state, options_for_select(us_states),{}, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :zip, class: 'control-label col-sm-4' %>
+    <div class="col-sm-6">
+      <%= form.text_field :zip, id: :company_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :phone, class: 'control-label col-sm-4' %>
+    <div class="col-sm-6">
+      <%= form.text_field :phone, id: :company_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :point_of_contact, class: 'control-label col-sm-4' %>
+    <div class="col-sm-6">
+      <%= form.text_field :point_of_contact, id: :company_name, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

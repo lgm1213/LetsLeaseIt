@@ -1,0 +1,100 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>New Building or Property</h2>
+    <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></a></li>
+      <li class="active"><strong><%= link_to "Company Portfolio", companies_path %></strong></li>
+      <li><%= link_to "New Building or Property", new_company_path %></li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<h1>Company Info</h1>
+<div class="ibox-content">
+	<p id="notice"><%= notice %></p>
+	<p><strong>Name: </strong><%= @company.name %></p>
+	<p><strong>Street Address: </strong><%= @company.street_address %></p>
+	<p><strong>City: </strong><%= @company.city %></p>
+	<p><strong>State: </strong><%= @company.state %></p>
+	<p><strong>Zip: </strong><%= @company.zip %></p>
+	<p><strong>Phone: </strong><%= @company.phone %></p>
+	<p><strong>Point of Contact: </strong><%= @company.point_of_contact %></p> 
+	<p> <%= link_to 'Edit', edit_company_path(@company) %> </p>
+	<br/>
+  <h3>Active Listings</h3>
+	<table class='table'>
+    <thead>
+      <tr>
+        <th>Id#</th>
+        <th>Name</th>
+        <th>Listing Count</th>
+        <th>Appointment Count</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @company.buildings.each do |company_buildings| %>
+        <tr>
+          <td><%= company_buildings.id %></td>
+          <td><%= company_buildings.development_name %></td>
+          <td><%= company_buildings.listings.count %></td>
+          <td><%= company_buildings.appointments.count %></td>
+          <td><%= link_to 'Show', company_building_path(company_buildings) %></td>
+          <td><%= link_to 'Edit', edit_company_path(company_buildings) %></td>
+          <td><%= link_to 'Destroy', company_buildings, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+    </tbody>
+  </table>
+
+<h3>Building Analytics</h3>
+<br>
+  <div class="row">
+    <div class="col-sm-3">
+      <input type="text" id="startdate"
+       name="start_date" class="datepicker" placeholder="Start Date" >
+    </div>    
+    <div class="col-sm-3">
+      <input type="text" id="enddate"
+       name="end_date" class="datepicker" placeholder="End Date" >
+    </div>  
+    <div class="col-sm-2">
+      <input type="radio" id="year"
+       name="contact" value="year" class="analytics">
+      <label for="year">Year</label>
+    </div>    
+    <div class="col-sm-2">
+      <input type="radio" id="month"
+       name="contact" value="month" checked="checked" class="analytics">
+      <label for="month">Month</label>
+    </div>    
+    <div class="col-sm-2">
+      <input type="radio" id="week"
+       name="contact" value="week" class="analytics">
+      <label for="week">Week</label>
+    </div>
+  </div>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>Building Id#</th>
+        <th>Rental Community</th>
+        <th>Lease Count </th>
+        <th>Appointment Count</th>
+        <th>L/A Ratio</th>
+      </tr>
+    </thead>
+    <tbody id="tbody_building_analytics">
+      <% @company.buildings.each do |company_buildings| %>
+        <tr>
+          <td><%= link_to company_buildings.id, building_path(company_buildings) %></td>
+          <td><%= link_to company_buildings.development_name, building_path(company_buildings) %></td>
+          <td><%= rented_units_count(company_buildings) %></td>
+          <td><%= appointments_count(company_buildings) %></td>
+          <td><%= (rented_units_count(company_buildings).to_f/appointments_count(company_buildings).to_f).nan? ? 0.0 : rented_units_count(company_buildings).to_f/appointments_count(company_buildings).to_f %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
