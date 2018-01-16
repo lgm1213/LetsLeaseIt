@@ -12,7 +12,7 @@ class User < ApplicationRecord
   ROLES = %i[ super_admin admin account_manager regional_manager property_manager leasing_consultant realtor renter]
 
   #listing relationship
-  has_and_belongs_to_many :companies
+  belongs_to :company
   has_many :buildings
   has_many :listings, through: :building
   has_many :appointments

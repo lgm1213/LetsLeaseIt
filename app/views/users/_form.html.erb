@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-  <% if @user.new_record? %>
+  <% if @user.new_record? && !logged_in? %>
   <div class="form-group">
     <%= form.radio_button :role, 'realtor', id: :user_realtor %> Realtor <br>
     <%= form.radio_button :role, 'renter', id: :user_renter %> Renter <br>
@@ -27,6 +27,25 @@
   <div class="form-group">
     <%= form.password_field :password_confirmation, class: "form-control", placeholder: 'Password Confirmation' %>
   </div>
+
+
+  <% if logged_in? %>
+  
+  <div class="form-group">
+  <%= form.collection_select :company_id, Company.all, :id, :name, {}, {class: "form-control"} %>
+
+  </div>
+
+  <div class="form-group">
+    <%= form.select :role, options_for_select(user_roles, selected: @user.role),{}, class: 'form-control' %>
+  </div>
+
+   <div class="form-group">
+    <%= form.text_field :title, id: :user_title, class: "form-control", placeholder: 'Title' %>
+  </div>
+
+  <% end %>
+
   <div class="actions">
     <%= form.submit yield(:button_text), class: "btn btn-primary block full-width m-b" %>
   </div>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    if current_user.role == [99, 100]
+    if current_user.role == "super_admin" || current_user.role ==  "admin" #[99, 100]
       @users = User.all
     else
       redirect_to user_path(current_user)
@@ -35,16 +35,20 @@ class UsersController < ApplicationController
       if @user.role = 'renter'
         @user.company_id = 24
         @user.title = 'renter'
-        @user.save
       elsif @user.role = 'realtor'
         @user.company_id = 25
         @user.title = 'realtor'
-        @user.save
       end
-
+      @user.company_id = user_params[:company_id] if logged_in?
+      @user.role = user_params[:role] if logged_in?
+      @user.title = user_params[:title] if logged_in?
+      @user.save
     respond_to do |format|
-      if @user.save
+      if @user.save and !logged_in?
         log_in @user
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      elsif @user.save and logged_in?
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

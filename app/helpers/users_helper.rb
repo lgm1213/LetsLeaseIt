@@ -11,4 +11,21 @@ module UsersHelper
   	@company = Company.find(company_id)
   	return @company
   end
+  
+  def user_roles
+    [
+      ['Property Manager', 'property_manager'],
+      ['Regional Manager', 'regional_manager'],
+      ['Account Manager', 'account_manager'],
+      ['Realtor', 'realtor'],
+      ['Leasing Consultant', 'leasing_consultant'],
+      ['Renter', 'renter'],
+      ['Admin', 'admin'],
+      ['Super Admin', 'super_admin'],
+    ]
+  end
+
+  def user_company(user)
+    return Company.find(user.company_id).name rescue nil
+  end
 end
