@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  ActiveAdmin.routes(self)
   
+  ActiveAdmin.routes(self)
+  # mount ForestLiana::Engine => '/forest'
   #static routes
   root 'landing#home'
   get 'landing/home'

@@ -93,3 +93,6 @@ gem 'chosen-rails'
 #local time by basecamp
 gem 'local_time'
 gem 'groupdate'
+
+#forest trial
+gem 'forest_liana'
