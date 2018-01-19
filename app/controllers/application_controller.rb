@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     if ["super_admin", "admin", "account_manager"].include? user.role
       redirect_to admin_root_path
-    elsif ["regional_manager", "property_manager"].include? user.role
+    elsif ["regional_manager", "property_manager","leasing_consultant"].include? user.role
       redirect_to user_path(user)
     elsif ["realtor", "renter"].include? user.role
       redirect_to landing_splash_path
