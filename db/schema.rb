@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20171127081249) do
     t.string "realtor_name"
     t.string "realtor_phone"
     t.datetime "start_time"
-    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.datetime "end_time"
     t.bigint "listing_id"
     t.index ["listing_id"], name: "index_appointments_on_listing_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"

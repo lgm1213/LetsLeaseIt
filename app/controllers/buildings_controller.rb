@@ -7,8 +7,19 @@ class BuildingsController < ApplicationController
   # GET /buildings
   # GET /buildings.json
   def index
-    @buildings = Building.all if current_user.role != "regional_manager"
-    @buildings = Building.all.where(:company_id => current_user.company_id) if current_user.role == "regional_manager" rescue nil
+    case current_user.role
+      when "property_manager"
+        @buildings = Building.where(:property_manager_id => current_user.id)
+      when "account_manager"
+        @buildings = Building.where(:account_manager_id => current_user.id)
+      when "regional_manager"
+        @buildings = Building.where(:regional_manager_id => current_user.id)
+      when "realtor", "renter", "super_admin", "admin"
+        @buildings = Building.all 
+    end
+    # @buildings = Building.all if current_user.role != "regional_manager"
+    # @buildings = Building.where(:company_id => current_user.company_id) if current_user.role == "regional_manager" rescue nil
+    # @buildings = Building.where(:property_manager_id => current_user.user_id) if current_user.role == "property_manager" rescue nil
   end
 
   # GET /buildings/1
