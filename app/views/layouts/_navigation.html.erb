@@ -29,14 +29,21 @@
         <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Home page </span>
         <% end %>
       </li>
+      <% if current_user.role == "regional_manager" || current_user.role == "property_manager" %> 
       <li class="landing_link">
-        <%= link_to mailbox_inbox_path do %>
-        <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Message Inbox (<%= unread_messages_count %>) </span>
-        <% end %>
+        <%= link_to buildings_path do %>
+          <i class="fa fa-star"></i><span class="nav-label" data-i18n="nav.landing">Rental Communities</span>
+          <% end %>
       </li>
       <li class="landing_link">
         <%= link_to analytics_path do %>
         <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Reporting</span>
+        <% end %>
+      </li>
+      <% end %>
+      <li class="landing_link">
+        <%= link_to mailbox_inbox_path do %>
+        <i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">Message Inbox (<%= unread_messages_count %>) </span>
         <% end %>
       </li>
       <% if current_user.role == "super_admin" || current_user.role ==  "admin" %>

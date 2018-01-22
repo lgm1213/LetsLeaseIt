@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127081249) do
+ActiveRecord::Schema.define(version: 20180122200614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -679,6 +679,8 @@ ActiveRecord::Schema.define(version: 20171127081249) do
     t.integer "role", limit: 2, default: 0, null: false
     t.integer "company_id"
     t.integer "companies_id"
+    t.string "first_name"
+    t.string "last_name"
   end
 
   create_table "water_accesses", force: :cascade do |t|
