@@ -11,6 +11,8 @@ module UsersHelper
   	@company = Company.find(company_id)
   	return @company
   end
+
+
   
   def user_roles
     [

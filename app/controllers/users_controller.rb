@@ -15,13 +15,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    case current_user.role
+    case @user.role
       when "property_manager"
-        @buildings = Building.where(:property_manager_id => current_user.id)
+        @buildings = Building.where(:property_manager_id => @user.id)
       when "account_manager"
-        @buildings = Building.where(:account_manager_id => current_user.id)
+        @buildings = Building.where(:account_manager_id => @user.id)
       when "regional_manager"
-        @buildings = Building.where(:regional_manager_id => current_user.id)
+        @buildings = Building.where(:regional_manager_id => @user.id)
       when "super_admin", "admin"
         @buildings = Building.all 
     end

@@ -25,14 +25,23 @@
               </div>
             </div>
           </div>
-          
         </div>
         <br>
         <br>
-        <p><strong>Username: </strong><%= @user.username %></p>
-        <p><strong>Email: </strong><%= @user.email %></p>
-        <p><strong>Company: </strong><%= link_to "#{Company.find(@user.company_id).name}", company_path(Company.find(@user.company_id))%></p>
-        <p><strong>Title: </strong><%= @user.title %></p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p><strong>Username: </strong><%= @user.username %></p>
+                <p><strong>Email: </strong><%= @user.email %></p>
+                <p><strong>Company: </strong><%= link_to "#{Company.find(@user.company_id).name}", company_path(Company.find(@user.company_id))%></p>
+                <p><strong>Title: </strong><%= @user.title %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
         <% if @user.role == "property_manager" || "regional_manager" || "account_manager" %>
         <div class="row">
           <% if @buildings.nil? %>
@@ -128,6 +137,7 @@
             <th>Unit</th>
             <th>Unit Model</th>
             <th></th>
+            <% if @user.appointments.any? %>
               <% @user.appointments.each do |user_appointment| %>
             <tbody>
               <tr>
@@ -140,6 +150,7 @@
               </tr>
             </tbody>
             <% end %>
+          <% end %>
           </table>
         </div>
         <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>  
