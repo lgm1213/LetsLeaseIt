@@ -15,73 +15,134 @@
       <h5>Account Info</h5>
       <div class="ibox-content">
         <p id="notice"><%= notice %></p>
-        <%= gravatar_for @user %>
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="panel">
+              <%= gravatar_for @user %>
+              <br>
+              <div class="panel-footer">
+                <p><small>To Change Icon, please go to <br><a href="www.gravatar.com" class="href">Gravatar.com</a></small></p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
         <br>
         <br>
         <p><strong>Username: </strong><%= @user.username %></p>
         <p><strong>Email: </strong><%= @user.email %></p>
         <p><strong>Company: </strong><%= link_to "#{Company.find(@user.company_id).name}", company_path(Company.find(@user.company_id))%></p>
         <p><strong>Title: </strong><%= @user.title %></p>
-        <br/>
-        <% unless @user.role = 1 || 2|| 5 %>
-        <h5>Most Reccent Building and Listings</h5>
-        <% company_info.buildings[0,3].each do |user_building| %>
+        <% if @user.role == "property_manager" || "regional_manager" || "account_manager" %>
+        <div class="row">
+          <% @buildings.each do |building| %>
+            <div class="col-lg-4">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <%= building.development_name %>
+                </div>
+                <div class="panel-body">
+                  <div class="col-md-5">
+                    <div class="product-images">
+                      <div>
+                        <%= image_tag building.building_images.first.image(:square), class: "img-responsive" rescue nil %>
+                      </div>
+                    <% building_listing_images(building).each do |p| %>
+                      <div>
+                        <%= image_tag p.image(:square), class: "img-responsive" %>
+                      </div>
+                    <% end %>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <h2 class="font-bold m-b-xs"><%= building.development_name %></h2>
+                    <% if building.listings.where(:active => true).count > 0 %> 
+                      <small>Building is Active</small>
+                    <% else %>
+                      <small>Building is Currently Inactive</small>
+                    <% end %>
+                    <hr>
+                    <dl class="dl-horizontal m-t-md small">
+                      <dt>Active Listings</dt>
+                      <dd><%= building.listings.where(:active => true).count %></dd>
+                      <% building.listings.each do |building_listing| %>
+                    </dl>
+                      <dt><%= link_to "Unit:#{building_listing.unit_no}", building_listing_path(building, building_listing) %></dt>
+                      <dd>Floor Model: <%= building_listing.unit_model %></dd>
+                    <div class="text-right">
+                      <div class="btn-group">
+                        <%= link_to "See Appointments", building_listing_appointments_path(building, building_listing), class: "btn btn-white btn-sm pull-right" %>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
+        </div>
+<!--         <h5>Most Reccent Building and Listings</h5>
+        <%# company_info.buildings[0,3].each do |user_building| %>
         <div class="list-group">
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h5 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=user_building.id.humanize.capitalize%>" aria-expanded="false" class="">
-                    Building Id#<%= user_building.id %>, Building Legal Name: <%= user_building.legal %>, Created on: <%= user_building.created_at.strftime("%A, %B %d, %Y") %></a>
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%#=user_building.id.humanize.capitalize%>" aria-expanded="false" class="">
+                    Building Id#<%#= user_building.id %>, Building Legal Name: <%#= user_building.legal %>, Created on: <%#= user_building.created_at.strftime("%A, %B %d, %Y") %></a>
                 </h5>
               </div>
-              <% user_building.listings[0,3].each do |building_listings| %>
-              <div id="collapse<%= user_building.id.humanize.capitalize%>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+              <%# user_building.listings[0,3].each do |building_listings| %>
+              <div id="collapse<%#= user_building.id.humanize.capitalize%>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-sm-4 col-md-">
                       <div class="thumbnail">
-                        <p><strong>Listing Info: </strong><br/>Id# <%= building_listings.id %><br/>Unit Model Type: <%= building_listings.unit_model %><br/>Unit Number: <%= building_listings.unit_no %></p>
-                        <%= link_to "See More Info", building_listing_path(user_building, building_listings) %>
+                        <p><strong>Listing Info: </strong><br/>Id# <%#= building_listings.id %><br/>Unit Model Type: <%#= building_listings.unit_model %><br/>Unit Number: <%#= building_listings.unit_no %></p>
+                        <%#= link_to "See More Info", building_listing_path(user_building, building_listings) %>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <% end %>
+              <%# end %>
             </div>
           </div>
         </div>
+        <%# end %> -->
         <% end %>
-        <% end %>
-        <h5>Upcoming Appointments</h5>
-        <br>
-          <table class="table-striped">
-            <th>Time</th>
-            <th>Building</th>
-            <th>Unit</th>
-            <th>Unit Model</th>
-              <% company_info.buildings.each do |c| %>
-                <% c.listings.each do |d| %>
-                  <% d.appointments.each do |user_appointment| %>
-            <tbody>
-              <tr>
-              <td><%= user_appointment.start_time.strftime("%a %B %d, %Y")%></td>
-              <td><%= user_appointment.listing.building.development_name %></td>
-              <td>To Be Filled In</td>
-              <td>To Be Filled In</td>              
-              </tr>
-            </tbody>
-            <% end %>
-          <% end %>
-        <% end %>
-          </table>
-          <br>
-          <br>
-          <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>  
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5>Upcoming Appointments</h5>
+          </div>
+          <div class="panel-body">
+            <br>
+            <table class="table">
+              <th>Time</th>
+              <th>Building</th>
+              <th>Unit</th>
+              <th>Unit Model</th>
+                <% company_info.buildings.each do |c| %>
+                  <% c.listings.each do |d| %>
+                    <% d.appointments.each do |user_appointment| %>
+              <tbody>
+                <tr>
+                <td><%= user_appointment.start_time.strftime("%a %B %d, %Y")%></td>
+                <td><%= user_appointment.listing.building.development_name %></td>
+                <td>To Be Filled In</td>
+                <td>To Be Filled In</td>              
+                </tr>
+              </tbody>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>  
         <% if can? :create, Building %>
           <%= link_to "| New Building", new_building_path %>
-        <%end%>
+        <%end%>   
       </div>
     </div>
   </div>
