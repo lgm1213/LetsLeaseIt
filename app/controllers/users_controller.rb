@@ -42,12 +42,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-      if @user.role = 'renter'
-        @user.company_id = 24
-        @user.title = 'renter'
+      if @user.role == 'renter'
+        @user.company_id == 24
+        @user.title == 'renter'
       elsif @user.role = 'realtor'
-        @user.company_id = 25
-        @user.title = 'realtor'
+        @user.company_id == 25
+        @user.title == 'realtor'
       end
       @user.company_id = user_params[:company_id] if logged_in?
       @user.role = user_params[:role] if logged_in?
