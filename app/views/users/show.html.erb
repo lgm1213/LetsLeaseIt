@@ -43,11 +43,12 @@
         <br>
         <br>
         <% if @user.role == "property_manager" || "regional_manager" || "account_manager" %>
-        <div class="row">
           <% if @buildings.nil? %>
           <% else %>
-          <% @buildings.each do |building| %>
-            <div class="col-lg-4">
+          <% @buildings.each_slice(3) do |buildings| %>
+          <div class="row">
+            <% buildings.each do |building| %>
+            <div class="col-sm-3 col-md-4">
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <%= building.development_name %>
@@ -92,8 +93,9 @@
                 </div>
               </div>
             </div>
-        <% end %>
-        </div>
+            <% end %>
+          </div>
+          <% end %>
 <!--         <h5>Most Reccent Building and Listings</h5>
         <%# company_info.buildings[0,3].each do |user_building| %>
         <div class="list-group">
