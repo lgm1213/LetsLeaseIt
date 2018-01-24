@@ -612,7 +612,7 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
           <p><strong><%= f.label :account_manager, "Account Manager"%></strong></p>
-          <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.email}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager", :multiple => "multiple", :style => "width:75%" %>
+          <%= f.select :account_manager_id, options_for_select(account_managers.collect {|a| [ "#{a.username}", a.id]}, :selected => building.account_manager_id), {},class: 'form-control', id: "account-manager", :multiple => "multiple", :style => "width:75%" %>
           <% end %>
         </div>
         <div class="col-lg-1"></div>

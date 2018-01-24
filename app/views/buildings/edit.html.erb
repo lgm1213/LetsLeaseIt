@@ -3,8 +3,9 @@
     <h2>New Building or Property</h2>
     <ol class="breadcrumb">
       <li><%= link_to "Home", root_path %></a></li>
-      <li><%= link_to "MLS Listing Portfolio", buildings_path %></li>
-      <li class="active"><strong><%= link_to "New Rental Community", new_building_path %></strong></li>
+      <li><%= link_to "Rental Communities Portfolio", buildings_path %></li>
+      <li class="active"><strong><%= link_to "Update Rental Community Information", edit_building_path(@building) %></strong></li>
+      <li class="active"><%= link_to "New Rental Community", new_building_path %></li>
     </ol>
   </div>
   <div class="col-lg-2">
