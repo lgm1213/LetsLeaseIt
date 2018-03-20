@@ -1,95 +1,99 @@
-<%= form_for(@listing, url: (@listing.new_record? ? {action: 'create'} : {action: 'update'}), html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true}, :authenticity_token => true) do |form| %>
-  <% if listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-      <ul>
-      <% listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_for(@listing, url: (@listing.new_record? ? {action: 'create'} : {action: 'update'}), html: {id: 'form', class: 'wizard-big form-horizontal', multipart: true} :authenticity_token => true) do |form| %>
+      <% if @listing.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+          <ul>
+          <% @listing.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <fieldset></fieldset>
-  <div class="form-group">
-    <%= form.label :active, "Active ?", class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.check_box :active %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :unit_no, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :unit_no, id: :listing_unit_no, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :unit_model, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :unit_model, id: :listing_model_name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :price, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :price, id: :listing_price, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :bedrooms, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :bedrooms, id: :listing_bedrooms, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :bath, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :bath, id: :listing_bath, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :half_bath, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :half_bath, id: :listing_half_bath, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :sqft, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_field :sqft, id: :listing_sqft, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :date_available, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <div class="input-group date" data-provide="datepicker">
-        <%= form.text_field :date_available, id: :listing_date_available, class: "form-control" %>
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-th"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= form.label :notes, class: "control-label col-sm-4" %>
-    <div class="col-sm-2">
-      <%= form.text_area :notes, id: :listing_notes, class: "form-control" %>
-    </div>    
-  </div>
-  <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-4">
+      <fieldset></fieldset>
       <div class="form-group">
-        <%= form.label :Add_images %>
-        <%= form.fields_for :listing_images do |image| %>
-          <%= render 'listing_image_fields', f: image %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association 'Add image', form, :listing_images, class: 'btn btn-success' %>
+        <%= form.label :active, "Active ?", class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.check_box :active %>
         </div>
       </div>
-    </div>
+      <div class="form-group">
+        <%= form.label :unit_no, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :unit_no, id: :listing_unit_no, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :unit_model, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :unit_model, id: :listing_model_name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :price, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :price, id: :listing_price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :bedrooms, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :bedrooms, id: :listing_bedrooms, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :bath, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :bath, id: :listing_bath, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :half_bath, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :half_bath, id: :listing_half_bath, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :sqft, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_field :sqft, id: :listing_sqft, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :date_available, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <div class="input-group date" data-provide="datepicker">
+            <%= form.text_field :date_available, id: :listing_date_available, class: "form-control" %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label :notes, class: "control-label col-sm-4" %>
+        <div class="col-sm-2">
+          <%= form.text_area :notes, id: :listing_notes, class: "form-control" %>
+        </div>    
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :Add_images %>
+            <%= form.fields_for :listing_images do |image| %>
+              <%= render 'listing_image_fields', f: image %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'Add image', form, :listing_images, class: 'btn btn-success' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>  
   </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
